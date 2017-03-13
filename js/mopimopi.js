@@ -395,7 +395,9 @@ function buttonCotrol(obj) {
         case 'capture':
         $('.tooltipped').tooltip('remove');
         $('#capture').find('i').toggleClass('animated flash');
+        setTimeout(function () { 
         webs.overlayAPI("Capture");
+        }, 500);
         var $toastContent = $('<span>'+mpLang.m205+'</span>');
         Materialize.toast($toastContent, 5000);     
         setTimeout(function () {        
