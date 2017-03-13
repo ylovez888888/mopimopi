@@ -397,12 +397,12 @@ function buttonCotrol(obj) {
         $('#capture').find('i').toggleClass('animated flash');
         setTimeout(function () { 
         webs.overlayAPI("Capture");
-        }, 500);
-        var $toastContent = $('<span>'+mpLang.m205+'</span>');
-        Materialize.toast($toastContent, 5000);     
+        }, 1000);    
         setTimeout(function () {        
             $('#capture').find('i').removeClass('animated flash');
         }, 500);
+        var $toastContent = $('<span>mpLang.m205</span>');
+        Materialize.toast($toastContent, 5000);     
             break;
         case 'endEncounter':
             webs.overlayAPI("RequestEnd");
