@@ -24,6 +24,14 @@ html, body {
 	height: 100%;
 	cursor: default;
 }
+#wrap{
+	clear:both; 
+    width:100%;
+	min-height: 100%;
+    position:relative;  /* 스크롤 메뉴 고정 핸들을 위함 */
+	overflow-x:hidden;
+	overflow-y:auto;
+}
 ::-webkit-scrollbar, scrollbar {
 	width: 0; 
 	height: 0;
