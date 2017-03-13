@@ -393,6 +393,13 @@ function viewPage(obj) {
 function buttonCotrol(obj) {
     var check = null;
     switch (obj.id) {
+        case 'capture':
+        $('#capture').find('i').toggleClass('animated flash');
+        webs.overlayAPI("Capture");
+        setTimeout(function () {        
+            $('#capture').find('i').removeClass('animated flash');
+        }, 500);
+            break;
         case 'endEncounter':
             webs.overlayAPI("RequestEnd");
             break;
@@ -692,8 +699,7 @@ function topbarSettings() {
     $('.smallText').css('color', smallTextColor);
     $('.time').css('color', accentColor);
 
-    $('#mainIcon').css('color', accentColor);
-    $('#previewMainIcon').css('color', accentColor);
+    $('body').find('.mainIcon').css('color', accentColor);
 
     //모서리 처리
     if (localStorage.getItem('edge') == 1) {
