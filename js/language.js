@@ -10,7 +10,7 @@ mpKR = {
     //메인:상단바 출력
     m0: '모피모피 오버레이',
     m1: '전투를 시작하세요.',
-
+    
     //메인 : side메뉴    
     m4: '전투 집계 종료<i class="material-icons left" style="color: rgba(255,255,255,0.5)">power_settings_new</i>',
     m7: '히스토리<i class="material-icons left" style="color: rgba(255,255,255,0.5)">history</i>',
@@ -140,7 +140,7 @@ mpKR = {
     //설정 : 개발자 소개
     m154: '모피모피 오버레이 스킨',
     m155: 'FF14(KR) 모그리, 해루<br>GitHub / HAERUHAERU',
-    m160: 'ACT 데이터 산출 라이브러리 (Overlaycore.js)',
+    m160: 'ACT 코어 라이브러리 : 참수크립트 (Overlaycore.js)',
     m161: 'FF14(KR) 모그리, 라그린네<br>GitHub / laiglinne-ff',
     m156: '번역 및 검수',
     m157: 'FF14(KR) 모그리, 이카루가',
@@ -356,7 +356,7 @@ mpJP = {
     //설정 : 개발자 소개
     m154: 'モピモピオーバーレイスキン',
     m155: 'FFXIV(KR) モグリ、ヘール<br>GitHub / HAERUHAERU',
-    m160: 'ACT データ算出 ライブラリ設計 (Overlaycore.js)',
+    m160: 'ACT コア ライブラリ : Chamsucript (Overlaycore.js)',
     m161: 'FFXIV(KR) モグリ、ラグリンネ<br>GitHub / laiglinne-ff',
     m156: '翻訳と検収',
     m157: 'FFXIV(KR) モグリ、イカルガ',
@@ -572,7 +572,7 @@ mpEN = {
     //설정 : 개발자 소개
     m154: 'MopiMopi Overlay Skin',
     m155: 'FFXIV(KR) Moogle, Haeru<br>GitHub / HAERUHAERU',
-    m160: 'ACT Designing Data-Output Library (Overlaycore.js)',
+    m160: 'ACT Core Library : Chamsucript (Overlaycore.js)',
     m161: 'FF14(KR) Moogle, Laiglinne<br>GitHub / laiglinne-ff',
     m156: 'Translation and Verification',
     m157: 'FF14(KR) Moogle, Ikaruga',
