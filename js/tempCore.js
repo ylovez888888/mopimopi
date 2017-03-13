@@ -1,3 +1,4 @@
+var webs = null;
 var QueryString = function () 
 {
 	// This function is anonymous, is executed immediately and 
@@ -31,8 +32,7 @@ var QueryString = function ()
 // check host (islocal)
 if(wsUri.indexOf("@HOST_PORT@") > -1)
 {
-	console.log(QueryString);
-	wsUri = wsUri.replace(/@HOST_PORT@/im, QueryString["HOST_PORT"]);
+	wsUri = wsUri.replace(/ws:\/\/@HOST_PORT@/im, QueryString["HOST_PORT"]);
 }
 else
 {
@@ -381,8 +381,6 @@ function domReady()
     // ReadyEvent
     try { onDocumentLoad(); } catch(ex) { }
 }
-
-var webs = null;
 
 function onRecvMessage(e)
 {
