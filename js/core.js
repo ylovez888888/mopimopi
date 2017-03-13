@@ -689,7 +689,7 @@ Person.prototype.merge = function(person)
 		}
 	}
 
-	Debug.log("merge "+this.name+" << "+person.name);
+	//Debug.log("merge "+this.name+" << "+person.name);
 
     this.recalculate();
 };
