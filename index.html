@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/mopimopi.css" />
+    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jscolor.js"></script>
+    <script type="text/javascript" src="js/language.js"></script>
+    <script>
+        var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/
+    </script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <title>MopiMopi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <!-- 모바일용웹 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 안드로이드 홈화면추가시 상단 주소창 제거 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" href="images/menu/icon.png">
+    <link rel="shortcut icon" href="images/menu/icon.png" />
+    <!-- ios홈화면추가시 상단 주소창 제거 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="images/menu/icon.png">
+
+    <body style="display: none;">
+        <!-- 메인 메뉴 드롭다운 -->
+        <ul id="dropdown1" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding: 0 1.6rem;" class="left" name="m0"></div>
+                <div class="right" style="cursor: pointer; padding: 0 1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+            <li id="endEncounter" onclick="buttonCotrol(this)">
+                <a class="dropdown-button" style="cursor: default; color:rgba(255,255,255,0.38)" name="m4"></a>
+            </li>
+            <li id="history" onclick="buttonCotrol(this)"><input type="checkbox">
+                <a class="white-text dropdown-button" name="m7"></a>
+            </li>
+
+            <li class="divider grey darken-1"></li>
+            <li id="hideName" onclick="buttonCotrol(this)"><input type="checkbox">
+                <a class="white-text dropdown-button" name="m3"></a>
+            </li>
+            <li id="HPS" onclick="buttonCotrol(this)"><input type="checkbox">
+                <a class="white-text dropdown-button" name="m2"></a>
+            </li>
+            <li class="divider grey darken-1"></li>
+            <li id="fullscreen" onclick="buttonCotrol(this)"><input type="checkbox">
+                <a class="white-text dropdown-button" name="m6"></a>
+            </li>
+            <li>
+                <a class="white-text dropdown-button" id="settings" onclick="viewPage(this);" name="m5"></a>
+            </li>
+        </ul>
+        <!-- 언어 드롭다운 -->
+        <ul id="dropdown2" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m13"></div>
+                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+
+            <li id="kr" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
+                <a class="white-text dropdown-button" name="m92"></a>
+            </li>
+            <li id="jp" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
+                <a class="white-text dropdown-button" name="m93"></a>
+            </li>
+            <li id="en" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
+                <a class="white-text dropdown-button" name="m94"></a>
+            </li>
+        </ul>
+        <!-- 그래프 불투명도 드롭다운 -->
+        <ul id="dropdown3" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m18"></div>
+                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+
+            <li id="graphOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0">
+                <a class="white-text dropdown-button" name="m104"></a>
+            </li>
+            <li id="graphOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.25">
+                <a class="white-text dropdown-button" name="m105"></a>
+            </li>
+            <li id="graphOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.5">
+                <a class="white-text dropdown-button" name="m106"></a>
+            </li>
+            <li id="graphOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.75">
+                <a class="white-text dropdown-button" name="m107"></a>
+            </li>
+            <li id="graphOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="1">
+                <a class="white-text dropdown-button" name="m108"></a>
+            </li>
+        </ul>
+        <!-- 배경 불투명도 드롭다운 -->
+        <ul id="dropdown4" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m15"></div>
+                <div class="right" style="cursor: pointer; padding:1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+
+            <li id="bgOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0">
+                <a class="white-text dropdown-button" name="m104"></a>
+            </li>
+            <li id="bgOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.25">
+                <a class="white-text dropdown-button" name="m105"></a>
+            </li>
+            <li id="bgOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.5">
+                <a class="white-text dropdown-button" name="m106"></a>
+            </li>
+            <li id="bgOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.75">
+                <a class="white-text dropdown-button" name="m107"></a>
+            </li>
+            <li id="bgOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="1">
+                <a class="white-text dropdown-button" name="m108"></a>
+            </li>
+        </ul>
+        <!-- 상단바 불투명도 드롭다운 -->
+        <ul id="dropdown6" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m193"></div>
+                <div class="right" style="cursor: pointer; padding:1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+
+            <li id="topbarOpacity0" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0">
+                <a class="white-text dropdown-button" name="m104"></a>
+            </li>
+            <li id="topbarOpacity25" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.25">
+                <a class="white-text dropdown-button" name="m105"></a>
+            </li>
+            <li id="topbarOpacity50" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.5">
+                <a class="white-text dropdown-button" name="m106"></a>
+            </li>
+            <li id="topbarOpacity75" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.75">
+                <a class="white-text dropdown-button" name="m107"></a>
+            </li>
+            <li id="topbarOpacity100" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="1">
+                <a class="white-text dropdown-button" name="m108"></a>
+            </li>
+        </ul>
+        <!-- 글자크기 드롭다운 -->
+        <ul id="dropdown5" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m176"></div>
+                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>            
+            <li id="smaller" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
+                <a class="white-text dropdown-button">8pt<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="small" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
+                <a class="white-text dropdown-button">9pt<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="normal" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
+                <a class="white-text dropdown-button">11pt<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="big" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
+                <a class="white-text dropdown-button">12pt<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+        </ul>
+
+        <!-- 상단바 구성 -->
+        <div class="navbar-fixed">
+            <nav>
+                <!-- 메인 상단바 -->
+                <div name="main" id="mainTopBar" class="nav-wrapper">
+                    <ul class="right hidden" name="history">
+                        <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons">clear</i></a></li>
+                    </ul>
+                    <ul class="right" name="main">
+                        <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i id="mainIcon" class="material-icons">more_vert</i></a></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <table class="navbar_text">
+                                <tr>
+                                    <td class="time">00:00</td>
+                                    <td class="info">
+                                        <div class="bigText" name="m0"></div><br>
+                                        <div class="smallText" name="m1"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+                <div name="main">
+                    <div id="main_page_content_header" style="line-height: 1.1rem;">
+                        <div class="headerbg">
+                            <table id="combatantTableHeader" class="tableHeader">
+                                <tbody id="oldHeader"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="main_page_history_header" class="hidden" style="line-height: 1.1rem;">
+                        <div class="headerbg">
+                            <table id="historyHeader" class="tableHeader">
+                                <tr>
+                                <td class="narrowCell1">View</td>
+                                <td class="nameCell">Name</td>
+                                <td class="narrowCell1">Time</td>
+                                <td class="narrowCell2">RDPS</td>
+                                <td class="narrowCell2">RHPS</td>
+                                <td class="narrowCell1">Count</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 설정 페이지 상단바 -->
+                <div name="settingsPage" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="back" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m10"></span></li>
+                    </ul>
+                </div>
+
+                <!-- 기본 ACT 구성 상단바 -->
+                <div name="generalACT" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m11"></span></li>
+                    </ul>
+                </div>
+                <!-- 힐러 ACT 구성 상단바 -->
+                <div name="healerACT" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m12"></span></li>
+                    </ul>
+                </div>
+                <!-- 그래프 및 글자색 상단바 -->
+                <div name="graphColor" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backGraph" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m17"></span></li>
+                    </ul>
+                </div>
+                <!-- 폰트 상단바 -->
+                <div name="font" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backfont" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m14"></span></li>
+                    </ul>
+                </div>
+                <!-- 글꼴세팅 상단바 -->
+                <div name="fontSettings" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m14"></span></li>
+                    </ul>
+                </div>
+                <!-- 셀 너비 상단바 -->
+                <div name="cellWidth" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m16"></span></li>
+                    </ul>
+                </div>
+                <!-- 상단바 디자인 상단바 -->
+                <div name="design" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m19"></span></li>
+                    </ul>
+                </div>
+                <!-- 그래프 상단바 -->
+                <div name="graph" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m23"></span></li>
+                    </ul>
+                </div>
+                <!-- 개발자 상단바 -->
+                <div name="developer" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m200"></span></li>
+                    </ul>
+                </div>
+                <!-- 공지사항 상단바 -->
+                <div name="notice" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m202"></span></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- 메인 내용 -->
+        <div name="main">
+            <div id="main_page_content">
+                <div id="combatantTableBody">
+                    <div id="oldBody"></div>
+                </div>
+                <div id="healerTable" class="hidden">
+                    <div class="headerbg">
+                        <table id="healerTableHeader" class="tableHeader">
+                            <tbody id="healerOldHeader"></tbody>
+                        </table>
+                    </div>
+                    <div id="healerTableBody">
+                        <div id="healerOldBody"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main_page_history" class="hidden">
+                <div id="historyBody">
+                    <div id="historyListBody">
+                        <div id="oldHistoryBody"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 설정 페이지 내용 -->
+        <div name="settingsPage" class="contents hidden">
+
+            <div class="TitleText" name="m20"></div>
+            <div class="tile waves-effect row" id="generalACT" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">insert_chart</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m11"></span><br><span class="SecondaryText" name="m30"></span></div>
+            </div>
+            <div class="tile waves-effect row" id="healerACT" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">local_hospital</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m12"></span><br><span class="SecondaryText" name="m31"></span></div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m21"></div>
+            <div class="tile waves-effect row" id="pets" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">pets</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m80"></span><br><span class="SecondaryText" name="m81"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i>
+                    </div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">pets</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+            <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">exposure_plus_2</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m82"></span><br><span class="SecondaryText" name="m83"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="comma" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">mode_edit</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m84"></span><br><span class="SecondaryText" name="m85"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m22"></div>
+            <div class="tile waves-effect row dropdown-button" data-activates="dropdown2">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">translate</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m13"></span><br><span class="SecondaryText" id="result_Lang"></span></div>
+            </div>
+            <div class="tile waves-effect row" id="fontSettings" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">text_fields</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m14"></span><br><span class="SecondaryText" name="m184"></span></div>
+            </div>
+            <div class="tile waves-effect row" id="design" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">web_asset</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m19"></span><br><span class="SecondaryText" name="m86"></span></div>
+            </div>
+            <div class="tile waves-effect row" id="graph" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">sort</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m23"></span><br><span class="SecondaryText" name="m87"></span></div>
+            </div>
+            <div class="tile waves-effect row" id="cellWidth" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">compare_arrows</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m16"></span><br><span class="SecondaryText" name="m91"></span></div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m24"></div>
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">new_releases</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m150"></span><br><span class="SecondaryText" name="m151"></span></div>
+            </div>
+            <div class="tile row waves-effect row" id="notice" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">record_voice_over</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m202"></span><br><span class="SecondaryText" name="m203"></span></div>
+            </div>
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">mail</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m152"></span><br><span class="SecondaryText" name="m153"></span></div>
+            </div>
+            <div class="tile row waves-effect row" id="developer" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">group</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m200"></span><br><span class="SecondaryText" name="m201"></span></div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m26"></div>
+            <div class="tile row waves-effect row" id="init" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">delete_forever</i></div>
+                </div>
+                <div class="col s10">
+                    <span class="PrimaryText" name="m25"></span><br><span class="SecondaryText" name="m162"></span>
+                </div>
+            </div>
+            <div class="tile row waves-effect" id="reload" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">refresh</i></div>
+                </div>
+                <div class="col s10">
+                    <span class="PrimaryText" name="m167"></span><br><span class="SecondaryText" name="m168"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 기본 ACT 구성 내용 -->
+        <div name="generalACT" class="contents hidden">
+            <div class="TitleText" name="m32"></div>
+            <div class="row tile waves-effect" name="custom1" onclick="starIcon('custom1')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">R. Name</span><br><span class="SecondaryText" name="m37"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom2" onclick="starIcon('custom2')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m33"></div>
+            <div class="row tile waves-effect" name="custom3" onclick="starIcon('custom3')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">P.Time</span><br><span class="SecondaryText" name="m39"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom4" onclick="starIcon('custom4')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">P.DPS</span><br><span class="SecondaryText" name="m40"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom5" onclick="starIcon('custom5')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Time</span><br><span class="SecondaryText" name="m41"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom6" onclick="starIcon('custom6')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">DPS</span><br><span class="SecondaryText" name="m42"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom7" onclick="starIcon('custom7')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Last10</span><br><span class="SecondaryText" name="m43"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom8" onclick="starIcon('custom8')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Last30</span><br><span class="SecondaryText" name="m44"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom9" onclick="starIcon('custom9')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Last60</span><br><span class="SecondaryText" name="m45"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom10" onclick="starIcon('custom10')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Last180</span><br><span class="SecondaryText" name="m46"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom11" onclick="starIcon('custom11')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D%</span><br><span class="SecondaryText" name="m47"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom12" onclick="starIcon('custom12')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Damage</span><br><span class="SecondaryText" name="m48"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom13" onclick="starIcon('custom13')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">ACC</span><br><span class="SecondaryText" name="m49"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom14" onclick="starIcon('custom14')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Swing</span><br><span class="SecondaryText" name="m50"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom15" onclick="starIcon('custom15')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Hit</span><br><span class="SecondaryText" name="m51"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom16" onclick="starIcon('custom16')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Miss</span><br><span class="SecondaryText" name="m52"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom17" onclick="starIcon('custom17')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Avoid</span><br><span class="SecondaryText" name="m53"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom18" onclick="starIcon('custom18')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D.Crit</span><br><span class="SecondaryText" name="m54"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom19" onclick="starIcon('custom19')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D.CRIT</span><br><span class="SecondaryText" name="m55"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom20" onclick="starIcon('custom20')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">MaxHit</span><br><span class="SecondaryText" name="m56"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m34"></div>
+            <div class="row tile waves-effect" name="custom21" onclick="starIcon('custom21')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D.Taken</span><br><span class="SecondaryText" name="m57"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom22" onclick="starIcon('custom22')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H.Taken</span><br><span class="SecondaryText" name="m58"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom23" onclick="starIcon('custom23')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">PARRY</span><br><span class="SecondaryText" name="m59"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom24" onclick="starIcon('custom24')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">BLOCK</span><br><span class="SecondaryText" name="m60"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m35"></div>
+            <div class="row tile waves-effect" name="custom25" onclick="starIcon('custom25')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">HPS</span><br><span class="SecondaryText" name="m61"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom26" onclick="starIcon('custom26')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom27" onclick="starIcon('custom27')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Healed</span><br><span class="SecondaryText" name="m63"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom28" onclick="starIcon('custom28')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Eff.Heal</span><br><span class="SecondaryText" name="m64"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom29" onclick="starIcon('custom29')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D.Shield</span><br><span class="SecondaryText" name="m65"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom30" onclick="starIcon('custom30')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">OverHeal</span><br><span class="SecondaryText" name="m66"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom31" onclick="starIcon('custom31')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Ov.H</span><br><span class="SecondaryText" name="m67"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom32" onclick="starIcon('custom32')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Heal</span><br><span class="SecondaryText" name="m68"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom33" onclick="starIcon('custom33')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H.Crit</span><br><span class="SecondaryText" name="m69"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom34" onclick="starIcon('custom34')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H.CRIT</span><br><span class="SecondaryText" name="m70"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom35" onclick="starIcon('custom35')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">MaxHeal</span><br><span class="SecondaryText" name="m71"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m36"></div>
+            <div class="row tile waves-effect" name="custom36" onclick="starIcon('custom36')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Dispel</span><br><span class="SecondaryText" name="m72"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom37" onclick="starIcon('custom37')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Absorb</span><br><span class="SecondaryText" name="m73"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom38" onclick="starIcon('custom38')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Replenish</span><br><span class="SecondaryText" name="m74"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom39" onclick="starIcon('custom39')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
+            </div>
+        </div>
+        <!-- 힐러 ACT 구성 내용 -->
+        <div name="healerACT" class="contents hidden">
+            <div class="TitleText" name="m32"></div>
+            <div class="row tile waves-effect" name="custom40" onclick="starIcon('custom40')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">R.Name</span><br><span class="SecondaryText" name="m37"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom41" onclick="starIcon('custom41')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m35"></div>
+            <div class="row tile waves-effect" name="custom42" onclick="starIcon('custom42')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">HPS</span><br><span class="SecondaryText" name="m61"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom43" onclick="starIcon('custom43')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H%</span><br><span class="SecondaryText" name="m62"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom44" onclick="starIcon('custom44')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Healed</span><br><span class="SecondaryText" name="m63"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom45" onclick="starIcon('custom45')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Eff.Heal</span><br><span class="SecondaryText" name="m64"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom46" onclick="starIcon('custom46')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">D.Shield</span><br><span class="SecondaryText" name="m65"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom47" onclick="starIcon('custom47')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">OverHeal</span><br><span class="SecondaryText" name="m66"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom48" onclick="starIcon('custom48')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Ov.H</span><br><span class="SecondaryText" name="m67"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom49" onclick="starIcon('custom49')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Heal</span><br><span class="SecondaryText" name="m68"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom50" onclick="starIcon('custom50')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H.Crit</span><br><span class="SecondaryText" name="m69"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom51" onclick="starIcon('custom51')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">H.CRIT</span><br><span class="SecondaryText" name="m70"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom52" onclick="starIcon('custom52')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">MaxHeal</span><br><span class="SecondaryText" name="m71"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m36"></div>
+            <div class="row tile waves-effect" name="custom53" onclick="starIcon('custom53')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Dispel</span><br><span class="SecondaryText" name="m72"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom54" onclick="starIcon('custom54')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Absorb</span><br><span class="SecondaryText" name="m73"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom55" onclick="starIcon('custom55')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Replenish</span><br><span class="SecondaryText" name="m74"></span></div>
+            </div>
+            <div class="row tile waves-effect" name="custom56" onclick="starIcon('custom56')">
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText"><i class="material-icons">star_border</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
+            </div>
+        </div>
+        <!-- 그래프 색상 내용 -->
+        <div name="graphColor" class="contents hidden">
+            <div class="TitleText" name="m124"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m130"></div>
+                    <div class="col s3">
+                        <div id="tank1" class="circle z-depth-1"><img src="images/glow/pld.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="tank1" placeholder="" type="text" name="tank1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'tank1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="tank1" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m131"></div>
+                    <div class="col s3">
+                        <div id="tank2" class="circle z-depth-1"><img src="images/glow/war.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="tank2" placeholder="" type="text" name="tank2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'tank2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="tank2" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m132"></div>
+                    <div class="col s3">
+                        <div id="tank3" class="circle z-depth-1"><img src="images/glow/drk.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="tank3" placeholder="" type="text" name="tank3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'tank3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="tank3" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m125"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m133"></div>
+                    <div class="col s3">
+                        <div id="heal1" class="circle z-depth-1"><img src="images/glow/whm.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="heal1" placeholder="" type="text" name="heal1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'heal1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="heal1" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m134"></div>
+                    <div class="col s3">
+                        <div id="heal2" class="circle z-depth-1"><img src="images/glow/sch.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="heal2" placeholder="" type="text" name="heal2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'heal2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="heal2" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m135"></div>
+                    <div class="col s3">
+                        <div id="heal3" class="circle z-depth-1"><img src="images/glow/ast.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="heal3" placeholder="" type="text" name="heal3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'heal3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="heal3" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m165"></div>
+                    <div class="col s3">
+                        <div id="shield" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="shield" placeholder="" type="text" name="shield" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'shield',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="shield" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m166"></div>
+                    <div class="col s3">
+                        <div id="overheal" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="overheal" placeholder="" type="text" name="overheal" onChange="jscolorUpdate(this.jscolor)" autocomplete="off"
+                            autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'overheal',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="overheal" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m126"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m136"></div>
+                    <div class="col s3">
+                        <div id="dps1" class="circle z-depth-1"><img src="images/glow/mnk.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps1" placeholder="" type="text" name="dps1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps1" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m137"></div>
+                    <div class="col s3">
+                        <div id="dps2" class="circle z-depth-1"><img src="images/glow/drg.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps2" placeholder="" type="text" name="dps2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps2" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m138"></div>
+                    <div class="col s3">
+                        <div id="dps3" class="circle z-depth-1"><img src="images/glow/nin.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps3" placeholder="" type="text" name="dps3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps3" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m139"></div>
+                    <div class="col s3">
+                        <div id="dps4" class="circle z-depth-1"><img src="images/glow/blm.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps4" placeholder="" type="text" name="dps4" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps4',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps4" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m140"></div>
+                    <div class="col s3">
+                        <div id="dps5" class="circle z-depth-1"><img src="images/glow/smn.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps5" placeholder="" type="text" name="dps5" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps5',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps5" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m141"></div>
+                    <div class="col s3">
+                        <div id="dps6" class="circle z-depth-1"><img src="images/glow/brd.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps6" placeholder="" type="text" name="dps6" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps6',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps6" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m142"></div>
+                    <div class="col s3">
+                        <div id="dps7" class="circle z-depth-1"><img src="images/glow/mch.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps7" placeholder="" type="text" name="dps7" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps7',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="dps7" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m127"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m143"></div>
+                    <div class="col s3">
+                        <div id="life1" class="circle z-depth-1"><img src="images/glow/min.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="life1" placeholder="" type="text" name="life1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'life1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="life1" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m144"></div>
+                    <div class="col s3">
+                        <div id="life2" class="circle z-depth-1"><img src="images/glow/wvr.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="life2" placeholder="" type="text" name="life2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'life2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="life2" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m128"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m145"></div>
+                    <div class="col s3">
+                        <div id="LB" class="circle z-depth-1"><img src="images/glow/lmb.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="LB" placeholder="" type="text" name="LB" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'LB',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="LB" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m169"></div>
+                    <div class="col s3">
+                        <div id="ava" class="circle z-depth-1"><img src="images/glow/ava.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="ava" placeholder="" type="text" name="ava" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'ava',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="ava" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m146"></div>
+                    <div class="col s3">
+                        <div id="chocobo" class="circle z-depth-1"><img src="images/glow/cbo.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="chocobo" placeholder="" type="text" name="chocobo" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'chocobo',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="chocobo" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 폰트 내용 -->
+        <div name="font" class="contents hidden">
+            <div class="TitleText" name="m102"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row col s12 SecondaryText amber-text" name="m103"></div>
+                <br>
+                <div class="row col s12 SecondaryText red-text" name="m101"></div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m19"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="timeFont" placeholder="" type="text" name="timeFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="timeFont" name="m96" class="active"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m97"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="engFont" placeholder="" type="text" name="engFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="engFont" name="m98" class="active"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field" class="validate">
+                            <input id="ourFont" placeholder="" type="text" name="ourFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="ourFont" name="m99" class="active"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 셀 너비 내용 -->
+        <div name="cellWidth" class="contents hidden">
+
+            <div class="TitleText" name="m109"></div>
+            <table class="tile" style="cursor: default">
+                <tr>
+                    <td style=" width:100%;">
+                        <span class="PrimaryText" name="m111"></span><br>
+                        <span class="SecondaryText" name="m112"></span>
+                    </td>
+                    <td class="quantity" style=" width:40%;  text-align: right;">
+                        <a field="narrowCell1" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
+                        <input type="text" disabled value="" name="narrowCell1" />
+                        <a field="narrowCell1" class="plus btn-floating waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="tile" style="cursor: default">
+                <tr>
+                    <td style=" width:100%;">
+                        <span class="PrimaryText" name="m113"></span><br>
+                        <span class="SecondaryText" name="m114"></span>
+                    </td>
+                    <td class="quantity" style=" width:40%;  text-align: right;">
+                        <a field="narrowCell2" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
+                        <input type="text" disabled value="" name="narrowCell2" />
+                        <a field="narrowCell2" class="plus btn-floating waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                    </td>
+                </tr>
+            </table>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m100"></div>
+
+            <div class="preview" style="cursor:default;">
+                <table id="previewH" class="tableHeader">
+                    <tbody>
+                        <tr>
+                            <td class="nameCell">Name</td>
+                            <td class="narrowCell1">Job</td>
+                            <td class="narrowCell2">DPS</td>
+                            <td class="narrowCell1">D%</td>
+                            <td class="wideCell1">Damage</td>
+                            <td class="wideCell2">MaxHit</td>
+                            <td class="narrowCell1">Death</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table id="previewB" class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="nameCell">1. YOU</td>
+                            <td class="narrowCell1"><img class="pngIcon" src="images/glow/lmb.png"></td>
+                            <td class="narrowCell2">123.45</td>
+                            <td class="narrowCell1">12.3%</td>
+                            <td class="wideCell1">123,456,789</td>
+                            <td class="wideCell2">Skill Name - 1,234</td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m110"></div>
+            <table class="tile" style="cursor: default">
+                <tr>
+                    <td style=" width:100%;">
+                        <span class="PrimaryText" name="m115"></span><br>
+                        <span class="SecondaryText" name="m116"></span>
+                    </td>
+                    <td class="quantity" style=" width:40%;  text-align: right;">
+                        <a field="wideCell1" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
+                        <input type="text" disabled value="" name="wideCell1" />
+                        <a field="wideCell1" class="plus btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </td>
+                </tr>
+            </table>
+            <table class="tile" style="cursor: default">
+                <tr>
+                    <td style=" width:100%;">
+                        <span class="PrimaryText" name="m117"></span><br>
+                        <span class="SecondaryText" name="m118"></span>
+                    </td>
+                    <td class="quantity" style=" width:40%;  text-align: right;">
+                        <a field="wideCell2" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
+                        <input type="text" disabled value="" name="wideCell2" />
+                        <a field="wideCell2" class="plus btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 상단바 디자인 내용 -->
+        <div name="design" class="contents hidden">
+
+            <div class="TitleText" name="m19"></div>
+            <table class="tile" style="cursor: default">
+                <tr>
+                    <td style=" width:100%;">
+                        <span class="PrimaryText" name="m183"></span>
+                    </td>
+                    <td class="quantity" style=" width:40%;  text-align: right;">
+                        <a field="topbarHeight" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
+                        <input type="text" disabled value="" name="topbarHeight" />
+                        <a field="topbarHeight" class="plus btn-floating waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                    </td>
+                </tr>
+            </table>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m100"></div>
+
+            <div class="preview" style="cursor:default;">
+                <div id="previewTopbar" class="valign-wrapper" style="height: 5.6rem;">
+                    <ul class="left">
+                        <li>
+                            <table>
+                                <tr>
+                                    <td class="time">00:00</td>
+                                    <td class="info" style="width:100%;">
+                                        <div class="bigText" name="m0"></div><br>
+                                        <div class="smallText" name="m1"></div>
+                                    </td>
+                                    <td>
+                                        <li><a class="dropdown-button"><i id="previewMainIcon" class="material-icons" style="padding:0 1.5rem;">more_vert</i></a></li>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m129"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m190"></div>
+                    <div class="col s3">
+                        <div id="topbarBackgroundColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'topbarBackgroundColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="accentColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m172"></div>
+                    <div class="col s3">
+                        <div id="accentColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="accentColor" placeholder="" type="text" name="accentColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'accentColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="accentColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m199"></div>
+                    <div class="col s3">
+                        <div id="borderColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="borderColor" placeholder="" type="text" name="borderColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'borderColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="accentColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m191"></div>
+                    <div class="col s3">
+                        <div id="bigTextColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="bigTextColor" placeholder="" type="text" name="bigTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'bigTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="bigTextColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m192"></div>
+                    <div class="col s3">
+                        <div id="smallTextColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="smallTextColor" placeholder="" type="text" name="smallTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'smallTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="smallTextColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m185"></div>
+
+            <div class="tile waves-effect row" id="edge" onclick="buttonCotrol(this); topbarSettings();">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">rounded_corner</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m194"></span><br><span class="SecondaryText" name="m195"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="border" onclick="buttonCotrol(this); topbarSettings();">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_outer</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m197"></span><br><span class="SecondaryText" name="m198"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m181"></div>
+
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown6">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="result_top"></span></div>
+            </div>
+
+        </div>
+        <!-- 그래프 내용 -->
+        <div name="graph" class="contents hidden">
+            <div class="TitleText" name="m129"></div>
+            <div class="tile waves-effect row" id="graphColor" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">format_color_fill</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>            
+            <div class="TitleText" name="m204"></div>
+
+            <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">view_headline</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m88"></span><br><span class="SecondaryText" name="m89"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="gradation" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">gradient</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m120"></span><br><span class="SecondaryText" name="m121"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="animation" onclick="buttonCotrol(this)">
+                <div class="col s2"><input type="checkbox">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">transform</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m122"></span><br><span class="SecondaryText" name="m123"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <div class="TitleText" name="m181"></div>
+
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown3">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="result_go"></span></div>
+            </div>
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown4">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- 글꼴 내용 -->
+        <div name="fontSettings" class="contents hidden">
+            <div class="TitleText" name="m14"></div>
+            <div class="tile waves-effect row" id="font" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">text_format</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m14"></span><br><span class="SecondaryText" name="m90"></span></div>
+            </div>
+
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m176"></div>
+
+            <div class="tile waves-effect row dropdown-button" data-activates="dropdown5">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">format_size</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m176"></span><br><span class="SecondaryText" id="result_font"></span></div>
+            </div>
+
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m129"></div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m147"></div>
+                    <div class="col s3">
+                        <div id="me" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="me" placeholder="" type="text" name="me" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'me',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="me" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m148"></div>
+                    <div class="col s3">
+                        <div id="other" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="other" placeholder="" type="text" name="other" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'other',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="other" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m185"></div>
+
+            <div class="tile waves-effect row" id="meBold" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m186"></span><br><span class="SecondaryText" name="m187"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="otherBold" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m188"></span><br><span class="SecondaryText" name="m189"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- 개발자 소개 내용 -->
+        <div name="developer" class="contents hidden">
+            <div class="TitleText" name="m154"></div>
+
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">person</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m154"></span><br><span class="SecondaryText" name="m155"></span></div>
+            </div>
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">person</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m160"></span><br><span class="SecondaryText" name="m161"></span></div>
+            </div>
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">person</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m156"></span><br><span class="SecondaryText" name="m157"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m158"></div>
+
+            <div class="tile row" style="cursor: default">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">person</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m158"></span><br><span class="SecondaryText" name="m159"></span></div>
+            </div>
+
+        </div>
+        <!-- 공지사항 내용 -->
+        <div name="notice" class="contents hidden">
+            <div class="tile row" style="cursor: default">
+                <div class="col s9">
+                    <span class="PrimaryText">Welcome to MOPIMOPI♥</span>
+                </div>
+                <div class="col s3">
+                    <span class="SecondaryText right">2017-03-14</span>
+                </div>
+                <div class="col s12">
+                    <p class="flow-text grey-text text-lighten-3" style="font-family: Noto Sans KR" name="n1"></p>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+        </div>
+
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/localStorageInit.js"></script>
+        <script type="text/javascript" src="js/tempCore.js"></script>
+  <!--  <script type="text/javascript" src="js/core.js"></script> -->
+  <!--  <script type="text/javascript" src="https://moogle.project.so/js/overlaycore.1.2.js"></script>  -->    
+        <script type="text/javascript" src="js/mopimopi.js"></script>
+    </body>
+</html>
