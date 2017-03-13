@@ -400,7 +400,7 @@ function buttonCotrol(obj) {
         $('#capture').find('i').removeClass('animated flash');
         }, 1000);        
         setTimeout(function () { 
-        var $toastContent = $('<span></span>').text(mpLang.m205);
+        var $toastContent = $('<span>이미지 파일은 아래 경로에서 확인하세요.<br>C:\Advanced Combat Tracker\ScreenShot</span>');
         Materialize.toast($toastContent, 6000);  
         }, 1000);   
             break;
