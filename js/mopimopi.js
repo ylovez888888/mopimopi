@@ -806,6 +806,7 @@ function changeAccentColor() {
 }
 function initCheck(name) {
     var value = localStorage.getItem(name);
+    console.log( accentColor)
     if (value == 1) {
         if (name == 'HPS' || name == 'hideName') {
             $('#' + name + ' input').attr('checked', true);
