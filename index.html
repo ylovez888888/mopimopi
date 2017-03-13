@@ -172,8 +172,9 @@
                     <ul class="right hidden" name="history">
                         <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons">clear</i></a></li>
                     </ul>
-                    <ul class="right" name="main">
-                        <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i id="mainIcon" class="material-icons">more_vert</i></a></li>
+                    <ul class="right" name="main">      
+                   <!-- <li id="capture" onclick="buttonCotrol(this);"><a><i class="material-icons mainIcon">photo_camera</i></a></li> -->
+                        <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons mainIcon">more_vert</i></a></li>
                     </ul>
                     <ul>
                         <li>
@@ -1257,8 +1258,11 @@
                                         <div class="bigText" name="m0"></div><br>
                                         <div class="smallText" name="m1"></div>
                                     </td>
+                                    <td>                                        
+                                        <li><a><i class="material-icons mainIcon" style="padding:0 1.5rem;">photo_camera</i></a></li>
+                                    </td>
                                     <td>
-                                        <li><a class="dropdown-button"><i id="previewMainIcon" class="material-icons" style="padding:0 1.5rem;">more_vert</i></a></li>
+                                        <li><a><i class="material-icons mainIcon" style="padding:0 1.5rem;">more_vert</i></a></li>
                                     </td>
                                 </tr>
                             </table>
