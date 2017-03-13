@@ -703,6 +703,7 @@ function topbarSettings() {
     $('.bigText').css('color', bigTextColor);
     $('.smallText').css('color', smallTextColor);
     $('.time').css('color', accentColor);
+    $('#clear').css('color', accentColor);
 
     $('body').find('.mainIcon').css('color', accentColor);
 
