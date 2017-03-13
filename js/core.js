@@ -29,36 +29,49 @@ var QueryString = function ()
 	return query_string;
 }();
 
-// check host (islocal)
-if(wsUri.indexOf("@HOST_PORT@") > -1)
+// webs
+var host_port = QueryString["HOST_PORT"];
+
+var host_port = "192.168.0.2///";
+var wsUri = "@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/
+
+while(host_port.endsWith('/')) {
+	host_port = host_port.substring(0, host_port.length - 1);
+}
+
+if(wsUri.indexOf("//") == 0) {
+	wsUri = wsUri.substring(2);
+}
+
+if(wsUri.indexOf("ws://") == 0 || wsUri.indexOf("wss://") == 0)
 {
-	wsUri = wsUri.replace(/ws:\/\/@HOST_PORT@/im, QueryString["HOST_PORT"]);
+	if(host_port.indexOf("ws://") == 0 || host_port.indexOf("wss://") == 0)
+	{
+		wsUri = wsUri.replace(/ws:\/\/@HOST_PORT@/im, host_port);
+		wsUri = wsUri.replace(/wss:\/\/@HOST_PORT@/im, host_port);
+	}
+	else
+	{
+		wsUri = wsUri.replace(/@HOST_PORT@/im, host_port);
+	}
 }
 else
 {
-	
-}
-
-function dbg(v)
-{
-	this.debug = v;
-
-	this.log = function(object)
+	if(host_port.indexOf("ws://") == 0 || host_port.indexOf("wss://") == 0)
 	{
-		if (this.debug)
-			console.log(object);
+		wsUri = wsUri.replace(/@HOST_PORT@/im, host_port);
 	}
-};
+	else
+	{
+		wsUri = "ws://" + wsUri.replace(/@HOST_PORT@/im, host_port);
+	}
+}
 
 class ActWebsocketInterface
 {
 	constructor(uri, path = "MiniParse") {
 		// url check
 		var querySet = this.getQuerySet();
-		if(typeof querySet["HOST_PORT"] != 'undefined')
-		{
-		    uri = querySet["HOST_PORT"] + path;
-		}
 		this.uri = uri;
 		this.id = null;
 		this.activate = false;
@@ -701,9 +714,6 @@ Person.prototype.merge = function(person)
 				this["merged"+i] += this.pets[k].original[i];
 		}
 	}
-
-	//Debug.log("merge "+this.name+" << "+person.name);
-
     this.recalculate();
 };
 
