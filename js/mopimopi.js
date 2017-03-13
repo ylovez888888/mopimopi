@@ -248,7 +248,6 @@ function viewPage(obj) {
             $('.navbar-fixed').css('height', height + 'rem');
             $('#mainTopBar').css('background', '#303030');
             $('html').css('background-size', '0rem 0rem');
-
             $('body').find('[name="main"]').addClass('hidden');
             $('body').find('[name="settingsPage"]').removeClass('hidden');
             break;
@@ -396,6 +395,7 @@ function buttonCotrol(obj) {
         case 'capture':
         $('#capture').find('i').toggleClass('animated flash');
         webs.overlayAPI("Capture");
+        Materialize.toast(mpLang.m205, 4000);
         setTimeout(function () {        
             $('#capture').find('i').removeClass('animated flash');
         }, 500);
@@ -709,7 +709,6 @@ function topbarSettings() {
         $('#mainTopBar').css('border-radius', '0');
         $('#previewTopbar').css('border-radius', '0');
     }
-
     //테두리 처리
     if (localStorage.getItem('border') == 1) {
         $('#mainTopBar').css('border', 'solid .1rem' + ' rgba(' + border.r + ',' + border.g + ',' + border.b + ',' + nowTopVal + ')');
