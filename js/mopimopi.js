@@ -400,7 +400,7 @@ function buttonCotrol(obj) {
         $('#capture').find('i').removeClass('animated flash');
         }, 1000);        
         setTimeout(function () { 
-        var $toastContent = $('<span class="bigText"><blockquote>Path > C:\\Advanced Combat Tracker\\ScreenShot</blockquote></span>');
+        var $toastContent = $('<span class="bigText"><i class="material-icons">file_download</i>Path > C:\\Advanced Combat Tracker\\ScreenShot</span>');
         Materialize.toast($toastContent, 6000);  
         }, 1000);   
             break;
