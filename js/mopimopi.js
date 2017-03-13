@@ -393,6 +393,7 @@ function buttonCotrol(obj) {
     var check = null;
     switch (obj.id) {
         case 'capture':
+        $('.tooltipped').tooltip('remove');
         $('#capture').find('i').toggleClass('animated flash');
         webs.overlayAPI("Capture");
         Materialize.toast(mpLang.m205, 4000);
