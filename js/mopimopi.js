@@ -398,7 +398,7 @@ function buttonCotrol(obj) {
         Materialize.toast(mpLang.m205, 4000);
         setTimeout(function () {        
             $('#capture').find('i').removeClass('animated flash');
-        }, 100);
+        }, 500);
             break;
         case 'endEncounter':
             webs.overlayAPI("RequestEnd");
