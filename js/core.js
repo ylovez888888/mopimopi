@@ -1,8 +1,42 @@
-﻿var Debug = new dbg(false);
-
-if (document.location.href.indexOf("file")>-1)
+﻿var webs = null;
+var QueryString = function () 
 {
-	wsUri = "ws://127.0.0.1:10501/MiniParse";
+	// This function is anonymous, is executed immediately and 
+	// the return value is assigned to QueryString!
+	var query_string = {};
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) 
+	{
+		var pair = vars[i].split("=");
+			// If first entry with this name
+		if (typeof query_string[pair[0]] === "undefined") 
+		{
+			query_string[pair[0]] = decodeURIComponent(pair[1]);
+			// If second entry with this name
+		} 
+		else if (typeof query_string[pair[0]] === "string") 
+		{
+			var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+			query_string[pair[0]] = arr;
+			// If third or later entry with this name
+		} 
+		else 
+		{
+			query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	} 
+	return query_string;
+}();
+
+// check host (islocal)
+if(wsUri.indexOf("@HOST_PORT@") > -1)
+{
+	wsUri = wsUri.replace(/ws:\/\/@HOST_PORT@/im, QueryString["HOST_PORT"]);
+}
+else
+{
+	
 }
 
 function dbg(v)
@@ -18,8 +52,7 @@ function dbg(v)
 
 class ActWebsocketInterface
 {
-	constructor(uri, path = "MiniParse") 
-    {
+	constructor(uri, path = "MiniParse") {
 		// url check
 		var querySet = this.getQuerySet();
 		if(querySet["HOST_PORT"] != undefined)
@@ -31,17 +64,12 @@ class ActWebsocketInterface
 		this.activate = false;
 		
 		var This = this;
-
-		document.addEventListener('onBroadcastMessage', function(evt) 
-        {
+		document.addEventListener('onBroadcastMessage', function(evt) {
 			This.onBroadcastMessage(evt);
 		});
-
-		document.addEventListener('onRecvMessage', function(evt) 
-        {
+		document.addEventListener('onRecvMessage', function(evt) {
 			This.onRecvMessage(evt);
 		});
-
 		window.addEventListener('message', function (e) 
 		{
 			if (e.data.type === 'onBroadcastMessage') 
@@ -54,9 +82,7 @@ class ActWebsocketInterface
 			}
 		});
 	}
-
-	connect() 
-    {
+	connect() {
 		if(this.websocket != undefined && this.websocket != null)
 			this.close();
 		this.activate = true;
@@ -67,18 +93,14 @@ class ActWebsocketInterface
 		this.websocket.onclose = function(evt) {This.onclose(evt);};
 		this.websocket.onerror = function(evt) {This.onerror(evt);};
 	}
-
-	close() 
-    {
+	close() {
 		this.activate = false;
 		if(this.websocket != null && this.websocket != undefined)
 		{
 			this.websocket.close();
 		}
 	}
-
-	onopen(evt) 
-    {
+	onopen(evt) {
 		// get id from useragent
 		if(this.id != null && this.id != undefined)
 		{
@@ -86,28 +108,32 @@ class ActWebsocketInterface
 		}
 		else
 		{
-			var r = new RegExp('[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}');
-			var id = r.exec(navigator.userAgent);
-			if(id != null && id.length == 1)
+			if(overlayWindowId != undefined)
 			{
-				this.set_id(id[0]);
-				self.id = id;
+				this.set_id(overlayWindowId);
+				self.id = overlayWindowId;
+			}
+			else
+			{
+				var r = new RegExp('[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}');
+				var id = r.exec(navigator.userAgent);
+				if(id != null && id.length == 1)
+				{
+					this.set_id(id[0]);
+					self.id = id;
+				}
 			}
 		}
 	}
-
-	onclose(evt) 
-    {
+	onclose(evt) {
 		this.websocket = null;
 		if(this.activate)
 		{
 			var This = this;
-			setTimeout(function() {This.connect();}, 2000);
+			setTimeout(function() {This.connect();}, 5000);
 		}
 	}
-
-	onmessage(evt) 
-    {
+	onmessage(evt) {
 		if (evt.data == ".")
 		{
 			// ping pong
@@ -115,8 +141,7 @@ class ActWebsocketInterface
 		}
 		else
 		{
-			try
-            {
+			try{
 				var obj = JSON.parse(evt.data);
 				var type = obj["type"];
 				if(type == "broadcast")
@@ -143,36 +168,29 @@ class ActWebsocketInterface
 			}
 		}
 	}
-
-	onerror(evt) 
-    {
+	onerror(evt) {
 		this.websocket.close();
-		Debug.log(evt);
+		console.log(evt);
 	}
-
-	getQuerySet() 
-    {
+	getQuerySet() {
 		var querySet = {};
 		// get query 
 		var query = window.location.search.substring(1);
 		var vars = query.split('&');
-		for (var i = 0; i < vars.length; i++) 
-        {
-			try
-            {
+		for (var i = 0; i < vars.length; i++) {
+			try{
 				var pair = vars[i].split('=');
 				querieSet[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
 			}
 			catch(e)
 			{
-
 			}
 		}
 		return querySet;
 	}
 	
-	broadcast(type, msg)
-    {
+	
+	broadcast(type, msg){
 		var obj = {};
 		obj["type"] = "broadcast";
 		obj["msgtype"] = type;
@@ -180,8 +198,7 @@ class ActWebsocketInterface
 		this.websocket.send(JSON.stringify(obj));
 	}
 
-	send(to, type, msg)
-    {
+	send(to, type, msg){
 		var obj = {};
 		obj["type"] = "send";
 		obj["to"] = to;
@@ -190,8 +207,15 @@ class ActWebsocketInterface
 		this.websocket.send(JSON.stringify(obj));
 	}
 	
-	set_id(id)
-    {
+	overlayAPI(type, msg){
+		var obj = {};
+		obj["type"] = "overlayAPI";
+		obj["msgtype"] = type;
+		obj["msg"] = msg;
+		this.websocket.send(JSON.stringify(obj));
+	}
+	
+	set_id(id){
 		var obj = {};
 		obj["type"] = "set_id";
 		obj["id"] = id;
@@ -200,13 +224,31 @@ class ActWebsocketInterface
 
 	onRecvMessage(e)
 	{
-
 	}
 	
 	onBroadcastMessage(e)
 	{
-
 	}
+};
+
+// ACTWebSocket 적용
+class WebSocketImpl extends ActWebsocketInterface
+{
+    constructor(uri, path = "MiniParse") 
+    {
+        super(uri, path);
+    }
+    //send(to, type, msg)
+    //broadcast(type, msg)
+    onRecvMessage(e)
+    {
+        onRecvMessage(e);
+    }
+
+    onBroadcastMessage(e)
+    {
+        onBroadcastMessage(e);
+    }
 };
 
 // string : StringObject.format(ObjectArray a)
@@ -321,10 +363,11 @@ function domReady()
 	{
 		webs = new WebSocketImpl(wsUri);
 		webs.connect();
+		console.log("Connecting...");
 	}
 	catch(ex)
 	{
-
+		console.log("[ERROR] : WebSocket has Error [] "+ex);
 	}
 
 	// Logline
@@ -332,41 +375,26 @@ function domReady()
 	try { document.addEventListener('onLogLineRead', onLogLineRead); } catch (ex) { }
 
 	// On
-	try { document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate); } catch (ex) { console.log("Core Error : onOverlayUpdate is not defined."); }
+	try { document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate); } catch (ex) { console.log("Core Error : onOverlayDataUpdate is not defined."); }
 	try { document.addEventListener('onOverlayStateUpdate', onOverlayStateUpdate); } catch (ex) { }
 
     // ReadyEvent
     try { onDocumentLoad(); } catch(ex) { }
 }
 
-// ACTWebSocket 적용
-class WebSocketImpl extends ActWebsocketInterface
-{
-    constructor(uri, path = "MiniParse") 
-    {
-        super(uri, path);
-    }
-    //send(to, type, msg)
-    //broadcast(type, msg)
-    onRecvMessage(e)
-    {
-        onRecvMessage(e);
-    }
-
-    onBroadcastMessage(e)
-    {
-        onBroadcastMessage(e);
-    }
-};
-
-var webs = null;
-
 function onRecvMessage(e)
 {
-
+    if(e.detail.msgtype == "Chat")
+    {
+        document.dispatchEvent(new CustomEvent("onChatting",{detail:e.detail.msg}));
+    }
+    else
+    {
+        console.log(e.detail.msgtype+":"+e.detail.msg);
+    }
 }
 
-/* 메세지 처리부 */
+/* 메세지 처리부 여기 있음 맨날 못찾음 눈깔 ㅄ색기양 스크롤 한참 굴리지 마라 */
 function onBroadcastMessage(e)
 {
     if(e.detail.msgtype == "CombatData")
@@ -397,6 +425,12 @@ function onBroadcastMessage(e)
                 break;
             case "AbilityUse":
             
+                break;
+            case "Chat":
+                document.dispatchEvent(new CustomEvent("onChatting",{detail:e.detail.msg}));
+                break;
+            default:
+                console.log(e.detail.msgtype+":"+e.detail.msg);
                 break;
         }
     }
@@ -478,7 +512,6 @@ function Person(e, p)
     if (this.Job != "")
         this.Class = this.Job.toUpperCase();
 
-	this.petOwner = "";
 	this.petType = "Chocobo";
     this.isPet = false;
     this.role = "DPS";
@@ -495,7 +528,7 @@ function Person(e, p)
     {
         case "GLD" : this.Class = "PLD"; this.isLower = true; break;
         case "MRD" : this.Class = "WAR"; this.isLower = true; break;
-        case "PGL" : this.Class = "MNK"; this.isLower = true; break;
+        case "PUG" : this.Class = "MNK"; this.isLower = true; break;
         case "LNC" : this.Class = "DRG"; this.isLower = true; break;
         case "ROG" : this.Class = "NIN"; this.isLower = true; break;
         case "ARC" : this.Class = "BRD"; this.isLower = true; break;
@@ -558,28 +591,15 @@ function Person(e, p)
 		}
 	}
 	
-	try
+	if(this.isPet)
 	{
 		var regex = /(?:.*?)\((.*?)\)/im;
 		var matches = this.name.match(regex);
 		if(regex.test(this.name)) // do not use Array.length 
 		{
 			this.petOwner = matches[1];
-			this.isPet = true;
 		}
-	}
-	catch(ex)
-	{
-
-	}
-
-	if (this.petOwner != "" && this.Class == "")
-	{
-		this.isPet = false;
-		this.Job = "CBO";
-		this.Class = "CBO";
-		this.petType = "Chocobo_Persons";
-	}
+    }
 
     /* DPS RECALCULATE */
     if(this.overHeal != undefined)

@@ -394,7 +394,7 @@ function buttonCotrol(obj) {
     var check = null;
     switch (obj.id) {
         case 'endEncounter':
-            //webs.overlayAPI("RequestEnd");
+            webs.overlayAPI("RequestEnd");
             break;
         //초기화 
         case 'init':
@@ -1135,7 +1135,7 @@ function inputData(td, name, a, petFlag) {
                     else td.innerText = rank + '. '; break;
                 }
             }
-        case 'custom2': case 'custom41': td.innerHTML = '<img src="./images/glow/' + a.get("Job") + '.png" class="pngIcon"/>'; break;
+        case 'custom2': case 'custom41': td.innerHTML = '<img src="./images/glow/' + a.get("Job").toLowerCase() + '.png" class="pngIcon"/>'; break;
 
         case 'custom3': td.innerText = a.get("duration"); break;
         case 'custom4': td.innerText = addComma(a.get("dps").toFixed(inputNumber)); break;

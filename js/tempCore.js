@@ -231,7 +231,7 @@ class ActWebsocketInterface
 	}
 };
 
-// ACTWebSocket �쟻�슜
+// ACTWebSocket 적용
 class WebSocketImpl extends ActWebsocketInterface
 {
     constructor(uri, path = "MiniParse") 
@@ -252,7 +252,7 @@ class WebSocketImpl extends ActWebsocketInterface
 };
 
 // string : StringObject.format(ObjectArray a)
-// �궗�슜�삁 : "{abc}{def}".format({abc:"wow", def:" awesome!"}); => return "wow awesome!";
+// 사용예 : "{abc}{def}".format({abc:"wow", def:" awesome!"}); => return "wow awesome!";
 String.prototype.format = function(a)
 {
 	var reg = /(\{([^}]+)\})/im;
@@ -309,8 +309,8 @@ Number.prototype.numFormat = new function()
     }
 };
 
-// �씠踰ㅽ듃 由ъ뒪�꼫瑜� �옄�룞�쑝濡� 異붽?�븯�룄濡� 吏��젙�빀�땲�떎.
-// �궗�슜�븷 �뒪�겕由쏀듃�쓽 留� �쐞�뿉 �꽑�뼵�빐�빞 �젙�긽�쟻�쑝濡� �옉�룞�쓣 蹂댁옣�빀�땲�떎.
+// 이벤트 리스너를 자동으로 추가하도록 지정합니다.
+// 사용할 스크립트의 맨 위에 선언해야 정상적으로 작동을 보장합니다.
 if (document.addEventListener) 
 {
 	// Mozilla, Opera, Webkit 
@@ -320,7 +320,7 @@ if (document.addEventListener)
 		domReady();
 	}, false);
 
-    /* ACTWebSocket �쟻�슜 */
+    /* ACTWebSocket 적용 */
     window.onbeforeunload = function() 
     {
         webs.close();
@@ -358,7 +358,7 @@ window.addEventListener('message', function (e)
 
 function domReady() 
 {
-    /* ACTWebSocket �쟻�슜 */
+    /* ACTWebSocket 적용 */
 	try
 	{
 		webs = new WebSocketImpl(wsUri);
@@ -394,7 +394,7 @@ function onRecvMessage(e)
     }
 }
 
-/* 硫붿꽭吏� 泥섎━遺� �뿬湲� �엳�쓬 留⑤궇 紐살갼�쓬 �늿源� �뀈�깋湲곗뼇 �뒪�겕濡� �븳李� 援대━吏� 留덈씪 */
+/* 메세지 처리부 여기 있음 맨날 못찾음 눈깔 ㅄ색기양 스크롤 한참 굴리지 마라 */
 function onBroadcastMessage(e)
 {
     if(e.detail.msgtype == "CombatData")
@@ -435,7 +435,7 @@ function onBroadcastMessage(e)
         }
     }
 }
-// ACTWebSocket �쟻�슜 �걹
+// ACTWebSocket 적용 끝
 
 function Person(e, p)
 {
@@ -503,7 +503,7 @@ function Person(e, p)
 
         for(var i in this)
         {
-            if (this[i] == "�닞")
+            if (this[i] == "∞")
                 this[i] = 0;
         }
     }
@@ -550,9 +550,9 @@ function Person(e, p)
 	if(this.Class == "")
 	{
 		if(
-			this.name.indexOf("�뿉湲�") > -1 || this.name.indexOf("移대쿃�겢") > -1|| // KOR
+			this.name.indexOf("에기") > -1 || this.name.indexOf("카벙클") > -1|| // KOR
 			this.name.toUpperCase().indexOf("EGI") > -1|| this.name.toUpperCase().indexOf("CARBUNCLE") > -1|| // ENG
-			this.name.indexOf("�궓�궙") > -1|| this.name.indexOf("�궖�꺖�깘�꺍�궚�꺂")> -1 // JPN
+			this.name.indexOf("エギ") > -1|| this.name.indexOf("カーバンクル")> -1 // JPN
 		)
 		{
 			this.Job = "AVA";
@@ -561,9 +561,9 @@ function Person(e, p)
 			this.petType = "Egi";
 		}
 		
-		if(this.name.indexOf("�슂�젙") > -1 || // KOR
+		if(this.name.indexOf("요정") > -1 || // KOR
 			this.name.toUpperCase().indexOf("EOS") > -1|| this.name.toUpperCase("SELENE") > -1 || // ENG
-			this.name.indexOf("�깢�궒�궋�꺁�꺖") > -1 // JPN
+			this.name.indexOf("フェアリー") > -1 // JPN
 		)
 		{
 			this.Job = "AVA";
@@ -573,9 +573,9 @@ function Person(e, p)
 			this.petType = "Fairy";
 		}
 
-		if(this.name.indexOf("�옄�룞�룷�깙") > -1 || // KOR 
+		if(this.name.indexOf("자동포탑") > -1 || // KOR 
 			this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || // ENG
-			this.name.indexOf("�궕�꺖�깉�궭�꺃�긿�깉") > -1 // JPN
+			this.name.indexOf("オートタレット") > -1 // JPN
 		)
 		{
 			this.Job = "AVA";
@@ -584,7 +584,7 @@ function Person(e, p)
 			this.petType = "AutoTurret";
 		}
 
-		if(this.name.toUpperCase().indexOf("LIMIT BREAK") > -1|| this.name.indexOf("�꺁�깱�긿�깉") > -1)
+		if(this.name.toUpperCase().indexOf("LIMIT BREAK") > -1|| this.name.indexOf("リミット") > -1)
 		{
 			this.Job = "LMB";
 			this.Class = "LMB";
@@ -645,7 +645,7 @@ function Person(e, p)
         Last180DPS:this.Last180DPS,
     };
 
-    // �렖�씤�뜲 �겢�옒�뒪�룄 �엳�뒗�뜲 �삤�꼫媛� �뾾�쑝硫� YOU
+    // 펫인데 클래스도 있는데 오너가 없으면 YOU
     if (this.isPet && this.Class != "" && this.parent.users[this.petOwner] == undefined)
     {
         this.petOwner = "YOU";
@@ -729,7 +729,7 @@ Person.prototype.recalculate = function()
     this.tohit = pFloat(this.mergedHits / this.mergedSwings * 100);
 };
 
-// �빐�떦 �쑀�?�쓽 吏곸뾽�뿉 �뵲瑜� 湲곕낯 吏��젙 �냼�슱 �겕由ъ뒪�깉 �깋�쓣 媛��졇�샃�땲�떎. �옱�젙�쓽�븯�뿬 �궗�슜�븷 �닔�룄 �엳�뒿�땲�떎.
+// 해당 유저의 직업에 따른 기본 지정 소울 크리스탈 색을 가져옵니다. 재정의하여 사용할 수도 있습니다.
 // object : PersonObject.getColor(int r, int g, int b)
 Person.prototype.getColor = function(r, g, b)
 {
@@ -791,7 +791,7 @@ function Combatant(e, sortkey)
         this.users[i] = true;
     }
     
-    // 紐⑤뱺 Encounter 媛믪쓣 媛�吏�怨� �엳寃뚮걫
+    // 모든 Encounter 값을 가지고 있게끔
     for(var i in e.detail.Encounter)
     {
         if (i == "t" || i == "n") continue;
@@ -858,9 +858,9 @@ function Combatant(e, sortkey)
     this.resort();
 }
 
-// Rank瑜� �떎�떆 遺��뿬�븯怨� Combatant�쓽 sortkey�뿉 �뵲�씪 �떎�떆 �젙�젹�빀�땲�떎.
-// �씠 怨쇱젙�뿉�꽌 maxValue (理쒕?媛�)�쓣 媛��졇�샃�땲�떎.
-// �냼�솚�닔 媛� �빀�궛/�빐�젣 �떆 �떎�떆 �샇異쒗븷 �븣 �궗�슜�빀�땲�떎.
+// Rank를 다시 부여하고 Combatant의 sortkey에 따라 다시 정렬합니다.
+// 이 과정에서 maxValue (최대값)을 가져옵니다.
+// 소환수 값 합산/해제 시 다시 호출할 때 사용합니다.
 Combatant.prototype.rerank = function(vector)
 {
     this.sort(vector);
@@ -954,9 +954,9 @@ Combatant.prototype.sort = function(vector)
     this.persons = this.Combatant;
 };
 
-// combatant 媛앹껜媛� �궗�슜�븷 Language 媛앹껜瑜� �옱�꽑�뼵�빀�땲�떎.
+// combatant 객체가 사용할 Language 객체를 재선언합니다.
 // void : Combatant.changeLang(string lang)
-// onLanguageChange �씠踰ㅽ듃瑜� 諛쒖깮�떆�궢�땲�떎. 蹂�寃쎌떆 �빐�빞 �븷 �옉�뾽�쓣 �젙�빐二쇰㈃ �맗�땲�떎.
+// onLanguageChange 이벤트를 발생시킵니다. 변경시 해야 할 작업을 정해주면 됩니다.
 Combatant.prototype.changeLang = function(lang)
 {
 	this.langpack = new Language(lang);
@@ -1013,35 +1013,35 @@ Combatant.prototype.resort = function(key, vector)
     this.sort(vector);
 };
 
-// language 媛앹껜 �엯�땲�떎.
+// language 객체 입니다.
 function Language(l)
 {
 	if(l == undefined) var l = "ko";
 	this.lang = l;
 	this.jp = {
-		"PLD":"�깏�궎�깉",
-		"GLD":"�돜烏볟＋",
-		"WAR":"�닰",
-		"MRD":"�뼤烏볟＋",
-		"DRK":"�슅",
-		"MNK":"�깴�꺍�궚",
-		"PGL":"�졏�뿕鶯�",
-		"DRG":"塋�",
-		"LNC":"礪띹죹鶯�",
-		"NIN":"恙�",
-		"ROG":"�룎�돜鶯�",
-		"BRD":"�맅",
-		"ARC":"凉볢죹鶯�",
-		"MCH":"艅�",
-		"SMN":"�룷",
-		"THM":"�뫇烏볟＋",
-		"BLM":"容�",
-		"WHM":"�쇋",
-		"CNJ":"亮삭죹鶯�",
-		"SCH":"耶�",
-		"ACN":"藥닺죹鶯�",
-		"AST":"�뜝",
-		"LMB":"�꺁�깱�긿�깉",
+		"PLD":"ナイト",
+		"GLD":"剣術士",
+		"WAR":"戦",
+		"MRD":"斧術士",
+		"DRK":"暗",
+		"MNK":"モンク",
+		"PGL":"格闘士",
+		"DRG":"竜",
+		"LNC":"槍術士",
+		"NIN":"忍",
+		"ROG":"双剣士",
+		"BRD":"吟",
+		"ARC":"弓術士",
+		"MCH":"機",
+		"SMN":"召",
+		"THM":"呪術士",
+		"BLM":"黒",
+		"WHM":"白",
+		"CNJ":"幻術士",
+		"SCH":"学",
+		"ACN":"巴術士",
+		"AST":"占",
+		"LMB":"リミット",
 		"FAIRY":"FAIRY",
 		"AUTOTURRET":"AUTOTURRET",
 		"EGI":"EGI",
@@ -1077,37 +1077,37 @@ function Language(l)
 		"CHOCOBO":"CHOCOBO",
 	};
 	this.ko = {
-		"PLD":"�굹�씠�듃",
-		"GLD":"寃��닠�궗",
-		"WAR":"�쟾�궗",
-		"MRD":"�룄�겮�닠�궗",
-		"DRK":"�븫�쓳湲곗궗",
-		"MNK":"紐쏀겕",
-		"PGL":"寃⑺닾�궗",
-		"DRG":"瑜섏긽",
-		"LNC":"李쎌닠�궗",
-		"NIN":"�땶�옄",
-		"ROG":"�뙇寃��궗",
-		"BRD":"�쓬�쑀�떆�씤",
-		"ARC":"沅곸닠�궗",
-		"MCH":"湲곌났�궗",
-		"SMN":"�냼�솚�궗",
-		"THM":"二쇱닠�궗",
-		"BLM":"�쓳留덈룄�궗",
-		"WHM":"諛깅쭏�룄�궗",
-		"CNJ":"�솚�닠�궗",
-		"SCH":"�븰�옄",
-		"ACN":"鍮꾩닠�궗",
-		"AST":"�젏�꽦�닠�궗",
-		"LMB":"由щ?�듃",
-		"FAIRY":"�슂�젙",
-		"AUTOTURRET":"�룷�깙",
-		"EGI":"�뿉湲�",
-		"CHOCOBO":"珥덉퐫蹂�",
+		"PLD":"나이트",
+		"GLD":"검술사",
+		"WAR":"전사",
+		"MRD":"도끼술사",
+		"DRK":"암흑기사",
+		"MNK":"몽크",
+		"PGL":"격투사",
+		"DRG":"용기사",
+		"LNC":"창술사",
+		"NIN":"닌자",
+		"ROG":"쌍검사",
+		"BRD":"음유시인",
+		"ARC":"궁술사",
+		"MCH":"기공사",
+		"SMN":"소환사",
+		"THM":"주술사",
+		"BLM":"흑마도사",
+		"WHM":"백마도사",
+		"CNJ":"환술사",
+		"SCH":"학자",
+		"ACN":"비술사",
+		"AST":"점성술사",
+		"LMB":"리미트",
+		"FAIRY":"요정",
+		"AUTOTURRET":"자동포탑",
+		"EGI":"에기",
+		"CHOCOBO":"초코보",
 	};
 }
 
-// �빐�떦�븯�뒗 �뼵�뼱�쓽 媛믪쓣 媛��졇�샃�땲�떎.
+// 해당하는 언어의 값을 가져옵니다.
 // string : LanguageObject.get(string v)
 Language.prototype.get = function(v)
 {
