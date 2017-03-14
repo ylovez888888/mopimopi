@@ -1011,8 +1011,7 @@ function createTableBody(newBody, a) {
 
     var userName = a.get("name").replace(/ /g, "").replace("(", "").replace(")", "").replace("'", "_");
 
-console.log ( a.get("petOwner"))
-    if (a.get("petOwner") == "")
+    if (a.get("petOwner") == undefined)
         table.id = 'table' + a.get("name");
     else
         table.id = 'table' + a.get("petOwner");
@@ -1071,7 +1070,7 @@ function createHealerTableBody(newBody, a) {
 
     var userName = a.get("name").replace(/ /g, "").replace("(", "").replace(")", "").replace("'", "_");
 
-    if (a.get("petOwner") == "")
+    if (a.get("petOwner") == undefined)
         table.id = 'tableh' + a.get("name");
     else
         table.id = 'tableh' + a.get("petOwner");
