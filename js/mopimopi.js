@@ -1011,6 +1011,7 @@ function createTableBody(newBody, a) {
 
     var userName = a.get("name").replace(/ /g, "").replace("(", "").replace(")", "").replace("'", "_");
 
+console.log ( a.get("petOwner"))
     if (a.get("petOwner") == "")
         table.id = 'table' + a.get("name");
     else
