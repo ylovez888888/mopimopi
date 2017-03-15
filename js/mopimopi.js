@@ -866,7 +866,7 @@ function update(num) {
         if (arrayInitFlag == true) {
             graphWidth = new Array();
         }
-        console.log(lastCombat);
+        //console.log(lastCombat);
         onTopHeaderDataUpdate();
         onCombatDataUpdate(num);
         initCSS();
@@ -1259,7 +1259,8 @@ function inputBarData(bar, barOverheal, barShield, barPet, a, flag) {
         if (localStorage.getItem("pets") == 1) {    //합산
             var overheal = Math.min(100, parseInt((a.get("mergedOverHeal") / a.get("maxdamage")) * 100)) + '%';
             var shield = Math.min(100, parseInt((a.get("mergedDamageShield") / a.get("maxdamage")) * 100)) + '%';
-            var petHealed = Math.min(100, parseInt((a.get("mergedHealed") - a.get("original").Healed) / a.get("maxdamage") * 100)) + '%';
+            if(a.get("Class") == "SCH")
+            var petHealed = Math.min(100, parseInt((a.get("mergedHealed") - a.get("original").Healed) / a.get("maxdamage") * 100)) + '%';    
         } else {
             var overheal = Math.min(100, parseInt((a.get("overHeal") / a.get("maxdamage")) * 100)) + '%';
             var shield = Math.min(100, parseInt((a.get("damageShield") / a.get("maxdamage")) * 100)) + '%';
