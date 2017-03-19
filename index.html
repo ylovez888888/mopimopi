@@ -149,7 +149,7 @@
             <ul class="white-text">
                 <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m176"></div>
                 <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>            
+            </ul>
             <li id="smaller" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
                 <a class="white-text dropdown-button">8pt<i class="material-icons left">check_box_outline_blank</i></a>
             </li>
@@ -172,17 +172,18 @@
                     <ul class="right hidden" name="history">
                         <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons" id="clear">clear</i></a></li>
                     </ul>
-                    <ul class="right" name="main">      
+                    <ul class="right" name="main">
                         <li id="capture" onclick="buttonCotrol(this);">
                             <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="Capture (Only PC)">
-                            <i class="material-icons mainIcon">photo_camera</i></a></li>             
+                                <i class="material-icons mainIcon">photo_camera</i></a>
+                        </li>
                         <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons mainIcon">more_vert</i></a></li>
                     </ul>
                     <ul>
                         <li>
                             <table class="navbar_text">
                                 <tr>
-                                    <td class="time">00:00</td>                                  
+                                    <td class="time">00:00</td>
                                     <td class="info">
                                         <div class="bigText" name="m0"></div><br>
                                         <div class="smallText" name="m1"></div>
@@ -204,12 +205,12 @@
                         <div class="headerbg">
                             <table id="historyHeader" class="tableHeader">
                                 <tr>
-                                <td class="narrowCell1">View</td>
-                                <td class="nameCell">Name</td>
-                                <td class="narrowCell1">Time</td>
-                                <td class="narrowCell2">RDPS</td>
-                                <td class="narrowCell2">RHPS</td>
-                                <td class="narrowCell1">Count</td>
+                                    <td class="narrowCell1">View</td>
+                                    <td class="nameCell">Name</td>
+                                    <td class="narrowCell1">Time</td>
+                                    <td class="narrowCell2">RDPS</td>
+                                    <td class="narrowCell2">RHPS</td>
+                                    <td class="narrowCell1">Count</td>
                                 </tr>
                             </table>
                         </div>
@@ -818,6 +819,32 @@
         </div>
         <!-- 그래프 색상 내용 -->
         <div name="graphColor" class="contents hidden">
+            <div class="TitleText" name="m97"></div>
+            <div class="tile waves-effect row" id="youColor" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_color_fill</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m205"></span><br><span class="SecondaryText" name="m206"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+            <div class="hidden" name="youColor">
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m147"></div>
+                    <div class="col s3">
+                        <div id="YOU" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="YOU" placeholder="" type="text" name="YOU" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'YOU',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                            <label class="active" for="YOU" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m124"></div>
             <div class="tile" style="cursor: default">
                 <div class="row">
@@ -1260,7 +1287,7 @@
                                         <div class="bigText" name="m0"></div><br>
                                         <div class="smallText" name="m1"></div>
                                     </td>
-                                    <td>                                        
+                                    <td>
                                         <li><a><i class="material-icons mainIcon" style="padding:0 1.5rem;">photo_camera</i></a></li>
                                     </td>
                                     <td>
@@ -1385,7 +1412,7 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
             </div>
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>            
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
 
             <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
@@ -1549,23 +1576,25 @@
         </div>
         <!-- 공지사항 내용 -->
         <div name="notice" class="contents hidden">
-            <div class="tile row" style="cursor: default">
-                <div class="col s9">
-                    <span class="PrimaryText">Welcome to MOPIMOPI♥</span>
-                </div>
-                <div class="col s3">
-                    <span class="SecondaryText right">2017-03-14</span>
-                </div>
-                <div class="col s12">
-                    <p class="flow-text grey-text text-lighten-3" style="font-family: Noto Sans KR" name="n1"></p>
-                </div>
-            </div>
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+
+            <ul class="collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header active"><i class="material-icons">new_releases</i><span class="PrimaryText" style="padding-left:3rem;">1.1.170320 업데이트 안내<font style="color:rgba(255,255,255,0.5); font-size:1.2rem;">　/ 2017-03-20</font></span></div>
+                    <div class="collapsible-body"> <p class="flow-text" name="n2"></p></div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">_</i><span class="PrimaryText" style="padding-left:3rem;">Welcome to MopiMopi<font style="color:rgba(255,255,255,0.5); font-size:1.2rem;">　/ 2017-03-14</font></span></div>
+                    <div class="collapsible-body"> <p class="flow-text" name="n1"></p></div>
+                </li>
+
+            </ul>
         </div>
 
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/localStorageInit.js"></script>
-        <script type="text/javascript" src="js/core.js"></script>  
+        <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/mopimopi.js"></script>
     </body>
+
 </html>
