@@ -20,9 +20,9 @@ localStorage.setItem('meBold',0);if(!localStorage.getItem('otherBold'))
 localStorage.setItem('otherBold',0);if(!localStorage.getItem('border'))
 localStorage.setItem('border',0);if(!localStorage.getItem('edge'))
 localStorage.setItem('edge',0);if(!localStorage.getItem('HPS'))
-localStorage.setItem('HPS',1);if(!localStorage.getItem('youColor'))
-localStorage.setItem('HPS',0);if(localStorage.getItem("HPS")==1){$('#healerTable').removeClass('hidden')}else{$('#healerTable').addClass('hidden')}
-if(!localStorage.getItem('petAction'))
+localStorage.setItem('HPS',1);if(localStorage.getItem("HPS")==1){$('#healerTable').removeClass('hidden')}else{$('#healerTable').addClass('hidden')}
+if(!localStorage.getItem('youColor'))
+localStorage.setItem('youColor',0);if(!localStorage.getItem('petAction'))
 localStorage.setItem('petAction',1);if(!localStorage.getItem('line'))
 localStorage.setItem('line',1);if(!localStorage.getItem('hideName'))
 localStorage.setItem('hideName',0);if(!localStorage.getItem('pets'))
