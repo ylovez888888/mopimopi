@@ -3,6 +3,7 @@ $('body').find('[name=accentColor]').val(localStorage.getItem('accentColor'));$(
 localStorage.setItem(graphColorId[i],graphColorInit[i])}
 for(var i=0;i<graphColorId.length;i++){if(!localStorage.getItem(graphColorId[i])){$('body').find('[name="'+graphColorId[i]+'"]').val(graphColorInit[i]);$('body').find('#'+graphColorId[i]).css('background','#'+graphColorInit[i])}else{$('body').find('[name="'+graphColorId[i]+'"]').val(localStorage.getItem(graphColorId[i]));$('body').find('#'+graphColorId[i]).css('background','#'+localStorage.getItem(graphColorId[i]))}}
 if(!localStorage.getItem('language')||isNaN(localStorage.getItem('language'))==!1){localStorage.setItem('language','kr');mpLang=mpKR;$('#result_Lang').text("한국어")}
+if(!localStorage.getItem('nameType')){localStorage.setItem('nameType','AType');$('#result_nameType').html('Final Fantasy<br>/Only Global Server')}
 if(!localStorage.getItem('fontSize')){localStorage.setItem('fontSize','small');$('#result_font').text('9pt')}
 if(!localStorage.getItem('bgOpacity')){localStorage.setItem('bgOpacity','bgOpacity75')}
 if(!localStorage.getItem('graphOpacity')){localStorage.setItem('graphOpacity','graphOpacity100')}
