@@ -34,8 +34,8 @@
         <!-- 메인 메뉴 드롭다운 -->
         <ul id="dropdown1" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding: 0 1.6rem;" class="left" name="m0"></div>
-                <div class="right" style="cursor: pointer; padding: 0 1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m0"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
             <li id="endEncounter" onclick="buttonCotrol(this)">
                 <a class="white-text dropdown-button" name="m4"></a>
@@ -62,8 +62,8 @@
         <!-- 언어 드롭다운 -->
         <ul id="dropdown2" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m13"></div>
-                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m13"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
             <li id="kr" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
@@ -79,8 +79,8 @@
         <!-- 그래프 불투명도 드롭다운 -->
         <ul id="dropdown3" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m18"></div>
-                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m18"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
             <li id="graphOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0">
@@ -102,8 +102,8 @@
         <!-- 배경 불투명도 드롭다운 -->
         <ul id="dropdown4" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m15"></div>
-                <div class="right" style="cursor: pointer; padding:1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m15"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
             <li id="bgOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0">
@@ -125,8 +125,8 @@
         <!-- 상단바 불투명도 드롭다운 -->
         <ul id="dropdown6" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m193"></div>
-                <div class="right" style="cursor: pointer; padding:1.6rem;-webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m193"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
             <li id="topbarOpacity0" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0">
@@ -148,8 +148,8 @@
         <!-- 글자크기 드롭다운 -->
         <ul id="dropdown5" class="dropdown-content grey darken-3">
             <ul class="white-text">
-                <div style="font-size: 1.6rem; padding:1.6rem;" class="left" name="m176"></div>
-                <div class="right" style="cursor: pointer; padding:1.6rem; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+                <div class="left" name="m176"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
             <li id="smaller" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
                 <a class="white-text dropdown-button">8pt<i class="material-icons left">check_box_outline_blank</i></a>
@@ -162,6 +162,25 @@
             </li>
             <li id="big" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
                 <a class="white-text dropdown-button">12pt<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+        </ul>
+        <!-- 캐릭터 이름 유형 드롭다운 -->
+        <ul id="dropdown7" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div class="left" name="m207"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+            <li id="AType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
+                <a class="white-text dropdown-button">Full Name<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="BType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
+                <a class="white-text dropdown-button">Surname Abbreviated<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="CType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
+                <a class="white-text dropdown-button">Forename Abbreviated<i class="material-icons left">check_box_outline_blank</i></a>
+            </li>
+            <li id="DType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
+                <a class="white-text dropdown-button">Initials<i class="material-icons left">check_box_outline_blank</i></a>
             </li>
         </ul>
 
@@ -355,7 +374,7 @@
             </div>
             <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
                 <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">pets</i></div>
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
                 <div class="col s2"><input type="checkbox">
@@ -374,12 +393,18 @@
             </div>
             <div class="tile waves-effect row" id="comma" onclick="buttonCotrol(this)">
                 <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">mode_edit</i></div>
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_quote</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m84"></span><br><span class="SecondaryText" name="m85"></span></div>
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
                 </div>
+            </div>
+            <div class="tile waves-effect row dropdown-button" data-activates="dropdown7">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">edit</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m207"></span><br><span class="SecondaryText" id="result_nameType"></span></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1578,12 +1603,15 @@
         <!-- 공지사항 내용 -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="expandable">
+            <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-20</font>1.1.170320 업데이트 안내</span></div>
+                    <div class="collapsible-header waves-effect active"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-24</font>1.0.2 업데이트 안내</span></div>
+                    <div class="collapsible-body"> <p class="flow-text" name="n3"></p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-20</font>1.0.1 업데이트 안내</span></div>
                     <div class="collapsible-body"> <p class="flow-text" name="n2"></p></div>
                 </li>
-
                 <li>
                     <div class="collapsible-header waves-effect"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-14</font>Welcome to MopiMopi ♥</span></div>
                     <div class="collapsible-body"> <p class="flow-text" name="n1"></p></div>
