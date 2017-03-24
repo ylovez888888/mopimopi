@@ -2,9 +2,9 @@ var inputNumber=null;var custom=new Array();var healerCustom=new Array();var ini
 $('body').find('[name=accentColor]').val(localStorage.getItem('accentColor'));$('body').find('[name=topbarBackgroundColor]').val(localStorage.getItem('topbarBackgroundColor'));$('body').find('[name=bigTextColor]').val(localStorage.getItem('bigTextColor'));$('body').find('[name=smallTextColor]').val(localStorage.getItem('smallTextColor'));$('body').find('[name=borderColor]').val(localStorage.getItem('borderColor'));$('.time').css('color',accentColor);for(var i in graphColorId){if(!localStorage.getItem(graphColorId[i]))
 localStorage.setItem(graphColorId[i],graphColorInit[i])}
 for(var i=0;i<graphColorId.length;i++){if(!localStorage.getItem(graphColorId[i])){$('body').find('[name="'+graphColorId[i]+'"]').val(graphColorInit[i]);$('body').find('#'+graphColorId[i]).css('background','#'+graphColorInit[i])}else{$('body').find('[name="'+graphColorId[i]+'"]').val(localStorage.getItem(graphColorId[i]));$('body').find('#'+graphColorId[i]).css('background','#'+localStorage.getItem(graphColorId[i]))}}
-if(!localStorage.getItem('language')||isNaN(localStorage.getItem('language'))==!1){localStorage.setItem('language','kr');mpLang=mpKR;$('#result_Lang').text("한국어")}
-if(!localStorage.getItem('nameType')){localStorage.setItem('nameType','AType');$('#result_nameType').html('Full Name<br>/Only Global Server')}
-if(!localStorage.getItem('fontSize')){localStorage.setItem('fontSize','small');$('#result_font').text('9pt')}
+if(!localStorage.getItem('language')||isNaN(localStorage.getItem('language'))==!1){localStorage.setItem('language','kr');mpLang=mpKR}
+if(!localStorage.getItem('nameType')){localStorage.setItem('nameType','AType')}
+if(!localStorage.getItem('fontSize')){localStorage.setItem('fontSize','small')}
 if(!localStorage.getItem('bgOpacity')){localStorage.setItem('bgOpacity','bgOpacity75')}
 if(!localStorage.getItem('graphOpacity')){localStorage.setItem('graphOpacity','graphOpacity100')}
 if(!localStorage.getItem('topbarOpacity')){localStorage.setItem('topbarOpacity','topbarOpacity100')}
