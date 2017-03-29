@@ -192,14 +192,14 @@
                     <ul class="right hidden" name="history">
                         <li id="capture" onclick="buttonCotrol(this);">
                             <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="Capture (Only PC)">
-                            <i class="material-icons mainIcon">photo_camera</i></a>
+                                <i class="material-icons mainIcon">photo_camera</i></a>
                         </li>
                         <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons" id="clear">clear</i></a></li>
                     </ul>
                     <ul class="right" name="main">
                         <li id="capture" onclick="buttonCotrol(this);">
                             <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="Capture (Only PC)">
-                            <i class="material-icons mainIcon">photo_camera</i></a>
+                                <i class="material-icons mainIcon">photo_camera</i></a>
                         </li>
                         <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons mainIcon">more_vert</i></a></li>
                     </ul>
@@ -376,16 +376,6 @@
                     </div>
                 </div>
             </div>
-            <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
-                <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
-                </div>
-                <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
-            </div>
-
             <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">exposure_plus_2</i></div>
@@ -400,6 +390,16 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_quote</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m84"></span><br><span class="SecondaryText" name="m85"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
+
+            <div class="tile waves-effect row" id="ranking" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_list_numbered</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m212"></span><br><span class="SecondaryText" name="m213"></span></div>
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
                 </div>
@@ -498,7 +498,7 @@
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText">R. Name</span><br><span class="SecondaryText" name="m37"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
             </div>
             <div class="row tile waves-effect" name="custom2" onclick="starIcon('custom2')">
                 <div class="col s2"><input type="checkbox">
@@ -744,7 +744,7 @@
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText">R. Name</span><br><span class="SecondaryText" name="m37"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
             </div>
             <div class="row tile waves-effect" name="custom41" onclick="starIcon('custom41')">
                 <div class="col s2"><input type="checkbox">
@@ -860,19 +860,19 @@
                 </div>
             </div>
             <div class="hidden" name="youColor">
-            <div class="tile" style="cursor: default">
-                <div class="row">
-                    <div class="col s5" name="m147"></div>
-                    <div class="col s3">
-                        <div id="YOU" class="circle z-depth-1"></div>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="YOU" placeholder="" type="text" name="YOU" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
-                            autocorrect="off" class="jscolor{styleElement:'YOU',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                <div class="tile" style="cursor: default">
+                    <div class="row">
+                        <div class="col s5" name="m147"></div>
+                        <div class="col s3">
+                            <div id="YOU" class="circle z-depth-1"></div>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="YOU" placeholder="" type="text" name="YOU" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                                autocorrect="off" class="jscolor{styleElement:'YOU',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                             <label class="active" for="YOU" name="m9"></label>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m124"></div>
@@ -885,7 +885,7 @@
                     <div class="input-field col s4">
                         <input id="tank1" placeholder="" type="text" name="tank1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'tank1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="tank1" name="m9"></label>
+                        <label class="active" for="tank1" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -898,7 +898,7 @@
                     <div class="input-field col s4">
                         <input id="tank2" placeholder="" type="text" name="tank2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'tank2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="tank2" name="m9"></label>
+                        <label class="active" for="tank2" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -911,7 +911,7 @@
                     <div class="input-field col s4">
                         <input id="tank3" placeholder="" type="text" name="tank3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'tank3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="tank3" name="m9"></label>
+                        <label class="active" for="tank3" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -926,7 +926,7 @@
                     <div class="input-field col s4">
                         <input id="heal1" placeholder="" type="text" name="heal1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'heal1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="heal1" name="m9"></label>
+                        <label class="active" for="heal1" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -939,7 +939,7 @@
                     <div class="input-field col s4">
                         <input id="heal2" placeholder="" type="text" name="heal2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'heal2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="heal2" name="m9"></label>
+                        <label class="active" for="heal2" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -952,7 +952,7 @@
                     <div class="input-field col s4">
                         <input id="heal3" placeholder="" type="text" name="heal3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'heal3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="heal3" name="m9"></label>
+                        <label class="active" for="heal3" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -965,7 +965,7 @@
                     <div class="input-field col s4">
                         <input id="shield" placeholder="" type="text" name="shield" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'shield',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="shield" name="m9"></label>
+                        <label class="active" for="shield" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -978,7 +978,7 @@
                     <div class="input-field col s4">
                         <input id="overheal" placeholder="" type="text" name="overheal" onChange="jscolorUpdate(this.jscolor)" autocomplete="off"
                             autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'overheal',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="overheal" name="m9"></label>
+                        <label class="active" for="overheal" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -993,7 +993,7 @@
                     <div class="input-field col s4">
                         <input id="dps1" placeholder="" type="text" name="dps1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps1" name="m9"></label>
+                        <label class="active" for="dps1" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1006,7 +1006,7 @@
                     <div class="input-field col s4">
                         <input id="dps2" placeholder="" type="text" name="dps2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps2" name="m9"></label>
+                        <label class="active" for="dps2" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1019,7 +1019,7 @@
                     <div class="input-field col s4">
                         <input id="dps3" placeholder="" type="text" name="dps3" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps3',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps3" name="m9"></label>
+                        <label class="active" for="dps3" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1032,7 +1032,7 @@
                     <div class="input-field col s4">
                         <input id="dps4" placeholder="" type="text" name="dps4" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps4',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps4" name="m9"></label>
+                        <label class="active" for="dps4" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1045,7 +1045,7 @@
                     <div class="input-field col s4">
                         <input id="dps5" placeholder="" type="text" name="dps5" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps5',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps5" name="m9"></label>
+                        <label class="active" for="dps5" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1058,7 +1058,7 @@
                     <div class="input-field col s4">
                         <input id="dps6" placeholder="" type="text" name="dps6" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps6',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps6" name="m9"></label>
+                        <label class="active" for="dps6" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1071,7 +1071,7 @@
                     <div class="input-field col s4">
                         <input id="dps7" placeholder="" type="text" name="dps7" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'dps7',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="dps7" name="m9"></label>
+                        <label class="active" for="dps7" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1086,7 +1086,7 @@
                     <div class="input-field col s4">
                         <input id="life1" placeholder="" type="text" name="life1" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'life1',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="life1" name="m9"></label>
+                        <label class="active" for="life1" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1099,7 +1099,7 @@
                     <div class="input-field col s4">
                         <input id="life2" placeholder="" type="text" name="life2" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'life2',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="life2" name="m9"></label>
+                        <label class="active" for="life2" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1114,7 +1114,7 @@
                     <div class="input-field col s4">
                         <input id="LB" placeholder="" type="text" name="LB" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'LB',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="LB" name="m9"></label>
+                        <label class="active" for="LB" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1127,7 +1127,7 @@
                     <div class="input-field col s4">
                         <input id="ava" placeholder="" type="text" name="ava" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'ava',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="ava" name="m9"></label>
+                        <label class="active" for="ava" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1140,7 +1140,7 @@
                     <div class="input-field col s4">
                         <input id="chocobo" placeholder="" type="text" name="chocobo" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'chocobo',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="chocobo" name="m9"></label>
+                        <label class="active" for="chocobo" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1198,9 +1198,9 @@
         <div name="cellWidth" class="contents hidden">
 
             <div class="TitleText" name="m109"></div>
-            <table class="tile" style="cursor: default">
+            <table class="tile" style="cursor: default;">
                 <tr>
-                    <td style=" width:100%;">
+                    <td style="width:100%; padding-left:0.75rem;">
                         <span class="PrimaryText" name="m111"></span><br>
                         <span class="SecondaryText" name="m112"></span>
                     </td>
@@ -1213,11 +1213,11 @@
             </table>
             <table class="tile" style="cursor: default">
                 <tr>
-                    <td style=" width:100%;">
+                    <td style=" width:100%; padding-left:0.75rem;">
                         <span class="PrimaryText" name="m113"></span><br>
                         <span class="SecondaryText" name="m114"></span>
                     </td>
-                    <td class="quantity" style=" width:40%;  text-align: right;">
+                    <td class="quantity" style=" width:40%;  text-align: right;;">
                         <a field="narrowCell2" class="minus btn-floating waves-effect waves-light grey"><i class="material-icons">remove</i></a>
                         <input type="text" disabled value="" name="narrowCell2" />
                         <a field="narrowCell2" class="plus btn-floating waves-effect waves-light blue"><i class="material-icons">add</i></a>
@@ -1232,7 +1232,7 @@
                 <table id="previewH" class="tableHeader">
                     <tbody>
                         <tr>
-                            <td class="nameCell">R. Name</td>
+                            <td class="nameCell" name="rankingName">R. Name</td>
                             <td class="narrowCell1">Job</td>
                             <td class="narrowCell2">DPS</td>
                             <td class="narrowCell1">D%</td>
@@ -1261,7 +1261,7 @@
             <div class="TitleText" name="m110"></div>
             <table class="tile" style="cursor: default">
                 <tr>
-                    <td style=" width:100%;">
+                    <td style=" width:100%; padding-left:0.75rem;">
                         <span class="PrimaryText" name="m115"></span><br>
                         <span class="SecondaryText" name="m116"></span>
                     </td>
@@ -1274,7 +1274,7 @@
             </table>
             <table class="tile" style="cursor: default">
                 <tr>
-                    <td style=" width:100%;">
+                    <td style=" width:100%; padding-left:0.75rem;">
                         <span class="PrimaryText" name="m117"></span><br>
                         <span class="SecondaryText" name="m118"></span>
                     </td>
@@ -1292,7 +1292,7 @@
             <div class="TitleText" name="m19"></div>
             <table class="tile" style="cursor: default">
                 <tr>
-                    <td style=" width:100%;">
+                    <td style=" width:100%; padding-left:0.75rem;">
                         <span class="PrimaryText" name="m183"></span>
                     </td>
                     <td class="quantity" style=" width:40%;  text-align: right;">
@@ -1342,7 +1342,7 @@
                     <div class="input-field col s4">
                         <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'topbarBackgroundColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="accentColor" name="m9"></label>
+                        <label class="active" for="accentColor" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1355,7 +1355,7 @@
                     <div class="input-field col s4">
                         <input id="accentColor" placeholder="" type="text" name="accentColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'accentColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="accentColor" name="m9"></label>
+                        <label class="active" for="accentColor" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1368,7 +1368,7 @@
                     <div class="input-field col s4">
                         <input id="borderColor" placeholder="" type="text" name="borderColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'borderColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="accentColor" name="m9"></label>
+                        <label class="active" for="accentColor" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1381,7 +1381,7 @@
                     <div class="input-field col s4">
                         <input id="bigTextColor" placeholder="" type="text" name="bigTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'bigTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="bigTextColor" name="m9"></label>
+                        <label class="active" for="bigTextColor" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1394,7 +1394,7 @@
                     <div class="input-field col s4">
                         <input id="smallTextColor" placeholder="" type="text" name="smallTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'smallTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="smallTextColor" name="m9"></label>
+                        <label class="active" for="smallTextColor" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1445,9 +1445,18 @@
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
 
+            <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
+                <div class="col s2"><input type="checkbox">
+                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                </div>
+            </div>
             <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
                 <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">view_headline</i></div>
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_bottom</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m88"></span><br><span class="SecondaryText" name="m89"></span></div>
                 <div class="col s2"><input type="checkbox">
@@ -1529,7 +1538,7 @@
                     <div class="input-field col s4">
                         <input id="me" placeholder="" type="text" name="me" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'me',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="me" name="m9"></label>
+                        <label class="active" for="me" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1542,7 +1551,7 @@
                     <div class="input-field col s4">
                         <input id="other" placeholder="" type="text" name="other" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'other',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                            <label class="active" for="other" name="m9"></label>
+                        <label class="active" for="other" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1609,23 +1618,31 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-24</font>1.0.2 업데이트 안내</span></div>
-                    <div class="collapsible-body"> <p class="flow-text" name="n3"></p></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-24</font>1.0.2 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n3"></p>
+                    </div>
                 </li>
                 <li>
-                    <div class="collapsible-header waves-effect"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-20</font>1.0.1 업데이트 안내</span></div>
-                    <div class="collapsible-body"> <p class="flow-text" name="n2"></p></div>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem;"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-20</font>1.0.1 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n2"></p>
+                    </div>
                 </li>
                 <li>
-                    <div class="collapsible-header waves-effect"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-14</font>Welcome to MopiMopi ♥</span></div>
-                    <div class="collapsible-body"> <p class="flow-text" name="n1"></p></div>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem;"><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-14</font>Welcome to MopiMopi ♥</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n1"></p>
+                    </div>
                 </li>
 
             </ul>
         </div>
 
+
+
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/localStorageInit.js"></script>
+      <!--  <script type="text/javascript" src="js/localStorageInit.js"></script> -->
         <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/mopimopi.js"></script>
     </body>
