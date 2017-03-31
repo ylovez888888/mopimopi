@@ -152,16 +152,16 @@
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
             <li id="smaller" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">8pt<i class="material-icons left">check_box_outline_blank</i></a>
+                <a class="white-text dropdown-button">8pt<i class="material-icons left">radio_button_unchecked</i></a>
             </li>
             <li id="small" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">9pt<i class="material-icons left">check_box_outline_blank</i></a>
+                <a class="white-text dropdown-button">9pt<i class="material-icons left">radio_button_unchecked</i></a>
             </li>
             <li id="normal" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">11pt<i class="material-icons left">check_box_outline_blank</i></a>
+                <a class="white-text dropdown-button">11pt<i class="material-icons left">radio_button_unchecked</i></a>
             </li>
             <li id="big" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">12pt<i class="material-icons left">check_box_outline_blank</i></a>
+                <a class="white-text dropdown-button">12pt<i class="material-icons left">radio_button_unchecked</i></a>
             </li>
         </ul>
         <!-- 캐릭터 이름 유형 드롭다운 -->
@@ -347,6 +347,11 @@
                 </div>
             </div>
         </div>
+        <div name="raid" id="raidTableBody" >
+            <ul id="raidOldBody"></ul>            
+            <ul id="healerRaidOldBody" class="hidden"></ul>
+        </div>
+
         <!-- 설정 페이지 내용 -->
         <div name="settingsPage" class="contents hidden">
 
@@ -371,9 +376,9 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">pets</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m80"></span><br><span class="SecondaryText" name="m81"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i>
-                    </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="pets" checked="checked" />
+                <label for="pets" class="right"></label>
                 </div>
             </div>
             <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
@@ -381,8 +386,9 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">exposure_plus_2</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m82"></span><br><span class="SecondaryText" name="m83"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="number" checked="checked" />
+                    <label for="number" class="right"></label>
                 </div>
             </div>
             <div class="tile waves-effect row" id="comma" onclick="buttonCotrol(this)">
@@ -390,8 +396,9 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_quote</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m84"></span><br><span class="SecondaryText" name="m85"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="comma" checked="checked" />
+                    <label for="comma" class="right"></label>
                 </div>
             </div>
 
@@ -400,8 +407,9 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_list_numbered</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m212"></span><br><span class="SecondaryText" name="m213"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="ranking" checked="checked" />
+                    <label for="ranking" class="right"></label>
                 </div>
             </div>
             <div class="tile waves-effect row dropdown-button" data-activates="dropdown7">
@@ -855,8 +863,9 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_color_fill</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m205"></span><br><span class="SecondaryText" name="m206"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="youColor" checked="checked" />
+                <label for="youColor" class="right"></label>
                 </div>
             </div>
             <div class="hidden" name="youColor">
@@ -1407,18 +1416,18 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">rounded_corner</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m194"></span><br><span class="SecondaryText" name="m195"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="edge" checked="checked" />
+                <label for="edge" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="border" onclick="buttonCotrol(this); topbarSettings();">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_outer</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m197"></span><br><span class="SecondaryText" name="m198"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="border" checked="checked" />
+                <label for="border" class="right"></label></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1450,36 +1459,36 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="petAction" checked="checked" />
+                <label for="petAction" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_bottom</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m88"></span><br><span class="SecondaryText" name="m89"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="line" checked="checked" />
+                <label for="line" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="gradation" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">gradient</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m120"></span><br><span class="SecondaryText" name="m121"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="gradation" checked="checked" />
+                <label for="gradation" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="animation" onclick="buttonCotrol(this)">
                 <div class="col s2"><input type="checkbox">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">transform</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m122"></span><br><span class="SecondaryText" name="m123"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="animation" checked="checked" />
+                <label for="animation" class="right"></label></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1498,11 +1507,6 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
             </div>
-
-
-
-
-
 
         </div>
         <!-- 글꼴 내용 -->
@@ -1564,18 +1568,18 @@
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m186"></span><br><span class="SecondaryText" name="m187"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="meBold" checked="checked" />
+                <label for="meBold" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="otherBold" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m188"></span><br><span class="SecondaryText" name="m189"></span></div>
-                <div class="col s2"><input type="checkbox">
-                    <div class="iconText right"><i class="material-icons">check_box_outline_blank</i></div>
-                </div>
+                <div class="col s2">
+                <input type="checkbox" class="filled-in" id="otherBold" checked="checked" />
+                <label for="otherBold" class="right"></label></div>
             </div>
 
 
@@ -1618,7 +1622,13 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-24</font>1.0.2 업데이트 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-31</font>1.0.3 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n4"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-03-24</font>1.0.2 업데이트 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n3"></p>
                     </div>
@@ -1640,9 +1650,7 @@
         </div>
 
 
-
         <script type="text/javascript" src="js/materialize.min.js"></script>
-      <!--  <script type="text/javascript" src="js/localStorageInit.js"></script> -->
         <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/mopimopi.js"></script>
     </body>
