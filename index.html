@@ -183,7 +183,28 @@
                 <a class="white-text dropdown-button" name="m211"></a>
             </li>
         </ul>
-
+        <!-- 레이드 모드 불투명도 드롭다운 -->
+        <ul id="dropdown8" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div class="left" name="m216"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+            <li id="raidOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0">
+                <a class="white-text dropdown-button" name="m104"></a>
+            </li>
+            <li id="raidOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.25">
+                <a class="white-text dropdown-button" name="m105"></a>
+            </li>
+            <li id="raidOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.5">
+                <a class="white-text dropdown-button" name="m106"></a>
+            </li>
+            <li id="raidOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.75">
+                <a class="white-text dropdown-button" name="m107"></a>
+            </li>
+            <li id="raidOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="1">
+                <a class="white-text dropdown-button" name="m108"></a>
+            </li>
+        </ul>
         <!-- 상단바 구성 -->
         <div class="navbar-fixed">
             <nav>
@@ -1507,7 +1528,12 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
             </div>
-
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown8">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m216"></span><br><span class="SecondaryText" id="result_raid"></span></div>
+            </div>
         </div>
         <!-- 글꼴 내용 -->
         <div name="fontSettings" class="contents hidden">
@@ -1620,9 +1646,15 @@
         <!-- 공지사항 내용 -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="accordion">                
+            <ul class="collapsible" data-collapsible="accordion">     
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.3.1 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.4 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n6"></p>
+                    </div>
+                </li>            
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.3.1 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n5"></p>
                     </div>
@@ -1651,10 +1683,8 @@
                         <p class="flow-text" name="n1"></p>
                     </div>
                 </li>
-
             </ul>
         </div>
-
 
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/core.js"></script>
