@@ -5,7 +5,7 @@ for(var i=0;i<graphColorId.length;i++){if(!localStorage.getItem(graphColorId[i])
 if(!localStorage.getItem('language')||isNaN(localStorage.getItem('language'))==!1){localStorage.setItem('language','kr');mpLang=mpKR}
 if(!localStorage.getItem('nameType')){localStorage.setItem('nameType','AType')}
 if(!localStorage.getItem('fontSize')){localStorage.setItem('fontSize','small')}
-if(!localStorage.getItem('raidOpacity')){localStorage.setItem('raidOpacity','raidOpacity75')}
+if(!localStorage.getItem('raidOpacity')){localStorage.setItem('raidOpacity','raidOpacity50')}
 if(!localStorage.getItem('bgOpacity')){localStorage.setItem('bgOpacity','bgOpacity75')}
 if(!localStorage.getItem('graphOpacity')){localStorage.setItem('graphOpacity','graphOpacity100')}
 if(!localStorage.getItem('topbarOpacity')){localStorage.setItem('topbarOpacity','topbarOpacity100')}
