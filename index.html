@@ -205,6 +205,28 @@
                 <a class="white-text dropdown-button" name="m108"></a>
             </li>
         </ul>
+        <!-- 헤더 불투명도 -->
+        <ul id="dropdown9" class="dropdown-content grey darken-3">
+            <ul class="white-text">
+                <div class="left" name="m221"></div>
+                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
+            </ul>
+            <li id="headerOpacity0" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0">
+                <a class="white-text dropdown-button" name="m104"></a>
+            </li>
+            <li id="headerOpacity25" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.25">
+                <a class="white-text dropdown-button" name="m105"></a>
+            </li>
+            <li id="headerOpacity50" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.5">
+                <a class="white-text dropdown-button" name="m106"></a>
+            </li>
+            <li id="headerOpacity75" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.75">
+                <a class="white-text dropdown-button" name="m107"></a>
+            </li>
+            <li id="headerOpacity100" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="1">
+                <a class="white-text dropdown-button" name="m108"></a>
+            </li>
+        </ul>
         <!-- 상단바 구성 -->
         <div class="navbar-fixed">
             <nav>
@@ -250,7 +272,7 @@
                         <div class="headerbg">
                             <table id="historyHeader" class="tableHeader">
                                 <tr>
-                                    <td class="narrowCell1">View</td>
+                                    <td class="viewCell">View</td>
                                     <td class="nameCell">Name</td>
                                     <td class="narrowCell1">Time</td>
                                     <td class="narrowCell2">RDPS</td>
@@ -261,7 +283,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- 설정 페이지 상단바 -->
                 <div name="settingsPage" class="nav-wrapper hidden">
                     <ul class="left">
@@ -269,7 +290,6 @@
                         <li><span class="topbarText" name="m10"></span></li>
                     </ul>
                 </div>
-
                 <!-- 기본 ACT 구성 상단바 -->
                 <div name="generalACT" class="nav-wrapper hidden">
                     <ul class="left">
@@ -368,8 +388,8 @@
                 </div>
             </div>
         </div>
-        <div name="raid" id="raidTableBody" >
-            <ul id="raidOldBody"></ul>            
+        <div name="raid" id="raidTableBody">
+            <ul id="raidOldBody"></ul>
             <ul id="healerRaidOldBody" class="hidden"></ul>
         </div>
 
@@ -398,8 +418,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m80"></span><br><span class="SecondaryText" name="m81"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="pets" checked="checked" />
-                <label for="pets" class="right"></label>
+                    <input type="checkbox" class="filled-in" id="pets" checked="checked" />
+                    <label for="pets" class="right"></label>
                 </div>
             </div>
             <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
@@ -527,13 +547,13 @@
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
-            </div>
+                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+            </div>            
             <div class="row tile waves-effect" name="custom2" onclick="starIcon('custom2')">
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m33"></div>
@@ -773,13 +793,13 @@
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
+                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
             </div>
             <div class="row tile waves-effect" name="custom41" onclick="starIcon('custom41')">
                 <div class="col s2"><input type="checkbox">
                     <div class="iconText"><i class="material-icons">star_border</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText">Job</span><br><span class="SecondaryText" name="m38"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="rankingName">R. Name</span><br><span class="SecondaryText" name="m215"></span></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m35"></div>
@@ -885,8 +905,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m205"></span><br><span class="SecondaryText" name="m206"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="youColor" checked="checked" />
-                <label for="youColor" class="right"></label>
+                    <input type="checkbox" class="filled-in" id="youColor" checked="checked" />
+                    <label for="youColor" class="right"></label>
                 </div>
             </div>
             <div class="hidden" name="youColor">
@@ -901,6 +921,19 @@
                                 autocorrect="off" class="jscolor{styleElement:'YOU',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                             <label class="active" for="YOU" name="m9"></label>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m220"></div>
+                    <div class="col s3">
+                        <div id="background" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="background" placeholder="" type="text" name="background" onChange="jscolorUpdate(this.jscolor)" autocomplete="off"
+                            autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'background',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="background" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1174,7 +1207,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- 폰트 내용 -->
         <div name="font" class="contents hidden">
@@ -1262,8 +1294,8 @@
                 <table id="previewH" class="tableHeader">
                     <tbody>
                         <tr>
+                            <td class="iconCell">Job</td>
                             <td class="nameCell" name="rankingName">R. Name</td>
-                            <td class="narrowCell1">Job</td>
                             <td class="narrowCell2">DPS</td>
                             <td class="narrowCell1">D%</td>
                             <td class="wideCell1">Damage</td>
@@ -1275,9 +1307,9 @@
                 <table id="previewB" class="tableBody">
                     <tbody>
                         <tr>
-                            <td class="nameCell">1. YOU</td>
-                            <td class="narrowCell1"><img class="pngIcon" src="images/glow/lmb.png"></td>
-                            <td class="narrowCell2">123.45</td>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/lmb.png"></td>
+                            <td class="nameCell" name="rankingName2">1. YOU</td>
+                            <td class="narrowCell2">1234.56</td>
                             <td class="narrowCell1">12.3%</td>
                             <td class="wideCell1">123,456,789</td>
                             <td class="wideCell2">Skill Name - 1,234</td>
@@ -1336,7 +1368,7 @@
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m100"></div>
 
-            <div class="preview" style="cursor:default;">
+            <div class="previewImage" style="cursor:default;">
                 <div id="previewTopbar" class="valign-wrapper" style="height: 5.6rem;">
                     <ul class="left">
                         <li>
@@ -1358,24 +1390,25 @@
                         </li>
                     </ul>
                 </div>
+                <div class="headerbg">
+                    <table class="tableHeader">
+                        <tr>
+                            <td class="iconCell">Job</td>
+                            <td class="nameCell" name="rankingName">R. Name</td>
+                            <td class="narrowCell2">DPS</td>
+                            <td class="narrowCell1">D%</td>
+                            <td class="wideCell1">Damage</td>
+                            <td class="wideCell2">MaxHit</td>
+                            <td class="narrowCell1">Death</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
 
             <div class="TitleText" name="m129"></div>
-            <div class="tile" style="cursor: default">
-                <div class="row">
-                    <div class="col s5" name="m190"></div>
-                    <div class="col s3">
-                        <div id="topbarBackgroundColor" class="circle z-depth-1"></div>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
-                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'topbarBackgroundColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
-                        <label class="active" for="accentColor" name="m9"></label>
-                    </div>
-                </div>
-            </div>
+
             <div class="tile" style="cursor: default">
                 <div class="row">
                     <div class="col s5" name="m172"></div>
@@ -1399,6 +1432,32 @@
                         <input id="borderColor" placeholder="" type="text" name="borderColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'borderColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="accentColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m190"></div>
+                    <div class="col s3">
+                        <div id="topbarBackgroundColor" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'topbarBackgroundColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="accentColor" name="m9"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m219"></div>
+                    <div class="col s3">
+                        <div id="header" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="header" placeholder="" type="text" name="header" onChange="jscolorUpdate(this.jscolor); topbarSettings() ;" autocomplete="off"
+                            autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'header',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="header" name="m9"></label>
                     </div>
                 </div>
             </div>
@@ -1428,7 +1487,19 @@
                     </div>
                 </div>
             </div>
-
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m222"></div>
+                    <div class="col s3">
+                        <div id="headerText" class="circle z-depth-1"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="headerText" placeholder="" type="text" name="headerText" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                            autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'headerText',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="headerText" name="m9"></label>
+                    </div>
+                </div>
+            </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m185"></div>
 
@@ -1438,8 +1509,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m194"></span><br><span class="SecondaryText" name="m195"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="edge" checked="checked" />
-                <label for="edge" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="edge" checked="checked" />
+                    <label for="edge" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="border" onclick="buttonCotrol(this); topbarSettings();">
                 <div class="col s2">
@@ -1447,8 +1518,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m197"></span><br><span class="SecondaryText" name="m198"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="border" checked="checked" />
-                <label for="border" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="border" checked="checked" />
+                    <label for="border" class="right"></label></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1461,37 +1532,55 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="result_top"></span></div>
             </div>
-
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown9">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="result_header"></span></div>
+            </div>
         </div>
         <!-- 그래프 내용 -->
         <div name="graph" class="contents hidden">
             <div class="TitleText" name="m129"></div>
+
             <div class="tile waves-effect row" id="graphColor" onclick="viewPage(this)">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">format_color_fill</i></div>
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
             </div>
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-            <div class="TitleText" name="m204"></div>
 
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m21"></div>
             <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="petAction" checked="checked" />
-                <label for="petAction" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="petAction" checked="checked" />
+                    <label for="petAction" class="right"></label></div>
             </div>
+            <div class="tile waves-effect row" id="raidMode" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">autorenew</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m217"></span><br><span class="SecondaryText" name="m218"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="raidMode" checked="checked" />
+                    <label for="raidMode" class="right"></label></div>
+            </div>
+
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m204"></div>
             <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_bottom</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m88"></span><br><span class="SecondaryText" name="m89"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="line" checked="checked" />
-                <label for="line" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="line" checked="checked" />
+                    <label for="line" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="gradation" onclick="buttonCotrol(this)">
                 <div class="col s2">
@@ -1499,8 +1588,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m120"></span><br><span class="SecondaryText" name="m121"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="gradation" checked="checked" />
-                <label for="gradation" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="gradation" checked="checked" />
+                    <label for="gradation" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="animation" onclick="buttonCotrol(this)">
                 <div class="col s2"><input type="checkbox">
@@ -1508,8 +1597,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m122"></span><br><span class="SecondaryText" name="m123"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="animation" checked="checked" />
-                <label for="animation" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="animation" checked="checked" />
+                    <label for="animation" class="right"></label></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1528,12 +1617,6 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
             </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown8">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m216"></span><br><span class="SecondaryText" id="result_raid"></span></div>
-            </div>
         </div>
         <!-- 글꼴 내용 -->
         <div name="fontSettings" class="contents hidden">
@@ -1544,8 +1627,6 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m14"></span><br><span class="SecondaryText" name="m90"></span></div>
             </div>
-
-
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m176"></div>
 
@@ -1555,8 +1636,6 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m176"></span><br><span class="SecondaryText" id="result_font"></span></div>
             </div>
-
-
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m129"></div>
             <div class="tile" style="cursor: default">
@@ -1585,7 +1664,6 @@
                     </div>
                 </div>
             </div>
-
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m185"></div>
 
@@ -1595,8 +1673,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m186"></span><br><span class="SecondaryText" name="m187"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="meBold" checked="checked" />
-                <label for="meBold" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="meBold" checked="checked" />
+                    <label for="meBold" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="otherBold" onclick="buttonCotrol(this)">
                 <div class="col s2">
@@ -1604,8 +1682,8 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m188"></span><br><span class="SecondaryText" name="m189"></span></div>
                 <div class="col s2">
-                <input type="checkbox" class="filled-in" id="otherBold" checked="checked" />
-                <label for="otherBold" class="right"></label></div>
+                    <input type="checkbox" class="filled-in" id="otherBold" checked="checked" />
+                    <label for="otherBold" class="right"></label></div>
             </div>
 
 
@@ -1646,13 +1724,19 @@
         <!-- 공지사항 내용 -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="accordion">     
+            <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.4 업데이트 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-03</font>1.0.5.1 업데이트 및 버그 패치 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n7"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.4 업데이트 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n6"></p>
                     </div>
-                </li>            
+                </li>
                 <li>
                     <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-01</font>1.0.3.1 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
