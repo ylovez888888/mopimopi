@@ -83,19 +83,19 @@
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
-            <li id="graphOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0">
+            <li id="graphOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0">
                 <a class="white-text dropdown-button" name="m104"></a>
             </li>
-            <li id="graphOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.25">
+            <li id="graphOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.25">
                 <a class="white-text dropdown-button" name="m105"></a>
             </li>
-            <li id="graphOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.5">
+            <li id="graphOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.5">
                 <a class="white-text dropdown-button" name="m106"></a>
             </li>
-            <li id="graphOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="0.75">
+            <li id="graphOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.75">
                 <a class="white-text dropdown-button" name="m107"></a>
             </li>
-            <li id="graphOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_go" value="1">
+            <li id="graphOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="1">
                 <a class="white-text dropdown-button" name="m108"></a>
             </li>
         </ul>
@@ -106,19 +106,19 @@
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
 
-            <li id="bgOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0">
+            <li id="bgOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0">
                 <a class="white-text dropdown-button" name="m104"></a>
             </li>
-            <li id="bgOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.25">
+            <li id="bgOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.25">
                 <a class="white-text dropdown-button" name="m105"></a>
             </li>
-            <li id="bgOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.5">
+            <li id="bgOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.5">
                 <a class="white-text dropdown-button" name="m106"></a>
             </li>
-            <li id="bgOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="0.75">
+            <li id="bgOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.75">
                 <a class="white-text dropdown-button" name="m107"></a>
             </li>
-            <li id="bgOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_bo" value="1">
+            <li id="bgOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="1">
                 <a class="white-text dropdown-button" name="m108"></a>
             </li>
         </ul>
@@ -233,19 +233,19 @@
                 <div class="left" name="m224"></div>
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
-            <li id="lineOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_line" value="0">
+            <li id="lineOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0">
                 <a class="white-text dropdown-button" name="m104"></a>
             </li>
-            <li id="lineOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_line" value="0.25">
+            <li id="lineOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.25">
                 <a class="white-text dropdown-button" name="m105"></a>
             </li>
-            <li id="lineOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_line" value="0.5">
+            <li id="lineOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.5">
                 <a class="white-text dropdown-button" name="m106"></a>
             </li>
-            <li id="lineOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_line" value="0.75">
+            <li id="lineOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.75">
                 <a class="white-text dropdown-button" name="m107"></a>
             </li>
-            <li id="lineOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_line" value="1">
+            <li id="lineOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="1">
                 <a class="white-text dropdown-button" name="m108"></a>
             </li>
         </ul>
@@ -1325,12 +1325,12 @@
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m100"></div>
 
-            <div class="preview" style="cursor:default;">
+            <div class="previewImage" style="cursor:default;">
                 <table id="previewH" class="tableHeader">
                     <tbody>
                         <tr>
                             <td class="iconCell">Job</td>
-                            <td class="nameCell" name="rankingName">R. Name</td>
+                            <td class="nameCell" name="rankingName"></td>
                             <td class="narrowCell2">DPS</td>
                             <td class="narrowCell1">D%</td>
                             <td class="wideCell1">Damage</td>
@@ -1342,12 +1342,12 @@
                 <table id="previewB" class="tableBody">
                     <tbody>
                         <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/lmb.png"></td>
-                            <td class="nameCell" name="rankingName2">1. YOU</td>
-                            <td class="narrowCell2">1234.56</td>
-                            <td class="narrowCell1">12.3%</td>
-                            <td class="wideCell1">123,456,789</td>
-                            <td class="wideCell2">Skill Name - 1,234</td>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
+                            <td class="nameCell" name="rankingName2"></td>
+                            <td class="narrowCell2" id="c21" value="1234.56"></td>
+                            <td class="narrowCell1" id="c22" value="12.3"></td>
+                            <td class="wideCell1" id="c23" value="123456789"></td>
+                            <td class="wideCell2" id="c24" value="1234"></td>
                             <td class="narrowCell1">0</td>
                         </tr>
                     </tbody>
@@ -1386,7 +1386,7 @@
         <!-- 상단바 디자인 내용 -->
         <div name="design" class="contents hidden">
 
-            <div class="TitleText" name="m19"></div>
+            <div class="TitleText" name="m97"></div>
             <table class="tile" style="cursor: default">
                 <tr>
                     <td style=" width:100%; padding-left:0.75rem;">
@@ -1399,10 +1399,8 @@
                     </td>
                 </tr>
             </table>
-
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m100"></div>
-
             <div class="previewImage" style="cursor:default;">
                 <div id="previewTopbar" class="valign-wrapper" style="height: 5.6rem;">
                     <table>
@@ -1435,11 +1433,8 @@
                     </table>
                 </div>
             </div>
-
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-
             <div class="TitleText" name="m129"></div>
-
             <div class="tile" style="cursor: default">
                 <div class="row">
                     <div class="col s5" name="m172"></div>
@@ -1532,8 +1527,22 @@
                 </div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-            <div class="TitleText" name="m204"></div>
+            <div class="TitleText" name="m181"></div>
 
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown6">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="result_top"></span></div>
+            </div>
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown9">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="result_header"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m204"></div>
             <div class="tile waves-effect row" id="edge" onclick="buttonCotrol(this); topbarSettings();">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">rounded_corner</i></div>
@@ -1552,35 +1561,10 @@
                     <input type="checkbox" class="filled-in" id="border" checked="checked" />
                     <label for="border" class="right"></label></div>
             </div>
-
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-
-            <div class="TitleText" name="m181"></div>
-
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown6">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="result_top"></span></div>
-            </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown9">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="result_header"></span></div>
-            </div>
         </div>
         <!-- 그래프 내용 -->
         <div name="graph" class="contents hidden">
-            <div class="TitleText" name="m129"></div>
-            <div class="tile waves-effect row" id="graphColor" onclick="viewPage(this)">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">format_color_fill</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
-            </div>
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-            <div class="TitleText" name="m21"></div>
+            <div class="TitleText" name="m97"></div>
             <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">playlist_add</i></div>
@@ -1599,7 +1583,148 @@
                     <input type="checkbox" class="filled-in" id="raidMode" checked="checked" />
                     <label for="raidMode" class="right"></label></div>
             </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m100"></div>
+            <div class="previewImage" style="cursor:default;">
+                <div class="headerbg">
+                    <table class="tableHeader">
+                        <tr>
+                            <td class="iconCell">Job</td>
+                            <td class="nameCell" name="rankingName"></td>
+                            <td class="narrowCell2">DPS</td>
+                            <td class="narrowCell1">D%</td>
+                            <td class="wideCell1">Damage</td>
+                            <td class="wideCell2">MaxHit</td>
+                            <td class="narrowCell1">Death</td>
+                        </tr>
+                    </table>
+                </div>
+             <div id="Merge">  
+                <div style="position: relative">
+                <table class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
+                            <td class="nameCell" name="rankingName2"></td>
+                            <td id="c1" class="narrowCell2" value="1234.56"></td>
+                            <td id="c2" class="narrowCell1" value="12.3"></td>
+                            <td id="c3" class="wideCell1" value="123456"></td>
+                            <td id="c4" class="wideCell2" value="1234"></td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div class="bar" id="previewBar1" style="width: 100%;">    
+                <span class="bar barDeal pet" id="previewBar3" style="width: 25%;"></span>     
+                </div>                      
+                <div class="barBg"></div>
+                <li class="divider" name="previewLine"></li>
+                </div>      
+                <div style="position: relative">
+                <table class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
+                            <td class="nameCell" name="rankingName3"></td>
+                            <td id="c5" class="narrowCell2" value="617.28"></td>
+                            <td id="c6" class="narrowCell1" value="6.1"></td>
+                            <td id="c7" class="wideCell1" value="61728"></td>
+                            <td id="c8" class="wideCell2" value="617"></td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div class="bar" id="previewBar2" style="width: 50%;"></div>                               
+                <div class="barBg"></div>
+                <li class="divider" name="previewLine"></li>
+                </div> 
+            </div>
+             <div id="NoMerge" class="hidden">
+                <div style="position: relative">
+                <table class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
+                            <td class="nameCell" name="rankingName2"></td>
+                            <td id="c9" class="narrowCell2" value="925.92"></td>
+                            <td id="c10" class="narrowCell1" value="9.3"></td>
+                            <td id="c11" class="wideCell1" value="92592"></td>
+                            <td id="c12" class="wideCell2" value="1234"></td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div class="bar" id="previewBar4" style="width: 100%;"></div>                      
+                <div class="barBg"></div>
+                <li class="divider" name="previewLine"></li>
+                </div>      
+                <div style="position: relative">
+                <table class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
+                            <td class="nameCell" name="rankingName3"></td>
+                            <td id="c13" class="narrowCell2" value="617.28"></td>
+                            <td id="c14" class="narrowCell1" value="6.1"></td>
+                            <td id="c15" class="wideCell1" value="61728"></td>
+                            <td id="c16" class="wideCell2" value="617"></td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div class="bar" id="previewBar5" style="width: 66%;"></div>                               
+                <div class="barBg"></div>
+                <li class="divider" name="previewLine"></li>
+                </div> 
+                <div style="position: relative">
+                <table class="tableBody">
+                    <tbody>
+                        <tr>
+                            <td class="iconCell"><img class="pngIcon" src="images/glow/ava.png"></td>
+                            <td class="nameCell" name="rankingName4"></td>
+                            <td id="c17" class="narrowCell2" value="308.64"></td>
+                            <td id="c18" class="narrowCell1" value="3.0"></td>
+                            <td id="c19" class="wideCell1" value="30864"></td>
+                            <td id="c20" class="wideCell2" value="308"></td>
+                            <td class="narrowCell1">0</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <div class="bar" id="previewBar6" style="width: 33%;"></div>                               
+                <div class="barBg"></div>
+                <li class="divider" name="previewLine"></li>
+                </div> 
+            </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
+            <div class="TitleText" name="m129"></div>
+            <div class="tile waves-effect row" id="graphColor" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">format_color_fill</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
 
+            <div class="TitleText" name="m181"></div>
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown3">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="result_go"></span></div>
+            </div>
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown4">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
+            </div>
+            <div class="tile waves-effect dropdown-button row" data-activates="dropdown10">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">opacity</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m224"></span><br><span class="SecondaryText" id="result_line"></span></div>
+            </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
             <div class="tile waves-effect row" id="line" onclick="buttonCotrol(this)">
@@ -1628,28 +1753,7 @@
                 <div class="col s2">
                     <input type="checkbox" class="filled-in" id="animation" checked="checked" />
                     <label for="animation" class="right"></label></div>
-            </div>
-            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-            <div class="TitleText" name="m181"></div>
-
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown3">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="result_go"></span></div>
-            </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown4">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
-            </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown10">
-                <div class="col s2">
-                    <div class="iconText"><i class="material-icons">opacity</i></div>
-                </div>
-                <div class="col s10"><span class="PrimaryText" name="m224"></span><br><span class="SecondaryText" id="result_line"></span></div>
-            </div>
+            </div>            
         </div>
         <!-- 글꼴 내용 -->
         <div name="fontSettings" class="contents hidden">
@@ -1757,9 +1861,15 @@
         <!-- 공지사항 내용 -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="accordion">                
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-06</font>1.0.5.2 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-11</font>1.0.6 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n9"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-06</font>1.0.5.2 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n8"></p>
                     </div>
