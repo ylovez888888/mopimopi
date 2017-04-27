@@ -2,48 +2,39 @@
 <html>
 
 <head>
-    <!--Import Google Icon Font-->
-    <link href='https://fonts.googleapis.com/earlyaccess/notosansjp.css' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!--Import materialize.css-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:500|Roboto+Condensed" rel="stylesheet"> 
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/mopimopi.css" />
     <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/jscolor.js"></script>
     <script type="text/javascript" src="js/language.js"></script>
+    <script type="text/javascript" src="js/nouislider.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script>
         var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/
     </script>
-
-    <!--Let browser know website is optimized for mobile-->
-    <title>MopiMopi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <!-- 모바일용웹 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- 안드로이드 홈화면추가시 상단 주소창 제거 -->
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" href="images/menu/icon.png">
     <link rel="shortcut icon" href="images/menu/icon.png" />
-    <!-- ios홈화면추가시 상단 주소창 제거 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="images/menu/icon.png">
+    <title>MopiMopi</title>
 
-    <body style="display: none;">
-        <!-- 메인 메뉴 드롭다운 -->
+    <body>
+        <!-- Main Menu -->
         <ul id="dropdown1" class="dropdown-content grey darken-3">
             <ul class="white-text">
                 <div class="left" name="m0"></div>
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
-            <li id="endEncounter" onclick="buttonCotrol(this)">
-                <a class="white-text dropdown-button" name="m4"></a>
-            </li>
             <li id="history" onclick="buttonCotrol(this)"><input type="checkbox">
                 <a class="white-text dropdown-button" name="m7"></a>
             </li>
-
             <li class="divider grey darken-1"></li>
             <li id="hideName" onclick="buttonCotrol(this)"><input type="checkbox">
                 <a class="white-text dropdown-button" name="m3"></a>
@@ -59,238 +50,118 @@
                 <a class="white-text dropdown-button" id="settings" onclick="viewPage(this);" name="m5"></a>
             </li>
         </ul>
-        <!-- 언어 드롭다운 -->
+        <!-- Language -->
         <ul id="dropdown2" class="dropdown-content grey darken-3">
             <ul class="white-text">
                 <div class="left" name="m13"></div>
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
-
-            <li id="kr" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
-                <a class="white-text dropdown-button" name="m92"></a>
+            <li id="kr" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_lang" id="lb-kr" />
+                <label for="lb-kr" class="rdColor"><font style="color:#fff">한국어</font></label>
             </li>
-            <li id="jp" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
-                <a class="white-text dropdown-button" name="m93"></a>
+            <li id="jp" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_lang" id="lb-jp" />
+                <label for="lb-jp" class="rdColor"><font style="color:#fff">日本語</font></label>
             </li>
-            <li id="en" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_lang">
-                <a class="white-text dropdown-button" name="m94"></a>
-            </li>
-        </ul>
-        <!-- 그래프 불투명도 드롭다운 -->
-        <ul id="dropdown3" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m18"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-
-            <li id="graphOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="graphOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="graphOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="graphOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="graphOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_go" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
+            <li id="en" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_lang" id="lb-en" />
+                <label for="lb-en" class="rdColor"><font style="color:#fff">English</font></label>
             </li>
         </ul>
-        <!-- 배경 불투명도 드롭다운 -->
-        <ul id="dropdown4" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m15"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-
-            <li id="bgOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="bgOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="bgOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="bgOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="bgOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_bo" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
-            </li>
-        </ul>
-        <!-- 상단바 불투명도 드롭다운 -->
-        <ul id="dropdown6" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m193"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-
-            <li id="topbarOpacity0" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="topbarOpacity25" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="topbarOpacity50" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="topbarOpacity75" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="topbarOpacity100" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_top" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
-            </li>
-        </ul>
-        <!-- 글자크기 드롭다운 -->
+        <!-- Font Size -->
         <ul id="dropdown5" class="dropdown-content grey darken-3">
             <ul class="white-text">
                 <div class="left" name="m176"></div>
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
-            <li id="smaller" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">8pt<i class="material-icons left">radio_button_unchecked</i></a>
+            <li id="smaller" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_font" id="lb-smaller" />
+                <label for="lb-smaller" class="rdColor"><font style="color:#fff">8pt</font></label>
             </li>
-            <li id="small" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">9pt<i class="material-icons left">radio_button_unchecked</i></a>
+            <li id="small" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_font" id="lb-small" />
+                <label for="lb-small" class="rdColor"><font style="color:#fff">9pt</font></label>
             </li>
-            <li id="normal" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">11pt<i class="material-icons left">radio_button_unchecked</i></a>
+            <li id="normal" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_font" id="lb-normal" />
+                <label for="lb-normal" class="rdColor"><font style="color:#fff">11pt</font></label>
             </li>
-            <li id="big" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_font">
-                <a class="white-text dropdown-button">12pt<i class="material-icons left">radio_button_unchecked</i></a>
+            <li id="big" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_font" id="lb-big" />
+                <label for="lb-big" class="rdColor"><font style="color:#fff">12pt</font></label>
             </li>
         </ul>
-        <!-- 캐릭터 이름 유형 드롭다운 -->
+        <!-- Name Type -->
         <ul id="dropdown7" class="dropdown-content grey darken-3">
             <ul class="white-text">
                 <div class="left" name="m207"></div>
                 <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
             </ul>
-            <li id="AType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
-                <a class="white-text dropdown-button" name="m208"></a>
+            <li id="AType" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_nameType" id="lb-AType" />
+                <label for="lb-AType" class="rdColor"><font style="color:#fff" name="m208"></font></label>
             </li>
-            <li id="BType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
-                <a class="white-text dropdown-button" name="m209"></a>
+            <li id="BType" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_nameType" id="lb-BType" />
+                <label for="lb-BType" class="rdColor"><font style="color:#fff" name="m209"></font></label>
             </li>
-            <li id="CType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
-                <a class="white-text dropdown-button" name="m210"></a>
+            <li id="CType" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_nameType" id="lb-CType" />
+                <label for="lb-CType" class="rdColor"><font style="color:#fff" name="m210"></font></label>
             </li>
-            <li id="DType" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_nameType">
-                <a class="white-text dropdown-button" name="m211"></a>
-            </li>
-        </ul>
-        <!-- 레이드 모드 불투명도 드롭다운 -->
-        <ul id="dropdown8" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m216"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-            <li id="raidOpacity0" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="raidOpacity25" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="raidOpacity50" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="raidOpacity75" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="raidOpacity100" onclick="radioButtonCotrol(this.id)"><input type="radio" name="radio_raid" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
+            <li id="DType" onclick="radioButtonCotrol(this.id)">
+                <input type="radio" class="with-gap" name="radio_nameType" id="lb-DType" />
+                <label for="lb-DType" class="rdColor"><font style="color:#fff" name="m211"></font></label>
             </li>
         </ul>
-        <!-- 헤더 불투명도 -->
-        <ul id="dropdown9" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m221"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-            <li id="headerOpacity0" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="headerOpacity25" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="headerOpacity50" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="headerOpacity75" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="headerOpacity100" onclick="radioButtonCotrol(this.id); topbarSettings();"><input type="radio" name="radio_header" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
-            </li>
-        </ul>
-        <!-- 구분선 불투명도 -->
-        <ul id="dropdown10" class="dropdown-content grey darken-3">
-            <ul class="white-text">
-                <div class="left" name="m224"></div>
-                <div class="right" style="cursor: pointer; -webkit-tap-highlight-color:transparent;"><i class="material-icons">clear</i></div>
-            </ul>
-            <li id="lineOpacity0" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0">
-                <a class="white-text dropdown-button" name="m104"></a>
-            </li>
-            <li id="lineOpacity25" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.25">
-                <a class="white-text dropdown-button" name="m105"></a>
-            </li>
-            <li id="lineOpacity50" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.5">
-                <a class="white-text dropdown-button" name="m106"></a>
-            </li>
-            <li id="lineOpacity75" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="0.75">
-                <a class="white-text dropdown-button" name="m107"></a>
-            </li>
-            <li id="lineOpacity100" onclick="radioButtonCotrol(this.id); opacity();"><input type="radio" name="radio_line" value="1">
-                <a class="white-text dropdown-button" name="m108"></a>
-            </li>
-        </ul>
-        <!-- 상단바 구성 -->
+        <!-- Top bar -->
         <div class="navbar-fixed">
-            <nav>
-                <!-- 메인 상단바 -->
+            <nav class="z-depth-0">
+                <!-- Main Top bar  -->
                 <div name="main" id="mainTopBar" class="nav-wrapper">
                     <ul class="right hidden" name="history">
                         <li id="capture" onclick="buttonCotrol(this);">
-                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="Capture (Only PC)">
+                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
                                 <i class="material-icons mainIcon">photo_camera</i></a>
-                        </li>
+                        </li>                        
+                        <li id="endEncounter" onclick="buttonCotrol(this);">
+                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
+                                <i class="material-icons mainIcon">power_settings_new</i></a>
+                        </li>    
                         <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons" id="clear">clear</i></a></li>
                     </ul>
                     <ul class="right" name="main">
                         <li id="capture" onclick="buttonCotrol(this);">
-                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="Capture (Only PC)">
+                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
                                 <i class="material-icons mainIcon">photo_camera</i></a>
                         </li>
-                        <li onclick="fullscreenCheck()"><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons mainIcon">more_vert</i></a></li>
+                        <li id="endEncounter" onclick="buttonCotrol(this);">
+                            <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
+                                <i class="material-icons mainIcon">power_settings_new</i></a>
+                        </li>                        
+                        <li onclick="fullscreenCheck()">
+                            <a class="dropdown-button" data-activates="dropdown1">
+                            <i class="material-icons mainIcon">more_vert</i></a></li>
                     </ul>
-                    <ul>
-                        <li>
-                            <table class="navbar_text">
-                                <tr>
-                                    <td class="time">00:00</td>
-                                    <td class="info">
-                                        <div class="bigText" name="m0"></div><br>
-                                        <div class="smallText" name="m1"></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
+                    <table class="navbar_text">
+                        <tr>
+                            <td class="time">00:00</td>
+                            <td class="info">
+                                <div class="bigText" name="m0"></div><br>
+                                <div class="smallText" name="m1"></div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div name="main">
-                    <div id="main_page_content_header" style="line-height: 1.1rem;">
+                    <div id="graphTableHeader" style="line-height: 1.1rem;">
                         <div class="headerbg">
-                            <table id="combatantTableHeader" class="tableHeader">
-                                <tbody id="oldHeader"></tbody>
+                            <table id="dpsTableHeader" class="tableHeader">                                
                             </table>
                         </div>
                     </div>
-                    <div id="main_page_history_header" class="hidden" style="line-height: 1.1rem;">
+                    <div id="historyTableHeader" class="hidden" style="line-height: 1.1rem;">
                         <div class="headerbg">
                             <table id="historyHeader" class="tableHeader">
                                 <tr>
@@ -305,77 +176,77 @@
                         </div>
                     </div>
                 </div>
-                <!-- 설정 페이지 상단바 -->
+                <!-- Settings Top bar -->
                 <div name="settingsPage" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="back" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m10"></span></li>
                     </ul>
                 </div>
-                <!-- 기본 ACT 구성 상단바 -->
+                <!-- Bagic ACT Top bar -->
                 <div name="generalACT" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m11"></span></li>
                     </ul>
                 </div>
-                <!-- 힐러 ACT 구성 상단바 -->
+                <!-- Healer ACT Top bar -->
                 <div name="healerACT" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m12"></span></li>
                     </ul>
                 </div>
-                <!-- 그래프 및 글자색 상단바 -->
+                <!-- Graph Color Top bar -->
                 <div name="graphColor" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backGraph" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m17"></span></li>
                     </ul>
                 </div>
-                <!-- 폰트 상단바 -->
+                <!-- Font Change Top bar -->
                 <div name="font" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backfont" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m14"></span></li>
                     </ul>
                 </div>
-                <!-- 글꼴세팅 상단바 -->
+                <!-- Font Settings Top bar -->
                 <div name="fontSettings" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m14"></span></li>
                     </ul>
                 </div>
-                <!-- 셀 너비 상단바 -->
+                <!-- Cell Width Top bar -->
                 <div name="cellWidth" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m16"></span></li>
                     </ul>
                 </div>
-                <!-- 상단바 디자인 상단바 -->
+                <!-- Top bar Desinge Top bar -->
                 <div name="design" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m19"></span></li>
                     </ul>
                 </div>
-                <!-- 그래프 상단바 -->
+                <!-- Graph Settings Top bar -->
                 <div name="graph" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m23"></span></li>
                     </ul>
                 </div>
-                <!-- 개발자 상단바 -->
+                <!-- Developer Top bar -->
                 <div name="developer" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
                         <li><span class="topbarText" name="m200"></span></li>
                     </ul>
                 </div>
-                <!-- 공지사항 상단바 -->
+                <!-- Notice Top bar -->
                 <div name="notice" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
@@ -384,25 +255,16 @@
                 </div>
             </nav>
         </div>
-        <!-- 메인 내용 -->
+        <!-- Main Contents -->
         <div name="main" id="wrap">
-            <div id="main_page_content">
-                <div id="combatantTableBody">
-                    <div id="oldBody"></div>
-                </div>
-                <div id="healerTable" class="hidden">
-                    <div class="headerbg">
-                        <table id="healerTableHeader" class="tableHeader">
-                            <tbody id="healerOldHeader"></tbody>
-                        </table>
-                    </div>
-                    <div id="healerTableBody">
-                        <div id="healerOldBody"></div>
-                    </div>
+            <div id="graphTableBody">
+                <div id="dpsTableBody"></div>
+                <div id="hpsTable" class="hidden">
+                    <div class="headerbg"><table id="hpsTableHeader" class="tableHeader"></table></div>
+                    <div id="hpsTableBody"></div>
                 </div>
             </div>
-
-            <div id="main_page_history" class="hidden">
+            <div id="historyTableBody" class="hidden">
                 <div id="historyBody">
                     <div id="historyListBody">
                         <div id="oldHistoryBody"></div>
@@ -410,12 +272,13 @@
                 </div>
             </div>
         </div>
-        <div name="raid" id="raidTableBody">
-            <ul id="raidOldBody"></ul>
-            <ul id="healerRaidOldBody" class="hidden"></ul>
+        <div name="raid">
+            <div id="dpsTempTable" class="hidden"></div>
+            <div id="hpsTempTable" class="hidden"></div>
+            <ul id="dpsRaidTable" class="collapsible raid"></ul>
+            <ul id="hpsRaidTable" class="collapsible raid hidden"></ul>
         </div>
-
-        <!-- 설정 페이지 내용 -->
+        <!-- All Settings -->
         <div name="settingsPage" class="contents hidden">
 
             <div class="TitleText" name="m20"></div>
@@ -440,7 +303,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m80"></span><br><span class="SecondaryText" name="m81"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="pets" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="pets" />
                     <label for="pets" class="right"></label>
                 </div>
             </div>
@@ -450,7 +313,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m82"></span><br><span class="SecondaryText" name="m83"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="number" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="number" />
                     <label for="number" class="right"></label>
                 </div>
             </div>
@@ -460,7 +323,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m84"></span><br><span class="SecondaryText" name="m85"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="comma" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="comma" />
                     <label for="comma" class="right"></label>
                 </div>
             </div>
@@ -471,7 +334,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m212"></span><br><span class="SecondaryText" name="m213"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="ranking" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="ranking" />
                     <label for="ranking" class="right"></label>
                 </div>
             </div>
@@ -479,7 +342,7 @@
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">edit</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m207"></span><br><span class="SecondaryText" id="result_nameType"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="m207"></span><br><span class="SecondaryText" id="r_nameType"></span></div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -489,7 +352,7 @@
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">translate</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m13"></span><br><span class="SecondaryText" id="result_Lang"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="m13"></span><br><span class="SecondaryText" id="r_Lang"></span></div>
             </div>
             <div class="tile waves-effect row" id="fontSettings" onclick="viewPage(this)">
                 <div class="col s2">
@@ -562,7 +425,7 @@
                 </div>
             </div>
         </div>
-        <!-- 기본 ACT 구성 내용 -->
+        <!-- Bagic ACT -->
         <div name="generalACT" class="contents hidden">
             <div class="TitleText" name="m32"></div>
             <div class="row tile waves-effect" name="custom1" onclick="starIcon('custom1')">
@@ -808,7 +671,7 @@
                 <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
             </div>
         </div>
-        <!-- 힐러 ACT 구성 내용 -->
+        <!-- Healer ACT -->
         <div name="healerACT" class="contents hidden">
             <div class="TitleText" name="m32"></div>
             <div class="row tile waves-effect" name="custom40" onclick="starIcon('custom40')">
@@ -918,7 +781,7 @@
                 <div class="col s10"><span class="PrimaryText">Death</span><br><span class="SecondaryText" name="m75"></span></div>
             </div>
         </div>
-        <!-- 그래프 색상 내용 -->
+        <!-- Graph Color -->
         <div name="graphColor" class="contents hidden">
             <div class="TitleText" name="m97"></div>
             <div class="tile waves-effect row" id="youColor" onclick="buttonCotrol(this)">
@@ -927,7 +790,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m205"></span><br><span class="SecondaryText" name="m206"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="youColor" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="youColor" />
                     <label for="youColor" class="right"></label>
                 </div>
             </div>
@@ -953,7 +816,7 @@
                         <div id="background" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="background" placeholder="" type="text" name="background" onChange="jscolorUpdate(this.jscolor)" autocomplete="off"
+                        <input id="background" placeholder="" type="text" name="background" onChange="jscolorUpdate(this.jscolor);" autocomplete="off"
                             autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'background',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="background" name="m9"></label>
                     </div>
@@ -1243,13 +1106,15 @@
                 </div>
             </div>
         </div>
-        <!-- 폰트 내용 -->
+        <!-- Font Change -->
         <div name="font" class="contents hidden">
             <div class="TitleText" name="m102"></div>
             <div class="tile" style="cursor: default">
-                <div class="row col s12 SecondaryText amber-text" name="m103"></div>
-                <br>
-                <div class="row col s12 SecondaryText red-text" name="m101"></div>
+                <div class="row">
+                    <div class="col s12 SecondaryText amber-text" name="m103"></div>
+                    <br>
+                    <div class="row col s12 SecondaryText red-text" name="m101"></div>
+                </div>
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1291,7 +1156,7 @@
                 </div>
             </div>
         </div>
-        <!-- 셀 너비 내용 -->
+        <!-- Cell Width -->
         <div name="cellWidth" class="contents hidden">
 
             <div class="TitleText" name="m109"></div>
@@ -1383,7 +1248,7 @@
                 </tr>
             </table>
         </div>
-        <!-- 상단바 디자인 내용 -->
+        <!-- Top bar Design -->
         <div name="design" class="contents hidden">
 
             <div class="TitleText" name="m97"></div>
@@ -1411,10 +1276,13 @@
                                 <div class="smallText" name="m1"></div>
                             </td>
                             <td>
-                                <i class="material-icons mainIcon" style="padding:0 1.5rem;">photo_camera</i>
+                                <i class="material-icons mainIcon" style="padding:0 1.25rem;">photo_camera</i>
                             </td>
                             <td>
-                                <i class="material-icons mainIcon" style="padding:0 1.5rem;">more_vert</i>
+                                <i class="material-icons mainIcon" style="padding:0 1.25rem;">power_settings_new</i>
+                            </td>
+                            <td>
+                                <i class="material-icons mainIcon" style="padding:0 1.25rem;">more_vert</i>
                             </td>
                         </tr>
                     </table>
@@ -1442,7 +1310,7 @@
                         <div id="accentColor" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="accentColor" placeholder="" type="text" name="accentColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="accentColor" placeholder="" type="text" name="accentColor" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'accentColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="accentColor" name="m9"></label>
                     </div>
@@ -1455,7 +1323,7 @@
                         <div id="borderColor" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="borderColor" placeholder="" type="text" name="borderColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="borderColor" placeholder="" type="text" name="borderColor" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'borderColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="accentColor" name="m9"></label>
                     </div>
@@ -1468,7 +1336,7 @@
                         <div id="topbarBackgroundColor" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="topbarBackgroundColor" placeholder="" type="text" name="topbarBackgroundColor" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'topbarBackgroundColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="accentColor" name="m9"></label>
                     </div>
@@ -1481,7 +1349,7 @@
                         <div id="header" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="header" placeholder="" type="text" name="header" onChange="jscolorUpdate(this.jscolor); topbarSettings() ;" autocomplete="off"
+                        <input id="headerColor" placeholder="" type="text" name="header" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);" autocomplete="off"
                             autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'header',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="header" name="m9"></label>
                     </div>
@@ -1494,7 +1362,7 @@
                         <div id="bigTextColor" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="bigTextColor" placeholder="" type="text" name="bigTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="bigTextColor" placeholder="" type="text" name="bigTextColor" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'bigTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="bigTextColor" name="m9"></label>
                     </div>
@@ -1507,7 +1375,7 @@
                         <div id="smallTextColor" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="smallTextColor" placeholder="" type="text" name="smallTextColor" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="smallTextColor" placeholder="" type="text" name="smallTextColor" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'smallTextColor',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="smallTextColor" name="m9"></label>
                     </div>
@@ -1520,7 +1388,7 @@
                         <div id="headerText" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="headerText" placeholder="" type="text" name="headerText" onChange="jscolorUpdate(this.jscolor); topbarSettings();"
+                        <input id="headerText" placeholder="" type="text" name="headerText" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate(this.id);"
                             autocomplete="off" autocapitalize="off" autocorrect="off" class="jscolor{styleElement:'headerText',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="headerText" name="m9"></label>
                     </div>
@@ -1528,41 +1396,42 @@
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m181"></div>
-
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown6">
+            <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="result_top"></span></div>
+                <div class="col s5"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="r_to"></span></div>
+                <div class="col s5" id="range_to"></div>
             </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown9">
+            <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="result_header"></span></div>
+                <div class="col s5"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="r_ho"></span></div>
+                <div class="col s5" id="range_ho"></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
-            <div class="tile waves-effect row" id="edge" onclick="buttonCotrol(this); topbarSettings();">
+            <div class="tile waves-effect row" id="edge" onclick="buttonCotrol(this); onSettingsUpdate(this.id);">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">rounded_corner</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m194"></span><br><span class="SecondaryText" name="m195"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="edge" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="edge" />
                     <label for="edge" class="right"></label></div>
             </div>
-            <div class="tile waves-effect row" id="border" onclick="buttonCotrol(this); topbarSettings();">
+            <div class="tile waves-effect row" id="border" onclick="buttonCotrol(this); onSettingsUpdate(this.id);">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">border_outer</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m197"></span><br><span class="SecondaryText" name="m198"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="border" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="border" />
                     <label for="border" class="right"></label></div>
             </div>
         </div>
-        <!-- 그래프 내용 -->
+        <!-- Graph Settings -->
         <div name="graph" class="contents hidden">
             <div class="TitleText" name="m97"></div>
             <div class="tile waves-effect row" id="petAction" onclick="buttonCotrol(this)">
@@ -1571,7 +1440,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m170"></span><br><span class="SecondaryText" name="m171"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="petAction" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="petAction" />
                     <label for="petAction" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="raidMode" onclick="buttonCotrol(this)">
@@ -1580,7 +1449,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m217"></span><br><span class="SecondaryText" name="m218"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="raidMode" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="raidMode" />
                     <label for="raidMode" class="right"></label></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
@@ -1599,102 +1468,102 @@
                         </tr>
                     </table>
                 </div>
-             <div id="Merge">  
-                <div style="position: relative">
-                <table class="tableBody">
-                    <tbody>
-                        <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
-                            <td class="nameCell" name="rankingName2"></td>
-                            <td id="c1" class="narrowCell2" value="1234.56"></td>
-                            <td id="c2" class="narrowCell1" value="12.3"></td>
-                            <td id="c3" class="wideCell1" value="123456"></td>
-                            <td id="c4" class="wideCell2" value="1234"></td>
-                            <td class="narrowCell1">0</td>
-                        </tr>
-                    </tbody>
-                </table> 
-                <div class="bar" id="previewBar1" style="width: 100%;">    
-                <span class="bar barDeal pet" id="previewBar3" style="width: 25%;"></span>     
-                </div>                      
-                <div class="barBg"></div>
-                <li class="divider" name="previewLine"></li>
-                </div>      
-                <div style="position: relative">
-                <table class="tableBody">
-                    <tbody>
-                        <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
-                            <td class="nameCell" name="rankingName3"></td>
-                            <td id="c5" class="narrowCell2" value="617.28"></td>
-                            <td id="c6" class="narrowCell1" value="6.1"></td>
-                            <td id="c7" class="wideCell1" value="61728"></td>
-                            <td id="c8" class="wideCell2" value="617"></td>
-                            <td class="narrowCell1">0</td>
-                        </tr>
-                    </tbody>
-                </table> 
-                <div class="bar" id="previewBar2" style="width: 50%;"></div>                               
-                <div class="barBg"></div>
-                <li class="divider" name="previewLine"></li>
-                </div> 
-            </div>
-             <div id="NoMerge" class="hidden">
-                <div style="position: relative">
-                <table class="tableBody">
-                    <tbody>
-                        <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
-                            <td class="nameCell" name="rankingName2"></td>
-                            <td id="c9" class="narrowCell2" value="925.92"></td>
-                            <td id="c10" class="narrowCell1" value="9.3"></td>
-                            <td id="c11" class="wideCell1" value="92592"></td>
-                            <td id="c12" class="wideCell2" value="1234"></td>
-                            <td class="narrowCell1">0</td>
-                        </tr>
-                    </tbody>
-                </table> 
-                <div class="bar" id="previewBar4" style="width: 100%;"></div>                      
-                <div class="barBg"></div>
-                <li class="divider" name="previewLine"></li>
-                </div>      
-                <div style="position: relative">
-                <table class="tableBody">
-                    <tbody>
-                        <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
-                            <td class="nameCell" name="rankingName3"></td>
-                            <td id="c13" class="narrowCell2" value="617.28"></td>
-                            <td id="c14" class="narrowCell1" value="6.1"></td>
-                            <td id="c15" class="wideCell1" value="61728"></td>
-                            <td id="c16" class="wideCell2" value="617"></td>
-                            <td class="narrowCell1">0</td>
-                        </tr>
-                    </tbody>
-                </table> 
-                <div class="bar" id="previewBar5" style="width: 66%;"></div>                               
-                <div class="barBg"></div>
-                <li class="divider" name="previewLine"></li>
-                </div> 
-                <div style="position: relative">
-                <table class="tableBody">
-                    <tbody>
-                        <tr>
-                            <td class="iconCell"><img class="pngIcon" src="images/glow/ava.png"></td>
-                            <td class="nameCell" name="rankingName4"></td>
-                            <td id="c17" class="narrowCell2" value="308.64"></td>
-                            <td id="c18" class="narrowCell1" value="3.0"></td>
-                            <td id="c19" class="wideCell1" value="30864"></td>
-                            <td id="c20" class="wideCell2" value="308"></td>
-                            <td class="narrowCell1">0</td>
-                        </tr>
-                    </tbody>
-                </table> 
-                <div class="bar" id="previewBar6" style="width: 33%;"></div>                               
-                <div class="barBg"></div>
-                <li class="divider" name="previewLine"></li>
-                </div> 
-            </div>
+                <div id="Merge">
+                    <div style="position: relative">
+                        <table class="tableBody">
+                            <tbody>
+                                <tr>
+                                    <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
+                                    <td class="nameCell" name="rankingName2"></td>
+                                    <td id="c1" class="narrowCell2" value="1234.56"></td>
+                                    <td id="c2" class="narrowCell1" value="12.3"></td>
+                                    <td id="c3" class="wideCell1" value="123456"></td>
+                                    <td id="c4" class="wideCell2" value="1234"></td>
+                                    <td class="narrowCell1">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bar" id="previewBar1" style="width: 100%;">
+                            <span class="bar barDeal pet" id="previewBar3" style="width: 25%;"></span>
+                        </div>
+                        <div class="barBg"></div>
+                        <li class="divider" name="previewLine"></li>
+                    </div>
+                    <div style="position: relative">
+                        <table class="tableBody">
+                            <tbody>
+                                <tr>
+                                    <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
+                                    <td class="nameCell" name="rankingName3"></td>
+                                    <td id="c5" class="narrowCell2" value="617.28"></td>
+                                    <td id="c6" class="narrowCell1" value="6.1"></td>
+                                    <td id="c7" class="wideCell1" value="61728"></td>
+                                    <td id="c8" class="wideCell2" value="617"></td>
+                                    <td class="narrowCell1">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bar" id="previewBar2" style="width: 50%;"></div>
+                        <div class="barBg"></div>
+                        <li class="divider" name="previewLine"></li>
+                    </div>
+                </div>
+                <div id="NoMerge" class="hidden">
+                    <div style="position: relative">
+                        <table class="tableBody">
+                            <tbody>
+                                <tr>
+                                    <td class="iconCell"><img class="pngIcon" src="images/glow/smn.png"></td>
+                                    <td class="nameCell" name="rankingName2"></td>
+                                    <td id="c9" class="narrowCell2" value="925.92"></td>
+                                    <td id="c10" class="narrowCell1" value="9.3"></td>
+                                    <td id="c11" class="wideCell1" value="92592"></td>
+                                    <td id="c12" class="wideCell2" value="1234"></td>
+                                    <td class="narrowCell1">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bar" id="previewBar4" style="width: 100%;"></div>
+                        <div class="barBg"></div>
+                        <li class="divider" name="previewLine"></li>
+                    </div>
+                    <div style="position: relative">
+                        <table class="tableBody">
+                            <tbody>
+                                <tr>
+                                    <td class="iconCell"><img class="pngIcon" src="images/glow/cbo.png"></td>
+                                    <td class="nameCell" name="rankingName3"></td>
+                                    <td id="c13" class="narrowCell2" value="617.28"></td>
+                                    <td id="c14" class="narrowCell1" value="6.1"></td>
+                                    <td id="c15" class="wideCell1" value="61728"></td>
+                                    <td id="c16" class="wideCell2" value="617"></td>
+                                    <td class="narrowCell1">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bar" id="previewBar5" style="width: 66%;"></div>
+                        <div class="barBg"></div>
+                        <li class="divider" name="previewLine"></li>
+                    </div>
+                    <div style="position: relative">
+                        <table class="tableBody">
+                            <tbody>
+                                <tr>
+                                    <td class="iconCell"><img class="pngIcon" src="images/glow/ava.png"></td>
+                                    <td class="nameCell" name="rankingName4"></td>
+                                    <td id="c17" class="narrowCell2" value="308.64"></td>
+                                    <td id="c18" class="narrowCell1" value="3.0"></td>
+                                    <td id="c19" class="wideCell1" value="30864"></td>
+                                    <td id="c20" class="wideCell2" value="308"></td>
+                                    <td class="narrowCell1">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bar" id="previewBar6" style="width: 33%;"></div>
+                        <div class="barBg"></div>
+                        <li class="divider" name="previewLine"></li>
+                    </div>
+                </div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m129"></div>
@@ -1705,25 +1574,27 @@
                 <div class="col s10"><span class="PrimaryText" name="m17"></span><br><span class="SecondaryText" name="m119"></span></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-
             <div class="TitleText" name="m181"></div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown3">
+            <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="result_go"></span></div>
+                <div class="col s5"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="r_go"></span></div>
+                <div class="col s5" id="range_go"></div>
             </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown4">
+            <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="result_bo"></span></div>
+                <div class="col s5"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="r_bo"></span></div>
+                <div class="col s5" id="range_bo"></div>
             </div>
-            <div class="tile waves-effect dropdown-button row" data-activates="dropdown10">
+            <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m224"></span><br><span class="SecondaryText" id="result_line"></span></div>
+                <div class="col s5"><span class="PrimaryText" name="m224"></span><br><span class="SecondaryText" id="r_lo"></span></div>
+                <div class="col s5" id="range_lo"></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
@@ -1733,7 +1604,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m88"></span><br><span class="SecondaryText" name="m89"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="line" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="line" />
                     <label for="line" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="gradation" onclick="buttonCotrol(this)">
@@ -1742,7 +1613,7 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m120"></span><br><span class="SecondaryText" name="m121"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="gradation" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="gradation" />
                     <label for="gradation" class="right"></label></div>
             </div>
             <div class="tile waves-effect row" id="animation" onclick="buttonCotrol(this)">
@@ -1751,11 +1622,11 @@
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m122"></span><br><span class="SecondaryText" name="m123"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="animation" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="animation" />
                     <label for="animation" class="right"></label></div>
-            </div>            
+            </div>
         </div>
-        <!-- 글꼴 내용 -->
+        <!-- Font Settings -->
         <div name="fontSettings" class="contents hidden">
             <div class="TitleText" name="m14"></div>
             <div class="tile waves-effect row" id="font" onclick="viewPage(this)">
@@ -1771,7 +1642,7 @@
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">format_size</i></div>
                 </div>
-                <div class="col s10"><span class="PrimaryText" name="m176"></span><br><span class="SecondaryText" id="result_font"></span></div>
+                <div class="col s10"><span class="PrimaryText" name="m176"></span><br><span class="SecondaryText" id="r_font"></span></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m129"></div>
@@ -1782,7 +1653,7 @@
                         <div id="me" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="me" placeholder="" type="text" name="me" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                        <input id="me" placeholder="" type="text" name="me" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate('textColor');" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'me',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="me" name="m9"></label>
                     </div>
@@ -1795,7 +1666,7 @@
                         <div id="other" class="circle z-depth-1"></div>
                     </div>
                     <div class="input-field col s4">
-                        <input id="other" placeholder="" type="text" name="other" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                        <input id="other" placeholder="" type="text" name="other" onChange="jscolorUpdate(this.jscolor); onSettingsUpdate('textColor');" autocomplete="off" autocapitalize="off"
                             autocorrect="off" class="jscolor{styleElement:'other',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
                         <label class="active" for="other" name="m9"></label>
                     </div>
@@ -1804,28 +1675,28 @@
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
 
-            <div class="tile waves-effect row" id="meBold" onclick="buttonCotrol(this)">
+            <div class="tile waves-effect row" id="meBold" onclick="buttonCotrol(this); onSettingsUpdate('bold');">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m186"></span><br><span class="SecondaryText" name="m187"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="meBold" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="meBold" />
                     <label for="meBold" class="right"></label></div>
             </div>
-            <div class="tile waves-effect row" id="otherBold" onclick="buttonCotrol(this)">
+            <div class="tile waves-effect row" id="otherBold" onclick="buttonCotrol(this); onSettingsUpdate('bold');">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_bold</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m188"></span><br><span class="SecondaryText" name="m189"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="otherBold" checked="checked" />
+                    <input type="checkbox" class="filled-in" id="otherBold" />
                     <label for="otherBold" class="right"></label></div>
             </div>
 
 
         </div>
-        <!-- 개발자 소개 내용 -->
+        <!-- Developer -->
         <div name="developer" class="contents hidden">
             <div class="TitleText" name="m154"></div>
 
@@ -1858,12 +1729,18 @@
             </div>
 
         </div>
-        <!-- 공지사항 내용 -->
+        <!-- Notice -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="accordion">                
+            <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-11</font>1.0.6 업데이트 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-27</font>1.0.7.4 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n10"></p>
+                    </div>
+                </li>                
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-11</font>1.0.6 업데이트 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n9"></p>
                     </div>
@@ -1918,8 +1795,6 @@
                 </li>
             </ul>
         </div>
-
-        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/core.js"></script>
         <script type="text/javascript" src="js/mopimopi.js"></script>
     </body>
