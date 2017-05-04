@@ -4,17 +4,13 @@
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Montserrat:500|Roboto+Condensed" rel="stylesheet"> 
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" media="screen,projection" />
+    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/mopimopi.css" />
-    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/jscolor.js"></script>
     <script type="text/javascript" src="js/language.js"></script>
-    <script type="text/javascript" src="js/nouislider.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script>
-        var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/
-    </script>
+    <script>var wsUri = "ws://@HOST_PORT@/MiniParse"; /*DO NOT EDIT THIS VALUE*/</script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -1401,14 +1397,14 @@
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
                 <div class="col s5"><span class="PrimaryText" name="m193"></span><br><span class="SecondaryText" id="r_to"></span></div>
-                <div class="col s5" id="range_to"></div>
+                <div class="col s5" id="range_to"><input type="range" min="0" max="100"/></div>
             </div>
             <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
                 <div class="col s5"><span class="PrimaryText" name="m221"></span><br><span class="SecondaryText" id="r_ho"></span></div>
-                <div class="col s5" id="range_ho"></div>
+                <div class="col s5" id="range_ho"><input type="range" min="0" max="100"/></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
@@ -1580,21 +1576,21 @@
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
                 <div class="col s5"><span class="PrimaryText" name="m18"></span><br><span class="SecondaryText" id="r_go"></span></div>
-                <div class="col s5" id="range_go"></div>
+                <div class="col s5" id="range_go"><input type="range" min="0" max="100"/></div>
             </div>
             <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
                 <div class="col s5"><span class="PrimaryText" name="m15"></span><br><span class="SecondaryText" id="r_bo"></span></div>
-                <div class="col s5" id="range_bo"></div>
+                <div class="col s5" id="range_bo"><input type="range" min="0" max="100"/></div>
             </div>
             <div class="tile row" style="cursor: default">
                 <div class="col s2">
                     <div class="iconText"><i class="material-icons">opacity</i></div>
                 </div>
                 <div class="col s5"><span class="PrimaryText" name="m224"></span><br><span class="SecondaryText" id="r_lo"></span></div>
-                <div class="col s5" id="range_lo"></div>
+                <div class="col s5" id="range_lo"><input type="range" min="0" max="100"/></div>
             </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m204"></div>
@@ -1734,7 +1730,13 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-30</font>1.0.7.6 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-05-05</font>1.0.7.7 버그 패치 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n13"></p>
+                    </div>
+                </li>  
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-04-30</font>1.0.7.6 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n12"></p>
                     </div>
