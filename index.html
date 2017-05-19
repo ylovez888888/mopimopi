@@ -139,7 +139,7 @@
                                 <i class="material-icons mainIcon">power_settings_new</i></a>
                         </li>
                         <li id="more" onclick="fullscreenCheck()">
-                            <a class="dropdown-button tooltipped" data-activates="dropdown1" data-position="bottom" data-delay="25" data-tooltip=""> 
+                            <a class="dropdown-button" data-activates="dropdown1"> 
                             <i class="material-icons mainIcon">more_vert</i></a>
                         </li>
                     </ul>
@@ -780,10 +780,20 @@
             <div class="TitleText" name="m225"></div>  
             <div class="tile waves-effect row dropdown-button" data-activates="dropdown7">
                 <div class="col s2">
-                    <div class="iconText"><i class="material-icons">edit</i></div>
+                    <div class="iconText"><i class="material-icons">content_cut</i></div>
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m207"></span><br><span class="SecondaryText" id="r_nameType"></span></div>
             </div>
+            <div class="tile waves-effect row" id="abb" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">content_cut</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m229"></span><br><span class="SecondaryText" name="m230"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="abb" />
+                    <label for="abb" class="right"></label>
+                </div>
+            </div>     
             <div class="tile waves-effect row" id="dot" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">format_quote</i></div>
