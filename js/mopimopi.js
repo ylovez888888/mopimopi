@@ -91,10 +91,10 @@ closeHistory();lastCombat=new Combatant(e,'encdps');lastCombatHPS=new Combatant(
 function update(){if(lastCombat===null){return}else onUpdateUserData()}
 function onUpdateUserData(){$("nav [name=main]").find(".time").text(lastCombat.duration);$("nav [name=main]").find(".info .bigText").text(lastCombat.title);$("nav [name=main]").find(".info .smallText").text("RD "+addComma(parseFloat(lastCombat.Encounter.encdps).toFixed(0))+"　RH "+addComma(parseFloat(lastCombat.Encounter.enchps).toFixed(0)));if(localStorage.getItem("pets")==0){lastCombat.summonerMerge=!1;lastCombat.DetachPets();lastCombat.resort("damage",1);lastCombatHPS.summonerMerge=!1;lastCombatHPS.DetachPets();lastCombatHPS.resort("healed",1)}else{lastCombat.summonerMerge=!0;lastCombat.AttachPets();lastCombat.resort("mergedDamage",1);lastCombatHPS.summonerMerge=!0;lastCombatHPS.AttachPets();lastCombatHPS.resort("mergedHealed",1)}
 if(lastCombat.title=='Encounter'&&saveLogFlag==!0){$('#dpsTableBody, #dpsTableHeader tr, #hpsTableBody, #hpsTableHeader tr, #dpsTempTable, #hpsTempTable, #dpsRaidTable, #hpsRaidTable').html('');saveLogFlag=!1}
-var dpsPet=0,hpsPet=0,hpsUser=0,dpsUser=0;for(var d in lastCombat.persons){var a=lastCombat.persons[d];if(lastCombat.summonerMerge==!0&&a.get("Job")=='AVA'){}else{if(a.get("petOwner")==""){if(a.get("role")!='Healer')
-dpsUser++;else hpsUser++}else{if(a.get("role")!='Healer')
-dpsPet++;else hpsPet++}}}
-dpsUsers=dpsUser+hpsUser+dpsPet+hpsPet;hpsUsers=hpsUser+hpsPet;OnlyUsers=dpsUsers-dpsPet-hpsPet;console.log(dpsUser+' '+hpsUser+' '+dpsPet+' '+hpsPet)
+var dpsPet=0,hpsPet=0,hpsUser=0,dpsUser=0;for(var d in lastCombat.persons){var a=lastCombat.persons[d];if(lastCombat.summonerMerge==!0&&a.get("Job")=='AVA'){}else{if(a.get("petOwner")!=""&&a.get("petOwner")!=undefined){if(a.get("role")!='Healer')
+dpsPet++;else hpsPet++}else{if(a.get("role")!='Healer')
+dpsUser++;else hpsUser++}}}
+dpsUsers=dpsUser+hpsUser+dpsPet+hpsPet;hpsUsers=hpsUser+hpsPet;OnlyUsers=dpsUser+hpsUser;console.log(dpsUser+' '+hpsUser+' '+dpsPet+' '+hpsPet)
 if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){tableFlag=1;adjustTopbarHeight();onCreateTable(lastCombat,'dps','dpsTempTable');if(localStorage.getItem('HPS')==1)
 onCreateTable(lastCombatHPS,'hps','hpsTempTable');$('#dpsRaidTable,#hpsRaidTable').attr("data-collapsible","accordion");$('.collapsible').collapsible();if(viewSettingsFlag==!1){$('#graphTableHeader, #graphTableBody').addClass('hidden');$('[name=raid]').removeClass('hidden')}else{$('[name=main],[name=raid]').addClass('hidden')}}else{tableFlag=2;adjustTopbarHeight();onCreateTable(lastCombat,'dps','dpsTableBody');if(localStorage.getItem('HPS')==1)
 onCreateTable(lastCombatHPS,'hps','hpsTableBody');$('#graphTableHeader, #graphTableBody').removeClass('hidden');$('[name=raid]').addClass('hidden')}
