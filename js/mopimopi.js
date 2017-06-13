@@ -94,7 +94,8 @@ if(lastCombat.title=='Encounter'&&saveLogFlag==!0){$('#dpsTableBody, #dpsTableHe
 var dpsPet=0,hpsPet=0,hpsUser=0,dpsUser=0;for(var d in lastCombat.persons){var a=lastCombat.persons[d];if(lastCombat.summonerMerge==!0&&a.get("Job")=='AVA'){}else{if(a.get("petOwner")==""){if(a.get("role")!='Healer')
 dpsUser++;else hpsUser++}else{if(a.get("role")!='Healer')
 dpsPet++;else hpsPet++}}}
-dpsUsers=dpsUser+hpsUser+dpsPet+hpsPet;hpsUsers=hpsUser+hpsPet;OnlyUsers=dpsUsers-dpsPet-hpsPet;if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){tableFlag=1;adjustTopbarHeight();onCreateTable(lastCombat,'dps','dpsTempTable');if(localStorage.getItem('HPS')==1)
+dpsUsers=dpsUser+hpsUser+dpsPet+hpsPet;hpsUsers=hpsUser+hpsPet;OnlyUsers=dpsUsers-dpsPet-hpsPet;console.log(OnlyUsers)
+if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){tableFlag=1;adjustTopbarHeight();onCreateTable(lastCombat,'dps','dpsTempTable');if(localStorage.getItem('HPS')==1)
 onCreateTable(lastCombatHPS,'hps','hpsTempTable');$('#dpsRaidTable,#hpsRaidTable').attr("data-collapsible","accordion");$('.collapsible').collapsible();if(viewSettingsFlag==!1){$('#graphTableHeader, #graphTableBody').addClass('hidden');$('[name=raid]').removeClass('hidden')}else{$('[name=main],[name=raid]').addClass('hidden')}}else{tableFlag=2;adjustTopbarHeight();onCreateTable(lastCombat,'dps','dpsTableBody');if(localStorage.getItem('HPS')==1)
 onCreateTable(lastCombatHPS,'hps','hpsTableBody');$('#graphTableHeader, #graphTableBody').removeClass('hidden');$('[name=raid]').addClass('hidden')}
 customFlag=!1}
