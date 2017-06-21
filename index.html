@@ -102,7 +102,7 @@
                         </li>
                         <li id="endEncounter" onclick="buttonCotrol(this);">
                             <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
-                                <i class="material-icons mainIcon">power_settings_new</i></a>
+                                <i class="material-icons mainIcon">timer_off</i></a>
                         </li>
                         <li onclick="closeHistory()"><a class="dropdown-button"><i class="material-icons" id="clear">clear</i></a></li>
                     </ul>
@@ -113,7 +113,7 @@
                         </li>
                         <li id="endEncounter" onclick="buttonCotrol(this);">
                             <a class="tooltipped" data-position="bottom" data-delay="25" data-tooltip="">
-                                <i class="material-icons mainIcon">power_settings_new</i></a>
+                                <i class="material-icons mainIcon">timer_off</i></a>
                         </li>
                         <li id="more" onclick="fullscreenCheck()">
                             <a class="dropdown-button tooltipped" data-activates="dropdown1" data-position="bottom" data-delay="25" data-tooltip=""> 
@@ -723,6 +723,16 @@
         <!-- Data Progressing -->
         <div name="dataProgressing" class="contents hidden">
             <div class="TitleText" name="m97"></div>
+            <div class="tile waves-effect row" id="autoHide" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">visibility_off</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m233"></span><br><span class="SecondaryText" name="m234"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="autoHide" />
+                    <label for="autoHide" class="right"></label>
+                </div>
+            </div>
             <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">exposure_plus_2</i></div>
@@ -987,6 +997,19 @@
             </div>
             <div class="tile" style="cursor: default">
                 <div class="row">
+                    <div class="col s5" name="m231"></div>
+                    <div class="col s3">
+                        <div id="dps8" class="circle z-depth-1"><img src="images/glow/sam.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps8" placeholder="" type="text" name="dps8" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps8',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="dps8" name="m9"></label>
+                    </div>
+                </div>
+            </div>            
+            <div class="tile" style="cursor: default">
+                <div class="row">
                     <div class="col s5" name="m141"></div>
                     <div class="col s3">
                         <div id="dps6" class="circle z-depth-1"><img src="images/glow/brd.png"></div>
@@ -1037,6 +1060,19 @@
                     </div>
                 </div>
             </div>
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s5" name="m232"></div>
+                    <div class="col s3">
+                        <div id="dps9" class="circle z-depth-1"><img src="images/glow/rdm.png"></div>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="dps9" placeholder="" type="text" name="dps9" onChange="jscolorUpdate(this.jscolor)" autocomplete="off" autocapitalize="off"
+                            autocorrect="off" class="jscolor{styleElement:'dps9',width:200, padding:10, shadow:false, borderWidth:0, backgroundColor:'transparent', insetColor:'#000'}">
+                        <label class="active" for="dps9" name="m9"></label>
+                    </div>
+                </div>
+            </div>                  
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m127"></div>
             <div class="tile" style="cursor: default">
@@ -1752,7 +1788,13 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-14</font>1.0.9.7 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-21</font>1.1.0 업데이트 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n19"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-14</font>1.0.9.7 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n18"></p>
                     </div>
