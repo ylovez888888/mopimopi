@@ -31,13 +31,13 @@ adjustTopbarHeight();else{adjustCellWidth();$('#previewH td').css('background','
 $(field).val(currentVal-2);else if(id=="btnFontSize"){var val=calFontSize(currentVal,'minus');$(field).val(val)}else $(field).val(currentVal-1);localStorage.setItem(id,parseInt($(field).val()));if(id=='btnFontSize')
 setFontSize(val);else if(id=="topbarHeight")
 adjustTopbarHeight();else{adjustCellWidth();$('#previewH td').css('background','rgba(0,0,0,1)');$('#previewH td').css('color','#bdbdbd');$('#previewH .'+id).css('background','#fff');$('#previewH .'+id).css('color','#000')}}});var obj;function autoHidden(flag){if(localStorage.getItem("autoHide")==0||OnlyUsers==0)
-return;else{if(flag=="OFF"){obj=setTimeout(function(){if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').fadeOut(500)}
-else{$('#graphTableBody, #graphTableHeader').fadeOut(500)}
+return;else{if(flag=="OFF"){obj=setTimeout(function(){if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').fadeOut(500);$('[name=raid]').addClass('hidden')}
+else{$('#graphTableBody, #graphTableHeader').fadeOut(500);$('#graphTableBody, #graphTableHeader').addClass('hidden')}
 if($('[name=main]').hasClass("hidden")==!1&&localStorage.getItem("autoHide")==1){if(localStorage.getItem("language")=="kr")
 var $toastContent=$('<div class="row col s12 white-text center">< 자동 숨기기 ><br>데이터 테이블을 다시 보고 싶다면 오버레이를 클릭하세요!</div>');else if(localStorage.getItem("language")=="en")
 var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');else var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');Materialize.toast($toastContent,3000)}},60000)}
-else{if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').fadeIn(500)}
-else{$('#graphTableBody, #graphTableHeader').fadeIn(500)}
+else{if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').fadeIn(500);$('[name=raid]').removeClass('hidden')}
+else{$('#graphTableBody, #graphTableHeader').fadeIn(500);$('#graphTableBody, #graphTableHeader').removeClass('hidden')}
 clearTimeout(obj);if(lastCombat.title!='Encounter')
 autoHidden("OFF")}}}
 function calFontSize(val,btn){switch(val){case 8:if(btn=='plus')return 10;else return 8;case 10:if(btn=='plus')return 12;else return 8;case 12:if(btn=='plus')return 14;else return 10;case 14:if(btn=='plus')return 16;else return 12;case 16:if(btn=='plus')return 20;else return 14;case 20:if(btn=='plus')return 24;else return 16;case 24:if(btn=='plus')return 28;else return 20;case 28:if(btn=='plus')return 32;else return 24;case 32:if(btn=='plus')return 32;else return 28}}
