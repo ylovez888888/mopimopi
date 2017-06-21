@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -60,7 +60,7 @@
             </li>
             <li id="jp" onclick="radioButtonCotrol(this.id)">
                 <input type="radio" class="with-gap" name="radio_lang" id="lb-jp" />
-                <label for="lb-jp" class="rdColor"><font style="color:#fff">日本語</font></label>
+                <label for="lb-jp" class="rdColor"><font style="color:#fff;">日本語</font></label>
             </li>
             <li id="en" onclick="radioButtonCotrol(this.id)">
                 <input type="radio" class="with-gap" name="radio_lang" id="lb-en" />
@@ -1169,29 +1169,41 @@
             </div>
 
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
-
             <div class="TitleText" name="m97"></div>
-            <div class="tile" style="cursor: default">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="input-field">
-                            <input id="engFont" placeholder="" type="text" name="engFont" autocomplete="off" autocapitalize="off" autocorrect="off">
-                            <label for="engFont" name="m98" class="active"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="tile" style="cursor: default">
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field" class="validate">
-                            <input id="ourFont" placeholder="" type="text" name="ourFont" autocomplete="off" autocapitalize="off" autocorrect="off">
-                            <label for="ourFont" name="m99" class="active"></label>
+                            <input id="krFont" placeholder="" type="text" name="krFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="krFont" name="m98" class="active"></label>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field" class="validate">
+                            <input id="jpFont" placeholder="" type="text" name="jpFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="jpFont" name="m99" class="active"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile" style="cursor: default">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="enFont" placeholder="" type="text" name="enFont" autocomplete="off" autocapitalize="off" autocorrect="off">
+                            <label for="enFont" name="m104" class="active"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!-- Cell Width -->
         <div name="cellWidth" class="contents hidden">
