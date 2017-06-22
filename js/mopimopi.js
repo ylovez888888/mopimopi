@@ -35,7 +35,7 @@ return;else{if(flag=="OFF"){obj=setTimeout(function(){if(OnlyUsers>9&&localStora
 else{$('#graphTableBody, #graphTableHeader').addClass('hidden')}
 if($('[name=main]').hasClass("hidden")==!1&&localStorage.getItem("autoHide")==1){if(localStorage.getItem("language")=="kr")
 var $toastContent=$('<div class="row col s12 white-text center">< 자동 숨기기 ><br>데이터 테이블을 다시 보고 싶다면 오버레이를 클릭하세요!</div>');else if(localStorage.getItem("language")=="en")
-var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');else var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');Materialize.toast($toastContent,3000)}},60000)}
+var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');else var $toastContent=$('<div class="row col s12 white-text center">< Auto-hide ><br>Do you want to view data table again? Just Click on the Overlay!</div>');Materialize.toast($toastContent,3000)}},180000)}
 else{if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').removeClass('hidden')}
 else{$('#graphTableBody, #graphTableHeader').removeClass('hidden')}
 clearTimeout(obj);if(lastCombat.title!='Encounter')
