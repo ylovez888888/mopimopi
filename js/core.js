@@ -54,7 +54,11 @@ if(this.Class==""){if(this.name.indexOf("에기")>-1||this.name.indexOf("카벙�
 if(this.name.indexOf("요정")>-1||this.name.toUpperCase().indexOf("EOS")>-1||this.name.toUpperCase("SELENE")>-1||this.name.indexOf("フェアリー")>-1){this.Job="AVA";this.Class="SCH";this.isPet=!0;this.role="Healer";this.petType="Fairy"}
 if(this.name.indexOf("자동포탑")>-1||this.name.toUpperCase().indexOf("AUTOTURRET")>-1||this.name.indexOf("オートタレット")>-1){this.Job="AVA";this.Class="MCH";this.isPet=!0;this.petType="AutoTurret"}
 if(this.name.toUpperCase().indexOf("LIMIT BREAK")>-1||this.name.indexOf("リミット")>-1){this.Job="LMB";this.Class="LMB"}}
-if(this.isPet){var regex=/(?:.*?)\((.*?)\)/im;var matches=this.name.match(regex);if(regex.test(this.name)){this.petOwner=matches[1]}}
+try
+{var regex=/(?:.*?)\((.*?)\)/im;var matches=this.name.match(regex);if(regex.test(this.name))
+{this.petOwner=matches[1];this.isPet=!0}}
+catch(ex)
+{}
 if(this.petOwner!=""&&this.Class=="")
 {this.isPet=!1;this.Job="CBO";this.Class="CBO";this.petType="Chocobo_Persons"}
 if(this.overHeal!=undefined){}
