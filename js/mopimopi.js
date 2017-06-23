@@ -156,7 +156,7 @@ function delComma(num){var number=num+"";return number.replace(",","")}
 function inputName(name,job,rank,pet){if(localStorage.getItem('hideName')==0){if(name=="YOU"){var i=cutName(myName);return cutRank(i,rank)}else{if(pet!="")
 var i=name;else var i=cutName(name);return cutRank(i,rank)}}else{if(job=="LMB")
 return cutRank(name,rank);else if(name=="YOU")
-return cutRank('YOU',rank);else if(pet=="YOU"){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}else return cutRank(' ',rank)}}
+return cutRank('YOU',rank);else if(pet=="YOU"||pet==myName){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}else return cutRank(' ',rank)}}
 function cutName(name){var temp=name.split(' ');if(temp.length==1){return name}else{if(localStorage.getItem('nameType')=='AType'){return name}else if(localStorage.getItem('nameType')=='BType'){return temp[0]+' '+temp[1].substr(0,1)+'.'}else if(localStorage.getItem('nameType')=='CType'){return temp[0].substr(0,1)+'. '+temp[1]}else{return temp[0].substr(0,1)+'. '+temp[1].substr(0,1)+'.'}}}
 function cutRank(name,rank){if(localStorage.getItem('ranking')==1){return rank+'. '+name}else{return name}}
 function inputRanking(a,flag,preRank){if(a.get("rank")==0){return img="rank_1"}else if(a.get("rank")==1){return img="rank_2"}else if(a.get("rank")==2){return img="rank_3"}else if(preRank=="NaN"||preRank==undefined){return img="arrow_flat"}else if(a.get("rank")<parseInt(preRank)){return img="arrow_up"}else if(a.get("rank")>parseInt(preRank)){return img="arrow_down"}else if(a.get("rank")==parseInt(preRank)){return img="arrow_flat"}}
