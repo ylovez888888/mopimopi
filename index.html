@@ -180,6 +180,13 @@
                         <li><span class="topbarText" name="m21"></span></li>
                     </ul>
                 </div>
+                <!-- Data Table bar -->
+                <div name="dataTable" class="nav-wrapper hidden">
+                    <ul class="left">
+                        <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
+                        <li><span class="topbarText" name="m235"></span></li>
+                    </ul>
+                </div>                
                 <!-- Graph Color Top bar -->
                 <div name="graphColor" class="nav-wrapper hidden">
                     <ul class="left">
@@ -317,7 +324,12 @@
                 </div>
                 <div class="col s10"><span class="PrimaryText" name="m16"></span><br><span class="SecondaryText" name="m91"></span></div>
             </div>
-
+            <div class="tile waves-effect row" id="dataTable" onclick="viewPage(this)">
+                <div class="col s2">
+                    <div class="iconText"><i class="material-icons">view_module</i></div>
+                </div>
+                <div class="col s10"><span class="PrimaryText" name="m235"></span><br><span class="SecondaryText" name="m236"></span></div>
+            </div>
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m24"></div>
             <div class="tile row" style="cursor: default">
@@ -723,16 +735,6 @@
         <!-- Data Progressing -->
         <div name="dataProgressing" class="contents hidden">
             <div class="TitleText" name="m97"></div>
-            <div class="tile waves-effect row" id="autoHide" onclick="buttonCotrol(this)">
-                <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">visibility_off</i></div>
-                </div>
-                <div class="col s8"><span class="PrimaryText" name="m233"></span><br><span class="SecondaryText" name="m234"></span></div>
-                <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="autoHide" />
-                    <label for="autoHide" class="right"></label>
-                </div>
-            </div>
             <div class="tile waves-effect row" id="number" onclick="buttonCotrol(this)">
                 <div class="col s2">
                     <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">exposure_plus_2</i></div>
@@ -792,6 +794,40 @@
                 </div>
             </div>
         </div>
+        <!-- Data Table -->
+        <div name="dataTable" class="contents hidden">
+            <div class="TitleText" name="m97"></div>
+            <div class="tile waves-effect row" id="arrowHide" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">visibility_off</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m237"></span><br><span class="SecondaryText" name="m238"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="arrowHide" />
+                    <label for="arrowHide" class="right"></label>
+                </div>
+            </div>
+            <div class="TitleText" name="m239"></div>
+            <div class="tile waves-effect row" id="raidMode" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">autorenew</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m217"></span><br><span class="SecondaryText" name="m218"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="raidMode" />
+                    <label for="raidMode" class="right"></label></div>
+            </div>
+            <div class="tile waves-effect row" id="autoHide" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">visibility_off</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m233"></span><br><span class="SecondaryText" name="m234"></span></div>
+                <div class="col s2">
+                    <input type="checkbox" class="filled-in" id="autoHide" />
+                    <label for="autoHide" class="right"></label>
+                </div>
+            </div>
+        </div>        
         <!-- Graph Color -->
         <div name="graphColor" class="contents hidden">
             <div class="TitleText" name="m97"></div>
@@ -1502,15 +1538,7 @@
                     <input type="checkbox" class="filled-in" id="petAction" />
                     <label for="petAction" class="right"></label></div>
             </div>
-            <div class="tile waves-effect row" id="raidMode" onclick="buttonCotrol(this)">
-                <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">autorenew</i></div>
-                </div>
-                <div class="col s8"><span class="PrimaryText" name="m217"></span><br><span class="SecondaryText" name="m218"></span></div>
-                <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="raidMode" />
-                    <label for="raidMode" class="right"></label></div>
-            </div>
+
             <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m100"></div>
             <div class="previewImage" style="cursor:default;">
@@ -1800,7 +1828,7 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-23</font>1.1.0.1 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-23</font>1.1.1.2 업데이트 및 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n20"></p>
                     </div>
