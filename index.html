@@ -180,7 +180,7 @@
                         <li><span class="topbarText" name="m21"></span></li>
                     </ul>
                 </div>
-                <!-- Data Table bar -->
+                <!-- Other Settings bar -->
                 <div name="dataTable" class="nav-wrapper hidden">
                     <ul class="left">
                         <li><a id="backSettings" onclick="viewPage(this)"><i class="material-icons">arrow_back</i></a></li>
@@ -794,19 +794,52 @@
                 </div>
             </div>
         </div>
-        <!-- Data Table -->
+        <!-- Other Settings -->
         <div name="dataTable" class="contents hidden">
             <div class="TitleText" name="m97"></div>
-            <div class="tile waves-effect row" id="arrowHide" onclick="buttonCotrol(this)">
+            <div class="tile waves-effect row" id="arrow" onclick="buttonCotrol(this)">
                 <div class="col s2">
-                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">visibility_off</i></div>
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">zoom_out_map</i></div>
                 </div>
                 <div class="col s8"><span class="PrimaryText" name="m237"></span><br><span class="SecondaryText" name="m238"></span></div>
                 <div class="col s2">
-                    <input type="checkbox" class="filled-in" id="arrowHide" />
-                    <label for="arrowHide" class="right"></label>
+                    <div class="switch right">
+                        <label class="swColor">
+                        <input type="checkbox" id="arrow">
+                        <span class="lever"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
+            <div class="tile waves-effect row" id="tooltip" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">message</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m240"></span><br><span class="SecondaryText" name="m238"></span></div>
+                <div class="col s2">
+                    <div class="switch right">
+                        <label class="swColor">
+                        <input type="checkbox" id="tooltip">
+                        <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="tile waves-effect row" id="toast" onclick="buttonCotrol(this)">
+                <div class="col s2">
+                    <div style="color:rgba(255,255,255,0.38)"><i class="material-icons">message</i></div>
+                </div>
+                <div class="col s8"><span class="PrimaryText" name="m241"></span><br><span class="SecondaryText" name="m238"></span></div>
+                <div class="col s2">
+                    <div class="switch right">
+                        <label class="swColor">
+                        <input type="checkbox" id="toast">
+                        <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <li class="divider" style="background:rgba(255,255,255,0.12);"></li>
             <div class="TitleText" name="m239"></div>
             <div class="tile waves-effect row" id="raidMode" onclick="buttonCotrol(this)">
                 <div class="col s2">
@@ -1826,9 +1859,15 @@
         <!-- Notice -->
         <div name="notice" class="contents hidden">
 
-            <ul class="collapsible" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="accordion">                
                 <li>
-                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-23</font>1.1.1.2 업데이트 및 버그 패치 안내</span></div>
+                    <div class="collapsible-header waves-effect active" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-24</font>1.1.2.1 업데이트 및 버그 패치 안내</span></div>
+                    <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
+                        <p class="flow-text" name="n21"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header waves-effect" style="padding:1.5rem; "><span class="PrimaryText"><font style="color:rgba(255,255,255,0.5); font-size:1.2rem; padding-right: 1.5rem;">2017-06-23</font>1.1.1.2 업데이트 및 버그 패치 안내</span></div>
                     <div class="collapsible-body" style="padding:1.5rem 2.25rem;">
                         <p class="flow-text" name="n20"></p>
                     </div>
