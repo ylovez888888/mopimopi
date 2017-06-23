@@ -49,3 +49,83 @@ input[type=range]::-webkit-slider-thumb {
   margin: -.9rem 0 0 0;
   transition: .3s;
 }
+
+/* Switch
+   ========================================================================== */
+.switch,
+.switch * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+.switch label {
+  cursor: pointer;
+}
+
+.switch label input[type=checkbox] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: inherit;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background-color: inherit;
+  left: 2.4rem;
+}
+
+.swColor{
+  height: 0;
+  display:block;
+}
+
+.switch label .lever {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 4rem;
+  height: 1.6rem;
+  background-color: rgba(255,255,255,.5);
+  border-radius: 1.5rem;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+  top: 1rem;
+}
+
+.switch label .lever:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 2.1rem;
+  height: 2.1rem;
+  background-color: #FFF;
+  border-radius: 2.1rem;
+  box-shadow: 0 .1rem .3rem .1rem rgba(0, 0, 0, 0.4);
+  left: -.5rem;
+  top: -.3rem;
+  transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+}
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::after,
+input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::after {
+  box-shadow: 0 .1rem .3rem .1rem rgba(0, 0, 0, 0.4), 0 0 0 1.5rem rgba(0, 0, 0, .25);
+}
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:after,
+input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
+  box-shadow: 0 .1rem .3rem .1rem rgba(0, 0, 0, 0.4), 0 0 0 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.switch input[type=checkbox][disabled] + .lever {
+  cursor: default;
+}
+
+.switch label input[type=checkbox][disabled] + .lever:after,
+.switch label input[type=checkbox][disabled]:checked + .lever:after {
+  background-color: #BDBDBD;
+}
