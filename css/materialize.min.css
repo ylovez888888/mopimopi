@@ -94,7 +94,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 1.5rem;
   transition: background 0.3s ease;
   vertical-align: middle;
-  top: 1rem;
+  top: 1.4rem;
 }
 
 .switch label .lever:after {
