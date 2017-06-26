@@ -165,7 +165,7 @@ function delComma(num){var number=num+"";return number.replace(",","")}
 function inputName(name,job,rank,pet){if(localStorage.getItem('hideName')==0){if(name=="YOU"){var i=cutName(myName);return cutRank(i,rank)}else{if(pet!="")
 var i=name;else var i=cutName(name);return cutRank(i,rank)}}else{if(job=="LMB")
 return cutRank(name,rank);else if(name=="YOU")
-return cutRank('YOU',rank);else if(pet=="YOU"){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}else if(pet==myName){if(localStorage.getItem("language")=="kr")
+return cutRank('YOU',rank);else if(pet=="YOU"){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}else if(pet==myName&&job=="CBO"){if(localStorage.getItem("language")=="kr")
 var i="초코보"
 else if(localStorage.getItem("language")=="en")
 var i="CHOCOBO"
