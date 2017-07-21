@@ -32,7 +32,7 @@ adjustTopbarHeight();else{adjustCellWidth();$('#previewH td').css('background','
 $(field).val(currentVal-2);else if(id=="btnFontSize"){var val=calFontSize(currentVal,'minus');$(field).val(val)}else $(field).val(currentVal-1);localStorage.setItem(id,parseInt($(field).val()));if(id=='btnFontSize')
 setFontSize(val);else if(id=="topbarHeight")
 adjustTopbarHeight();else{adjustCellWidth();$('#previewH td').css('background','rgba(0,0,0,1)');$('#previewH td').css('color','#bdbdbd');$('#previewH .'+id).css('background','#fff');$('#previewH .'+id).css('color','#000')}}});var objTime;function autoHidden(flag){if(localStorage.getItem("autoHide")==0||OnlyUsers==0)
-return;else{if(flag=="OFF"){objTime=setTimeout(function(){if(OnlyUsers<9&&localStorage.getItem('raidMode')==1){$('[name=raid]').addClass('hidden')}
+return;else{if(flag=="OFF"){objTime=setTimeout(function(){if(OnlyUsers>9&&localStorage.getItem('raidMode')==1){$('[name=raid]').addClass('hidden')}
 else{$('#graphTableBody, #graphTableHeader').addClass('hidden')}
 if($('[name=main]').hasClass("hidden")==!1&&localStorage.getItem("autoHide")==1){if(localStorage.getItem("toast")==1){if(localStorage.getItem('lang')=="kr")
 var $toastContent=$('<div class="row col s12 white-text center">< 자동 숨기기 ><br>데이터 테이블을 다시 보고 싶다면 오버레이를 클릭하세요!</div>');else if(localStorage.getItem('lang')=="en")
