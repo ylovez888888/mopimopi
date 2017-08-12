@@ -159,9 +159,10 @@ return 'narrowCell2'+' '+name;else if(name=='c-dps12'||name=='c-dps25'||name=='c
 return 'wideCell1'+' '+name;else if(name=='c-dps24'||name=='c-dps39'||name=='c-hps13')
 return 'wideCell2'+' '+name;else if(name=='c-dps1'||name=='c-hps1')
 return 'iconCell'+' '+name;else return 'narrowCell1'+' '+name}
-function addComma(num){if(localStorage.getItem('comma')==1){if(localStorage.getItem('dot')==1)
-return num.toString().replace('.',',').toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");else return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}else if(localStorage.getItem('dot')==1)
-return num.toString().replace('.',',');else return num}
+function addComma(num){if(localStorage.getItem('dot')==1){num=num.toString().replace('.',',')}
+if(localStorage.getItem('comma')==1){if(localStorage.getItem('dot')==1)
+return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");else return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+else return num}
 function delComma(num){var number=num+"";return number.replace(",","")}
 function inputName(name,job,rank,pet){if(localStorage.getItem('hideName')==0){if(name=="YOU"){var i=cutName(myName);return cutRank(i,rank)}else{if(pet!="")
 var i=name;else var i=cutName(name);return cutRank(i,rank)}}else{if(job=="LMB")
