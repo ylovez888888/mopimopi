@@ -43,8 +43,8 @@ function Person(e,p){this.parent=p;this.Class="";for(var i in e){if(i.indexOf("N
 this[i]=0;else this[i]=e[i]}else{var tmp=parseFloat(e[i].replace(/[,%]+/ig,"")).nanFix().toFixed(underDot);if(e[i].indexOf("%")>0)
 this[i]=parseFloat(tmp);else if(Math.floor(tmp)!=tmp||e[i].indexOf(".")>0)
 this[i]=parseFloat(tmp);else this[i]=parseInt(tmp).nanFix()}}
-try{this.maxhitstr=this.maxhit.substring(0,this.maxhit.indexOf("-"));this.maxhitval=parseInt(this.maxhit.substring(this.maxhit.indexOf("-")+1).replace(/,/,"")).nanFix()}catch(ex){this.maxhit="?-0";this.maxhitstr="";this.maxhitval=0}
-try{this.maxhealstr=this.maxheal.substring(0,this.maxheal.indexOf("-"));this.maxhealval=parseInt(this.maxheal.substring(this.maxheal.indexOf("-")+1).replace(/,/,"")).nanFix()}catch(ex){this.maxheal="?-0";this.maxhealstr="";this.maxhealval=0}
+try{this.maxhitstr=this.maxhit.substring(0,this.maxhit.indexOf("-"));this.maxhitval=parseInt(this.maxhit.substring(this.maxhit.indexOf("-")+1).replace(/[,.]/,"")).nanFix()}catch(ex){this.maxhit="?-0";this.maxhitstr="";this.maxhitval=0}
+try{this.maxhealstr=this.maxheal.substring(0,this.maxheal.indexOf("-"));this.maxhealval=parseInt(this.maxheal.substring(this.maxheal.indexOf("-")+1).replace(/[,.]/,"")).nanFix()}catch(ex){this.maxheal="?-0";this.maxhealstr="";this.maxhealval=0}
 if(this.DURATION<=0){this.dps=parseFloat((this.damage/this.parent.DURATION).nanFix().toFixed(underDot));this.hps=parseFloat((this.healed/this.parent.DURATION).nanFix().toFixed(underDot));this.DPS=Math.floor(this.dps);this.HPS=Math.floor(this.hps);this["DPS-k"]=Math.floor(this.dps/1000);this["HPS-k"]=Math.floor(this.hps/1000);for(var i in this){if(this[i]=="∞")
 this[i]=0}}
 if(this.Job!="")
