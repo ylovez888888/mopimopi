@@ -131,9 +131,7 @@ onSettingsUpdate(index[i]);settingsFont();adjustTopbarHeight();adjustCellWidth()
 function onOverlayDataUpdate(e){if(localStorage.getItem('history')==1)
 closeHistory();lastCombat=new Combatant(e,'encdps');lastCombatHPS=new Combatant(e,'enchps');setTimeout(function(){saveLog();update()},1)}
 function update(){if(lastCombat===null){return}else onUpdateUserData()}
-var startFlag=0;function onUpdateUserData(){console.log(startFlag)
-if(startFlag==1){console.log("여기들어와?")
-$('body').find('[name="notice"]').fadeOut(0);$('body').find('.dropdown-button').dropdown('close');startFlag=0}
+var startFlag=0;function onUpdateUserData(){$('body').find('[name="notice"]').fadeOut(0);if(startFlag==1){$('body').find('.dropdown-button').dropdown('close');startFlag=0}
 $("nav [name=main]").find(".time").text(lastCombat.duration);$("nav [name=main]").find(".info .bigText").text(lastCombat.title);$("nav [name=main]").find(".info .smallText").text("RD "+addComma(parseInt(lastCombat.Encounter.ENCDPS))+"　RH "+addComma(parseInt(lastCombat.Encounter.ENCHPS)));if(localStorage.getItem("pets")==0){lastCombat.summonerMerge=!1;lastCombat.DetachPets();lastCombat.resort("damage",1);lastCombatHPS.summonerMerge=!1;lastCombatHPS.DetachPets();lastCombatHPS.resort("healed",1)}else{lastCombat.summonerMerge=!0;lastCombat.AttachPets();lastCombat.resort("mergedDamage",1);lastCombatHPS.summonerMerge=!0;lastCombatHPS.AttachPets();lastCombatHPS.resort("mergedHealed",1)}
 var dpsPet=0,hpsPet=0,hpsUser=0,dpsUser=0;for(var d in lastCombat.persons){var a=lastCombat.persons[d];if(lastCombat.summonerMerge==!0&&a.get("Job")=='AVA'){}else{if(a.get("petOwner")!=""&&a.get("petOwner")!=undefined){if(a.get("role")!='Healer')
 dpsPet++;else hpsPet++}else{if(a.get("role")!='Healer')
