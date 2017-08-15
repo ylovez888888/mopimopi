@@ -101,7 +101,7 @@ $('body').find('[name=m215]').text(mpLang.m37);else $('body').find('[name=m215]'
 $('.tooltipped').tooltip({delay:25});else $('.tooltipped').tooltip('remove');if(!localStorage.getItem("dt"))
 $('#backupDate').text(' = No Data, Please click to backup.');else $('#backupDate').text(' = '+localStorage.getItem("dt"));break}}
 function settingsFont(){var change_timeFont=$("[name=timeFont]").val();var change_indexFont=$("[name=indexFont]").val();var change_krFont=$("[name=krFont]").val();var change_enFont=$("[name=enFont]").val();var change_jpFont=$("[name=jpFont]").val();if(change_timeFont=="")
-localStorage.setItem('timeFont','Montserrat');else localStorage.setItem('timeFont',change_timeFont);if(change_timeFont=="")
+localStorage.setItem('timeFont','Montserrat');else localStorage.setItem('timeFont',change_timeFont);if(change_indexFont=="")
 localStorage.setItem('indexFont','Roboto Condensed');else localStorage.setItem('indexFont',change_indexFont);if(change_krFont=="")
 localStorage.setItem('krFont','Segoe UI');else localStorage.setItem('krFont',change_krFont);if(change_enFont=="")
 localStorage.setItem('enFont','Roboto');else localStorage.setItem('enFont',change_enFont);if(change_jpFont=="")
