@@ -1514,7 +1514,7 @@ function onUpdateUserData() {
     }
     dpsUsers = dpsUser + hpsUser + dpsPet + hpsPet;
     hpsUsers = hpsUser + hpsPet;
-    OnlyUsers = dpsUser + hpsUser + 10;
+    OnlyUsers = dpsUser + hpsUser ;
 
     if (lastCombat.title == 'Encounter' && saveLogFlag == !0) {
         $('#dpsTableBody, #dpsTableHeader tr, #hpsTableBody, #hpsTableHeader tr, #dpsTempTable, #hpsTempTable, #dpsRaidTable, #hpsRaidTable').html('');
