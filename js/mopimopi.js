@@ -211,7 +211,7 @@ var i="초코보"
 else if(localStorage.getItem("lang")=="en")
 var i="CHOCOBO"
 else var i="チョコボ"
-return cutRank(i+" (YOU)",rank)}else return cutRank(' ',rank)}}
+return cutRank(i+" (YOU)",rank)}else return cutRank('　',rank)}}
 function cutName(name){var temp=name.split(' ');if(temp.length==1){return name}else{if(localStorage.getItem('nameType')=='AType'){return name}else if(localStorage.getItem('nameType')=='BType'){return temp[0]+' '+temp[1].substr(0,1)+'.'}else if(localStorage.getItem('nameType')=='CType'){return temp[0].substr(0,1)+'. '+temp[1]}else{return temp[0].substr(0,1)+'. '+temp[1].substr(0,1)+'.'}}}
 function cutRank(name,rank){if(localStorage.getItem('ranking')==1){return rank+'. '+name}else{return name}}
 function inputRanking(a,flag,preRank){if(a.get("rank")==0){return img="rank_1"}else if(a.get("rank")==1){return img="rank_2"}else if(a.get("rank")==2){return img="rank_3"}else if(preRank=="NaN"||preRank==undefined){return img="arrow_flat"}else if(a.get("rank")<parseInt(preRank)){return img="arrow_up"}else if(a.get("rank")>parseInt(preRank)){return img="arrow_down"}else if(a.get("rank")==parseInt(preRank)){return img="arrow_flat"}}
