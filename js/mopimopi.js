@@ -38,7 +38,7 @@ for(var i in palette){data[i]=localStorage.getItem(i)}
 for(var i in settings){data[i]=localStorage.getItem(i)}
 for(var i=1;i<initACTElement.length;i++){data['c-dps'+i]=localStorage.getItem('c-dps'+i)}
 for(var i=1;i<initHealerElement.length;i++){data['c-hps'+i]=localStorage.getItem('c-hps'+i)}
-data.dpsOrder=localStorage.getItem('dpsOrder');data.hpsOrder=localStorage.getItem('hpsOrder');localStorage.setItem("backup",JSON.stringify(data));localStorage.setItem("dt",dt);$('#backupDate').text(' = '+localStorage.getItem("dt"))}
+data.dpsOrder=localStorage.getItem('dpsOrder');data.hpsOrder=localStorage.getItem('hpsOrder');data.abbList=localStorage.getItem('abbList');localStorage.setItem("backup",JSON.stringify(data));localStorage.setItem("dt",dt);$('#backupDate').text(' = '+localStorage.getItem("dt"))}
 function dataRestore(){if(!localStorage.getItem("backup")){alert(mpLang.m254)}
 else{if(confirm(mpLang.m255)==!0){var data=JSON.parse(localStorage.getItem("backup"));for(var i in data)
 localStorage.setItem(i,data[i]);location.reload()}}}
