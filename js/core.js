@@ -590,10 +590,10 @@ Person.prototype.recalculate = function() {
     this["ENCHPS-k"] = Math.floor(this.enchps / 1000);
     this["damage%"] = pFloat(this.mergedDamage / this.parent.Encounter.damage * 100);
     this["healed%"] = pFloat(this.mergedHealed / this.parent.Encounter.healed * 100);
-    this["crithit%"] = pFloat(this.mergedCrithits / this.hits * 100);    
-    this["DirectHit%"] = pFloat(this.mergedDirectHitCount / this.hits * 100);
-    this["CritDirectHit%"] = pFloat(this.mergedCritDirectHitCount / this.hits * 100);
-    this["critheal%"] = pFloat(this.mergedCritheals / this.heals * 100);
+    this["crithit%"] = pFloat(this.mergedCritHits / this.mergedHits * 100);    
+    this["DirectHit%"] = pFloat(this.mergedDirectHitCount / this.mergedHits * 100);
+    this["CritDirectHit%"] = pFloat(this.mergedCritDirectHitCount / this.mergedHits * 100);
+    this["critheal%"] = pFloat(this.mergedCritHeals / this.mergedheals * 100);
     this.tohit = pFloat(this.mergedHits / this.mergedSwings * 100)
 };
 Person.prototype.getColor = function(r, g, b) {
@@ -630,7 +630,7 @@ Person.prototype.get = function(key) {
                 key = "mergedSwings";
                 break;
             case "crithits":
-                key = "mergedCrithits";
+                key = "mergedCritHits";
                 break;
 			case "DirectHitCount" : 
                 key = "mergedDirectHitCount"; 
@@ -648,7 +648,7 @@ Person.prototype.get = function(key) {
                 key = "mergedHealed";
                 break;
             case "critheals":
-                key = "mergedCritheals";
+                key = "mergedCritHeals";
                 break;
             case "healstaken":
                 key = "mergedHealstaken";
@@ -762,7 +762,7 @@ Combatant.prototype.sort = function(vector) {
                 this.sortkey = "mergedSwings";
                 break;
             case "crithits":
-                this.sortkey = "mergedCrithits";
+                this.sortkey = "mergedCritHits";
                 break;
 			case "DirectHitCount" : 
                 this.sortkey = "mergedDirectHitCount"; 
@@ -780,7 +780,7 @@ Combatant.prototype.sort = function(vector) {
                 this.sortkey = "mergedHealed";
                 break;
             case "critheals":
-                this.sortkey = "mergedCritheals";
+                this.sortkey = "mergedCritHeals";
                 break;
             case "healstaken":
                 this.sortkey = "mergedHealstaken";
