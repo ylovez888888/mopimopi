@@ -212,7 +212,7 @@ function delComma(num){var number=num+"";return number.replace(",","")}
 function inputName(name,job,rank,pet){if(localStorage.getItem('hideName')==0){if(name=="YOU"){if(localStorage.getItem('myID')==1){if(myName==""){webs.close();webs.connect()}
 var i=cutName(myName);return cutRank(i,rank)}
 else return cutRank('YOU',rank)}
-else{if(localStorage.getItem('myID')==1){if(pet=="YOU"){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}
+else{if(localStorage.getItem('myID')==0){if(pet=="YOU"){var temp=name.split('(');var i=temp[0]+' (YOU)';return cutRank(i,rank)}
 else if(pet==myName&&job=="CBO"){if(localStorage.getItem("lang")=="kr")
 var i="초코보"
 else if(localStorage.getItem("lang")=="en")
