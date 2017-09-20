@@ -204,7 +204,8 @@ return 'narrowCell2'+' '+name;else if(name=='c-dps12'||name=='c-dps25'||name=='c
 return 'wideCell1'+' '+name;else if(name=='c-dps24'||name=='c-dps39'||name=='c-hps13')
 return 'wideCell2'+' '+name;else if(name=='c-dps1'||name=='c-hps1')
 return 'iconCell'+' '+name;else return 'narrowCell1'+' '+name}
-function addComma(num){if(localStorage.getItem('dot')==1){num=num.toString().replace('.',',')}
+function addComma(num){if(num=='NaN')
+num=0;if(localStorage.getItem('dot')==1){num=num.toString().replace('.',',')}
 if(localStorage.getItem('comma')==1){if(localStorage.getItem('dot')==1)
 return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");else return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}
 else return num}
