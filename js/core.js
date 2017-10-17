@@ -366,16 +366,16 @@ function Person(e, p) {
         }
     }
     try {
-        this.maxhitstr = this.maxhit.substring(0, this.maxhit.indexOf("-"));
-        this.maxhitval = parseInt(this.maxhit.substring(this.maxhit.indexOf("-") + 1).replace(/[,.]/ig, "")).nanFix()
+        this.maxhitstr = this.maxhit.split('-')[0]
+        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[.,]/ig, ""))
     } catch (ex) {
         this.maxhit = "?-0";
         this.maxhitstr = "";
         this.maxhitval = 0
     }
-    try {
-        this.maxhealstr = this.maxheal.substring(0, this.maxheal.indexOf("-"));
-        this.maxhealval = parseInt(this.maxheal.substring(this.maxheal.indexOf("-") + 1).replace(/[,.]/ig, "")).nanFix()
+    try {    
+        this.maxhealstr = this.maxheal.split('-')[0]
+        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[.,]/ig, ""))
     } catch (ex) {
         this.maxheal = "?-0";
         this.maxhealstr = "";
