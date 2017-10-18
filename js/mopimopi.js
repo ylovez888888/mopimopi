@@ -1293,7 +1293,9 @@ function radioButtonCotrol(id) {
                 $('#more a').attr('data-tooltip', 'もっと見る');
                 $('body').find('.scrollbtn a').attr('data-tooltip', 'スクロール');
                 mpLang = mpJP;
-                $('#r_Lang').text('日本語')
+                $('#r_Lang').text('日本語');                
+                $('body').find('[lang=en]').removeClass('hidden');
+                $('body').find('[lang=kr]').addClass('hidden');
             } else {
                 localStorage.setItem('lang', 'en');
                 $('html').attr('lang', 'en');
