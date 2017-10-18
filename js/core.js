@@ -357,25 +357,32 @@ function Person(e, p) {
                 this[i] = 0;
             else this[i] = e[i]
         } else {
-            var tmp = parseFloat(e[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
-            if (e[i].indexOf("%") > 0)
-                this[i] = parseFloat(tmp);
-            else if (Math.floor(tmp) != tmp || e[i].indexOf(".") > 0)
-                this[i] = parseFloat(tmp);
-            else this[i] = parseInt(tmp).nanFix()
+            if (e['encdps'].charAt(e['encdps'].length - 2) == ',') {
+                var tmp = parseFloat(e[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
+                if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(",") > 0)
+                    this[i] = parseFloat(tmp);
+                else
+                    this[i] = parseInt(tmp).nanFix()
+            } else {
+                var tmp = parseFloat(e[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
+                if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(".") > 0)
+                    this[i] = parseFloat(tmp);
+                else
+                    this[i] = parseInt(tmp).nanFix()
+            }
         }
     }
     try {
         this.maxhitstr = this.maxhit.split('-')[0];
-        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[.,]/ig, ""));
+        this.maxhitval = this.MAXHIT;
     } catch (ex) {
         this.maxhit = "?-0";
         this.maxhitstr = "";
         this.maxhitval = 0
     }
-    try {    
+    try {
         this.maxhealstr = this.maxheal.split('-')[0];
-        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[.,]/ig, ""));
+        this.maxhealval = this.MAXHEAL;
     } catch (ex) {
         this.maxheal = "?-0";
         this.maxhealstr = "";
@@ -505,9 +512,9 @@ function Person(e, p) {
         Last60DPS: this.Last60DPS,
         Last180DPS: this.Last180DPS,
     };
-  /*  if (this.isPet && this.Class != "" && this.parent.users[this.petOwner] == undefined) {
-        this.petOwner =  "YOU";
-    }*/
+    /*  if (this.isPet && this.Class != "" && this.parent.users[this.petOwner] == undefined) {
+          this.petOwner =  "YOU";
+      }*/
     try {
         var regex = /(?:.*?)\((.*?)\)/im;
         var matches = this.name.match(regex);
@@ -539,8 +546,6 @@ function Person(e, p) {
         this.color.G += parseInt(this.color.G / 3);
         this.color.B += parseInt(this.color.B / 3)
     }
-
-
     for (var i in this.original) {
         if (i.indexOf("Last") > -1)
             this["merged" + i] = this[i];
@@ -697,12 +702,17 @@ function Combatant(e, sortkey) {
                 this.Encounter[i] = 0;
             else this.Encounter[i] = e.detail.Encounter[i]
         } else {
-            var tmp = parseFloat(e.detail.Encounter[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
-            if (e.detail.Encounter[i].indexOf("%") > 0)
-                this.Encounter[i] = parseFloat(tmp);
-            else if (Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(".") > 0)
-                this.Encounter[i] = parseFloat(tmp);
-            else this.Encounter[i] = parseInt(tmp).nanFix()
+            if (e.detail.Encounter['encdps'].charAt(e.detail.Encounter['encdps'].length - 2) == ',') {
+                var tmp = parseFloat(e.detail.Encounter[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
+                if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(",") > 0)
+                    this.Encounter[i] = parseFloat(tmp);
+                else this.Encounter[i] = parseInt(tmp).nanFix()
+            } else {
+                var tmp = parseFloat(e.detail.Encounter[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
+                if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(".") > 0)
+                    this.Encounter[i] = parseFloat(tmp);
+                else this.Encounter[i] = parseInt(tmp).nanFix()
+            }
         }
     }
     for (var i in e.detail.Combatant) {
@@ -813,28 +823,28 @@ Combatant.prototype.sort = function (vector) {
     var tmpOwner = [];
     var tmpUser = [];
 
-    for (var i in this.Combatant){
-        if(this.Combatant[i].petOwner == ""){
+    for (var i in this.Combatant) {
+        if (this.Combatant[i].petOwner == "") {
             tmpUser.push(this.Combatant[i].name);
-        }else{
+        } else {
             tmpOwner.push(this.Combatant[i].petOwner);
         }
     }
-    for (var i in tmpUser){
-        for(var j=0; j<tmpOwner.length; j++){
-            if(tmpUser[i] == tmpOwner[j])
-                tmpOwner.splice(j, 1); 
+    for (var i in tmpUser) {
+        for (var j = 0; j < tmpOwner.length; j++) {
+            if (tmpUser[i] == tmpOwner[j])
+                tmpOwner.splice(j, 1);
         }
     }
     for (var i in this.Combatant) {
         if (this.Combatant[i].isPet && this.summonerMerge) {
-                if(this.Combatant["YOU"] != undefined){
-                    if(tmpOwner[0] == this.Combatant[i].petOwner)
+            if (this.Combatant["YOU"] != undefined) {
+                if (tmpOwner[0] == this.Combatant[i].petOwner)
                     this.Combatant["YOU"].merge(this.Combatant[i]);
-                }
-                if(this.Combatant[this.Combatant[i].petOwner] != undefined){
-                    this.Combatant[this.Combatant[i].petOwner].merge(this.Combatant[i]);
-                }
+            }
+            if (this.Combatant[this.Combatant[i].petOwner] != undefined) {
+                this.Combatant[this.Combatant[i].petOwner].merge(this.Combatant[i]);
+            }
             this.Combatant[i].visible = !1
         } else {
             this.Combatant[i].visible = !0
@@ -842,11 +852,11 @@ Combatant.prototype.sort = function (vector) {
     }
     var tmp = [];
     var r = 0;
-   for (var i in this.Combatant) {    
-    tmp.push({
-        key: this.Combatant[i][this.sortkey],
-        val: this.Combatant[i]
-    });
+    for (var i in this.Combatant) {
+        tmp.push({
+            key: this.Combatant[i][this.sortkey],
+            val: this.Combatant[i]
+        });
     }
     this.Combatant = {};
     if (this.sortvector)
@@ -856,19 +866,19 @@ Combatant.prototype.sort = function (vector) {
     else tmp.sort(function (a, b) {
         return a.key - b.key
     });
-    var tmpMax = 0; 
-    for( var i in tmp){
-        if(this.summonerMerge == true){
-            if(tmp[i].val.petOwner == ""){
-            if(tmpMax < tmp[i].val[this.sortkey])
-            tmpMax = tmp[i].val[this.sortkey];
+    var tmpMax = 0;
+    for (var i in tmp) {
+        if (this.summonerMerge == true) {
+            if (tmp[i].val.petOwner == "") {
+                if (tmpMax < tmp[i].val[this.sortkey])
+                    tmpMax = tmp[i].val[this.sortkey];
             }
-        }else {
-            if(tmpMax < tmp[i].val[this.sortkey])
-            tmpMax = tmp[i].val[this.sortkey];
+        } else {
+            if (tmpMax < tmp[i].val[this.sortkey])
+                tmpMax = tmp[i].val[this.sortkey];
         }
     }
-    this.maxdamage =  tmpMax;
+    this.maxdamage = tmpMax;
     this.maxValue = tmpMax;
 
     for (var i in tmp) {
