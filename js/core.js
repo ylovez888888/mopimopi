@@ -16,7 +16,7 @@ var QueryString = function () {
     }
     return query_string
 }();
-
+/*
 var host_port = QueryString.HOST_PORT;
 while (host_port.endsWith('/')) {
     host_port = host_port.substring(0, host_port.length - 1)
@@ -38,7 +38,7 @@ if (wsUri.indexOf("ws://") == 0 || wsUri.indexOf("wss://") == 0) {
         wsUri = "ws://" + wsUri.replace(/@HOST_PORT@/im, host_port)
     }
 }
-
+*/
 class ActWebsocketInterface {
     constructor(uri, path = "MiniParse") {
         var querySet = this.getQuerySet();
@@ -357,7 +357,7 @@ function Person(e, p) {
                 this[i] = 0;
             else this[i] = e[i]
         } else {
-            if (e['encdps'].charAt(e['encdps'].length - 2) == ',') {
+            if (e['encdps'].charAt(e['encdps'].length - 3) == ',') {
                 var tmp = parseFloat(e[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
                 if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(",") > 0)
                     this[i] = parseFloat(tmp);
@@ -702,7 +702,7 @@ function Combatant(e, sortkey) {
                 this.Encounter[i] = 0;
             else this.Encounter[i] = e.detail.Encounter[i]
         } else {
-            if (e.detail.Encounter['encdps'].charAt(e.detail.Encounter['encdps'].length - 2) == ',') {
+             if (e.detail.Encounter['encdps'].charAt(e.detail.Encounter['encdps'].length - 3) == ',') {
                 var tmp = parseFloat(e.detail.Encounter[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
                 if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(",") > 0)
                     this.Encounter[i] = parseFloat(tmp);
