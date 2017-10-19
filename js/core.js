@@ -357,24 +357,16 @@ function Person(e, p) {
                 this[i] = 0;
             else this[i] = e[i]
         } else {
-            if (e['encdps'].charAt(e['encdps'].length - 3) == ',') {
-                var tmp = parseFloat(e[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
-                if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(",") > 0)
-                    this[i] = parseFloat(tmp);
-                else
-                    this[i] = parseInt(tmp).nanFix()
-            } else {
-                var tmp = parseFloat(e[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
-                if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(".") > 0)
-                    this[i] = parseFloat(tmp);
-                else
-                    this[i] = parseInt(tmp).nanFix()
-            }
+            var tmp = parseFloat(e[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
+            if (e[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e[i].indexOf(".") > 0)
+                this[i] = parseFloat(tmp);
+            else
+                this[i] = parseInt(tmp).nanFix()
         }
     }
     try {
         this.maxhitstr = this.maxhit.split('-')[0];
-        this.maxhitval = this.MAXHIT;
+        this.maxhitval = this.maxhit.split('-')[1].replace(/,/ig, "")
     } catch (ex) {
         this.maxhit = "?-0";
         this.maxhitstr = "";
@@ -382,7 +374,7 @@ function Person(e, p) {
     }
     try {
         this.maxhealstr = this.maxheal.split('-')[0];
-        this.maxhealval = this.MAXHEAL;
+        this.maxhealval = this.maxheal.split('-')[1].replace(/,/ig, "")
     } catch (ex) {
         this.maxheal = "?-0";
         this.maxhealstr = "";
@@ -686,6 +678,7 @@ Person.prototype.get = function (key) {
 }
 
 function Combatant(e, sortkey) {
+
     if (sortkey == undefined) var sortkey = "encdps";
     if (lang == undefined) var lang = "ko";
     this.Encounter = {};
@@ -702,17 +695,10 @@ function Combatant(e, sortkey) {
                 this.Encounter[i] = 0;
             else this.Encounter[i] = e.detail.Encounter[i]
         } else {
-             if (e.detail.Encounter['encdps'].charAt(e.detail.Encounter['encdps'].length - 3) == ',') {
-                var tmp = parseFloat(e.detail.Encounter[i].replace(/[.%]+/ig, "")).nanFix().toFixed(underDot);
-                if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(",") > 0)
-                    this.Encounter[i] = parseFloat(tmp);
-                else this.Encounter[i] = parseInt(tmp).nanFix()
-            } else {
-                var tmp = parseFloat(e.detail.Encounter[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
-                if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(".") > 0)
-                    this.Encounter[i] = parseFloat(tmp);
-                else this.Encounter[i] = parseInt(tmp).nanFix()
-            }
+            var tmp = parseFloat(e.detail.Encounter[i].replace(/[,%]+/ig, "")).nanFix().toFixed(underDot);
+            if (e.detail.Encounter[i].indexOf("%") > 0 || Math.floor(tmp) != tmp || e.detail.Encounter[i].indexOf(".") > 0)
+                this.Encounter[i] = parseFloat(tmp);
+            else this.Encounter[i] = parseInt(tmp).nanFix()
         }
     }
     for (var i in e.detail.Combatant) {
