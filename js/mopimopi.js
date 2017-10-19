@@ -824,15 +824,12 @@ function setFontSize(val) {
     switch (val) {
         case 8:
             $('html').css('font-size', '55%'); 
-            $('body').find('.tableBody td').css('line-height', 0)
             break;
         case 10:
             $('html').css('font-size', '62.5%');
-            $('body').find('.tableBody td').css('line-height', '1.2rem') 
             break;
         case 12:
             $('html').css('font-size', '75%');
-            $('body').find('.tableBody td').css('line-height', 0)
             break;
         case 14:
             $('html').css('font-size', '87.5%');
@@ -1748,7 +1745,6 @@ function update() {
     if (lastCombat === null) {
         return
     } else onUpdateUserData()
-    //console.log( lastCombat )
 }
 var startFlag = 0;
 var onceFlag = 0;
@@ -1892,7 +1888,7 @@ function onCreateTable(lastData, flag, container) {
     onSettingsUpdate('bo');
     onSettingsUpdate('textColor');
     onSettingsUpdate('headerText');
-    onSettingsUpdate('bold')
+    onSettingsUpdate('bold');
 }
 
 function onChangeData(a, flag, userName, tableFlag, arr, container) {
@@ -2559,6 +2555,7 @@ function saveLog() {
 }
 
 function historyAddRow() {
+    console.log( lastCombat );
     var wrap = document.getElementById('historyListBody');
     var newHistory = document.createElement("div");
     var oldHistory = document.getElementById('oldHistoryBody');
