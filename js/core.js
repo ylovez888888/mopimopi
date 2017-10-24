@@ -368,7 +368,7 @@ function Person(e, p) {
     }
     try {
         this.maxhitstr = this.maxhit.split('-')[0];
-        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[,. ]/g, ""));
+        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[,. ]/g, ""))
     } catch (ex) {
         this.maxhit = "?-0";
         this.maxhitstr = "";
@@ -376,7 +376,7 @@ function Person(e, p) {
     }
     try {
         this.maxhealstr = this.maxheal.split('-')[0];
-        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[,. ]/g, ""));
+        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[,. ]/g, ""))
     } catch (ex) {
         this.maxheal = "?-0";
         this.maxhealstr = "";
@@ -821,9 +821,10 @@ Combatant.prototype.sort = function (vector) {
         }
     }
     for (var i in tmpUser) {
-        for (var j = 0; j < tmpOwner.length; j++) {
-            if (tmpUser[i] == tmpOwner[j])
-                tmpOwner.splice(j, 1);
+        for (var j in tmpOwner) {
+            if (tmpUser[i] == tmpOwner[j]){   
+                delete tmpOwner[j];
+            }
         }
     }
     for (var i in this.Combatant) {
