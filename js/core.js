@@ -827,10 +827,16 @@ Combatant.prototype.sort = function (vector) {
             }
         }
     }
+    tmpMyName = ""; 
+    for(var i = 0 ; i<tmpOwner.length; i++){
+        if(tmpOwner[i] != undefined){
+            tmpMyName = tmpOwner[i];
+        }
+    }
     for (var i in this.Combatant) {
         if (this.Combatant[i].isPet && this.summonerMerge) {
-            if (this.Combatant["YOU"] != undefined) {
-                if (tmpOwner[0] == this.Combatant[i].petOwner)
+            if (this.Combatant["YOU"] != undefined) {                
+                if (tmpMyName == this.Combatant[i].petOwner)
                     this.Combatant["YOU"].merge(this.Combatant[i]);
             }
             if (this.Combatant[this.Combatant[i].petOwner] != undefined) {
