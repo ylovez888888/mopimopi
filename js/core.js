@@ -16,7 +16,7 @@ var QueryString = function () {
     }
     return query_string
 }();
-/*
+
 var host_port = QueryString.HOST_PORT;
 while (host_port.endsWith('/')) {
     host_port = host_port.substring(0, host_port.length - 1)
@@ -38,7 +38,7 @@ if (wsUri.indexOf("ws://") == 0 || wsUri.indexOf("wss://") == 0) {
         wsUri = "ws://" + wsUri.replace(/@HOST_PORT@/im, host_port)
     }
 }
-*/
+
 class ActWebsocketInterface {
     constructor(uri, path = "MiniParse") {
         var querySet = this.getQuerySet();
