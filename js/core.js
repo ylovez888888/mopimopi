@@ -16,7 +16,7 @@ var QueryString = function () {
     }
     return query_string
 }();
-
+/*
 var host_port = QueryString.HOST_PORT;
 while (host_port.endsWith('/')) {
     host_port = host_port.substring(0, host_port.length - 1)
@@ -38,7 +38,7 @@ if (wsUri.indexOf("ws://") == 0 || wsUri.indexOf("wss://") == 0) {
         wsUri = "ws://" + wsUri.replace(/@HOST_PORT@/im, host_port)
     }
 }
-
+*/
 class ActWebsocketInterface {
     constructor(uri, path = "MiniParse") {
         var querySet = this.getQuerySet();
@@ -313,7 +313,7 @@ function onBroadcastMessage(e) {
         lastCombat = new Combatant({
             detail: lastCombatRaw
         }, sortKey);
-        if (lastCombat != undefined && lastCombat != null && myName != "" && myName != undefined && myName != null) {
+        if (lastCombat.Combatant.YOU != undefined && myName != "" && myName != undefined && myName != null) {
             lastCombat.Combatant.YOU.displayName = myName
         }
         document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', {
@@ -508,34 +508,32 @@ function Person(e, p) {
     };
     /*  if (this.isPet && this.Class != "" && this.parent.users[this.petOwner] == undefined) {
           this.petOwner =  "YOU";
-      }*/
+    }*/
     try {
         var regex = /(?:.*?)\((.*?)\)/im;
         var matches = this.name.match(regex);
         if (regex.test(this.name)) // do not use Array.length 
         {
-            this.petOwner = matches[1];
-            this.isPet = true;
+                this.petOwner = matches[1];
+                this.isPet = true;
         }
     }
     catch (ex) {
 
     }
-
-    if (this.petOwner != "" && this.Class == "") {
+    if (this.petOwner != "" && this.Job == "0") {
         this.isPet = false;
         this.Job = "CBO";
         this.Class = "CBO";
         this.petType = "Chocobo_Persons";
     }
-
     if (this.overHeal != undefined) { }
     this.color = {
         R: this.getColor().R,
         G: this.getColor().G,
         B: this.getColor().B
     }
-    if (this.petType != "Chocobo") {
+    if (this.petType != "Chocobo_Persons") {
         this.color.R += parseInt(this.color.R / 3);
         this.color.G += parseInt(this.color.G / 3);
         this.color.B += parseInt(this.color.B / 3)
