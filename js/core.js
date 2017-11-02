@@ -506,23 +506,19 @@ function Person(e, p) {
         Last60DPS: this.Last60DPS,
         Last180DPS: this.Last180DPS,
     };
-    /*  if (this.isPet && this.Class != "" && this.parent.users[this.petOwner] == undefined) {
-          this.petOwner =  "YOU";
-    }*/
     try {
         var regex = /(?:.*?)\((.*?)\)/im;
         var matches = this.name.match(regex);
         if (regex.test(this.name)) // do not use Array.length 
         {
+            if(this.Job == "0" || this.Job == "AVA")
                 this.petOwner = matches[1];
-                //this.isPet = true;
         }
     }
     catch (ex) {
 
     }
     if (this.petOwner != "" && this.Job == "0") {
-        //this.isPet = false;
         this.Job = "CBO";
         this.Class = "CBO";
         this.petType = "Chocobo_Persons";
