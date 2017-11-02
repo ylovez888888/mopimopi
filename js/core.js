@@ -463,20 +463,20 @@ function Person(e, p) {
         if (this.name.indexOf("에기") > -1 || this.name.indexOf("카벙클") > -1 || this.name.toUpperCase().indexOf("EGI") > -1 || this.name.toUpperCase().indexOf("CARBUNCLE") > -1 || this.name.indexOf("エギ") > -1 || this.name.indexOf("カーバンクル") > -1) {
             this.Job = "AVA";
             this.Class = "SMN";
-            this.isPet = !0;
+            this.isPet = true;
             this.petType = "Egi"
         }
         if (this.name.indexOf("요정") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
             this.Job = "AVA";
             this.Class = "SCH";
-            this.isPet = !0;
+            this.isPet = true;
             this.role = "Healer";
             this.petType = "Fairy"
         }
         if (this.name.indexOf("자동포탑") > -1 || this.name.toUpperCase().indexOf("AUTOTURRET") > -1 || this.name.indexOf("オートタレット") > -1) {
             this.Job = "AVA";
             this.Class = "MCH";
-            this.isPet = !0;
+            this.isPet = true;
             this.petType = "AutoTurret"
         }
         if (this.name.toUpperCase().indexOf("LIMIT BREAK") > -1 || this.name.indexOf("リミット") > -1) {
@@ -515,14 +515,14 @@ function Person(e, p) {
         if (regex.test(this.name)) // do not use Array.length 
         {
                 this.petOwner = matches[1];
-                this.isPet = true;
+                //this.isPet = true;
         }
     }
     catch (ex) {
 
     }
     if (this.petOwner != "" && this.Job == "0") {
-        this.isPet = false;
+        //this.isPet = false;
         this.Job = "CBO";
         this.Class = "CBO";
         this.petType = "Chocobo_Persons";
@@ -533,7 +533,7 @@ function Person(e, p) {
         G: this.getColor().G,
         B: this.getColor().B
     }
-    if (this.petType != "Chocobo_Persons") {
+    if (this.petType != "Chocobo") {
         this.color.R += parseInt(this.color.R / 3);
         this.color.G += parseInt(this.color.G / 3);
         this.color.B += parseInt(this.color.B / 3)
