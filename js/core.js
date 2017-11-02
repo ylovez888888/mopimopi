@@ -860,7 +860,7 @@ Combatant.prototype.sort = function (vector) {
     var tmpMax = 0;
     for (var i in tmp) {
         if (this.summonerMerge == true) {
-            if (tmp[i].val.petOwner == "") {
+            if (tmp[i].val.Job != "AVA") { 
                 if (tmpMax < tmp[i].val[this.sortkey])
                     tmpMax = tmp[i].val[this.sortkey];
             }
