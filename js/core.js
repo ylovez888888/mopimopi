@@ -368,7 +368,7 @@ function Person(e, p) {
     }
     try {
         this.maxhitstr = this.maxhit.split('-')[0];
-        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[,. ]/g, ""))
+        this.maxhitval = parseInt(this.maxhit.split('-')[1].replace(/[,. ']/g, ""))
     } catch (ex) {
         this.maxhit = "?-0";
         this.maxhitstr = "";
@@ -376,7 +376,7 @@ function Person(e, p) {
     }
     try {
         this.maxhealstr = this.maxheal.split('-')[0];
-        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[,. ]/g, ""))
+        this.maxhealval = parseInt(this.maxheal.split('-')[1].replace(/[,. ']/g, ""))
     } catch (ex) {
         this.maxheal = "?-0";
         this.maxhealstr = "";
