@@ -466,7 +466,7 @@ function Person(e, p) {
             this.isPet = true;
             this.petType = "Egi"
         }
-        if (this.name.indexOf("요정") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
+        if (this.name.indexOf("요정") > -1 || this.name.toUpperCase().indexOf("EOS") > -1 || this.name.toUpperCase().indexOf("SELENE") > -1 || this.name.indexOf("フェアリー") > -1) {
             this.Job = "AVA";
             this.Class = "SCH";
             this.isPet = true;
