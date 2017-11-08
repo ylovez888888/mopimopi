@@ -240,7 +240,7 @@ ul.dropdown-content div i {
     z-index: 4
 }
 .tableBody td {
-    text-shadow: 1px 1px 1px #000;
+    text-shadow: 0 0 .3rem #000;
     font-size: 1.2rem;
     height: 2.1rem
 }
@@ -359,7 +359,7 @@ td.quantity {
 }
 .userbox {
     font-size: 1.2rem;
-    text-shadow: 1px 1px 1px #F93;
+    text-shadow: 0 0 .3rem #F93;
     line-height: 1.4rem
 }
 .raidName {
