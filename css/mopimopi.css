@@ -359,7 +359,7 @@ td.quantity {
 }
 .userbox {
     font-size: 1.2rem;
-    text-shadow: 0 0 1rem #000;
+    text-shadow: 0 0 .3rem #000;
     line-height: 1.4rem
 }
 .raidName {
